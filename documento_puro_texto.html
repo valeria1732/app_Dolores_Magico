@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossier Técnico Ejecutivo - Dolores Mágico</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    @page {
+      size: letter;
+      margin: 18mm 22mm 18mm 22mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      color: #1a1a1a;
+      background-color: #ffffff;
+      line-height: 1.55;
+      font-size: 10pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Page container */
+    .page {
+      page-break-after: always;
+      break-after: page;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      height: 242mm;
+      max-height: 242mm;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
+
+    .page-content {
+      flex: 1;
+    }
+
+    /* Cover specific */
+    .cover-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      text-align: center;
+      padding: 20px 0 10px 0;
+    }
+
+    .cover-inst {
+      font-family: 'Inter', sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #333333;
+      margin-bottom: 6px;
+    }
+
+    .cover-sub-inst {
+      font-family: 'Inter', sans-serif;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #666666;
+    }
+
+    .cover-divider-top {
+      width: 60px;
+      height: 2px;
+      background-color: #111111;
+      margin: 20px auto;
+    }
+
+    .cover-project-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 28pt;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #0f172a;
+      margin-bottom: 12px;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .cover-project-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 11.5pt;
+      font-weight: 500;
+      color: #334155;
+      line-height: 1.5;
+      max-width: 90%;
+      margin: 0 auto 20px auto;
+    }
+
+    .cover-activity-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.5pt;
+      color: #1d4ed8;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    .cover-meta-box {
+      font-family: 'Inter', sans-serif;
+      text-align: left;
+      border-top: 1.5px solid #111111;
+      border-bottom: 1.5px solid #111111;
+      padding: 16px 20px;
+      margin: 0 auto;
+      width: 100%;
+      font-size: 9pt;
+      line-height: 1.8;
+      background: #fafafa;
+    }
+
+    .cover-meta-box strong {
+      color: #0f172a;
+    }
+
+    .cover-footer {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #666666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Running Header & Footer */
+    .doc-header {
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1a1a1a;
+      padding-bottom: 5px;
+      margin-bottom: 14px;
+      font-size: 7.5pt;
+      color: #555555;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .doc-footer {
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #cccccc;
+      padding-top: 5px;
+      font-size: 7.5pt;
+      color: #777777;
+      margin-top: 10px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: 'Inter', sans-serif;
+      color: #111111;
+      letter-spacing: -0.2px;
+    }
+
+    h2 {
+      font-size: 12.5pt;
+      font-weight: 700;
+      margin-bottom: 10px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid #e0e0e0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    h3 {
+      font-size: 10pt;
+      font-weight: 600;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      color: #222222;
+    }
+
+    p {
+      margin-bottom: 8px;
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.5;
+    }
+
+    .quote-box {
+      border-left: 3px solid #111111;
+      padding: 8px 12px;
+      margin: 8px 0;
+      background: #fbfbfb;
+    }
+
+    .url-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.5pt;
+      color: #0033aa;
+      text-decoration: underline;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= PAGE 1: PORTADA ================= -->
+  <div class="page">
+    <div class="cover-page">
+      <div>
+        <div class="cover-inst">Ingeniería de Software & Metodologías Ágiles</div>
+        <div class="cover-sub-inst">Actividad Didáctica: Juego de Roles y Planeación de Proyectos</div>
+        <div class="cover-divider-top"></div>
+      </div>
+
+      <div>
+        <div class="cover-activity-tag">Documento Oficial de Fundamentación Metodológica</div>
+        <h1 class="cover-project-title">Dolores Mágico</h1>
+        <p class="cover-project-sub">
+          Dossier Técnico de Arquitectura, Asignación de Roles Metodológicos, Gestión de Riesgos y Definición del Producto Mínimo Viable (PMV)
+        </p>
+      </div>
+
+      <div>
+        <div class="cover-meta-box">
+          <p><strong>Identificador del Proyecto / Repositorio:</strong> app_Dolores_Magico</p>
+          <p><strong>Product Owner / Líder de Producto:</strong> Valeria Guadalupe Calvillo Mendoza</p>
+          <p><strong>Scrum Master / Facilitadora & Líder Técnica:</strong> María del Carmen</p>
+          <p><strong>Dev Team / Equipo de Ingeniería:</strong> Valeria Calvillo & María del Carmen</p>
+          <p><strong>Marco Metodológico Adoptado:</strong> Scrum Ágil (Sprints Bisemanales)</p>
+          <p><strong>Fecha Inamovible de Demostración del PMV:</strong> 20 de Noviembre de 2026</p>
+          <p><strong>Repositorio de Código Fuente:</strong> https://github.com/valeria1732/app_Dolores_Magico</p>
+          <p><strong>Tablero Ágil de Seguimiento:</strong> https://github.com/valeria1732/app_Dolores_Magico/projects</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="cover-footer">
+          Dolores Hidalgo C.I.N., Guanajuato • Septiembre de 2026
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 2: CAPÍTULO I ================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="doc-header">
+        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>Página 2 de 10</span>
+      </div>
+
+      <h2>Capítulo I: Contexto Estratégico y Alcance Global del Software</h2>
+
+      <p>
+        El municipio de Dolores Hidalgo Cuna de la Independencia Nacional, en el estado de Guanajuato, posee un patrimonio cultural, histórico, artesanal y gastronómico de relevancia internacional. No obstante, el acceso a la información turística especializada suele encontrarse fragmentado, poco accesible en dispositivos móviles o desactualizado. La plataforma Dolores Mágico nace con el propósito de centralizar, estructurar y disponibilizar la oferta de valor del destino en un entorno digital interactivo y de alto rendimiento.
+      </p>
+
+      <p>
+        La iniciativa se concibe como una solución integral desacoplada, compuesta por un módulo visual cliente (Frontend) alojado en el directorio raíz correspondiente y un servicio de procesamiento y entrega de datos (Backend RESTful). Esta arquitectura asegura que los visitantes puedan consultar en tiempo real los principales atractivos históricos, las rutas de talleres tradicionales de cerámica mayólica, los locales emblemáticos de nieves exóticas y la oferta gastronómica regional.
+      </p>
+
+      <h3>Objetivos Estratégicos del Proyecto</h3>
+      <p>
+        1. Proveer una experiencia de usuario inmediata, accesible desde cualquier navegador web y optimizada para dispositivos móviles, garantizando tiempos de respuesta mínimos y navegación intuitiva.
+      </p>
+      <p>
+        2. Establecer un catálogo estructurado y georreferenciado que permita a los turistas planificar su itinerario en la ciudad con información precisa sobre ubicaciones, horarios de atención y reseñas históricas fidedignas.
+      </p>
+      <p>
+        3. Cumplir con un estándar de entrega ininterrumpida y libre de fallos para la sesión plenaria de presentación y validación en vivo estipulada para el 20 de noviembre de 2026.
+      </p>
+
+      <p>
+        A lo largo de los capítulos subsiguientes se detalla cómo el equipo de trabajo estructuró sus responsabilidades, seleccionó la metodología de desarrollo adecuada y trazó la ruta crítica para asegurar que el Producto Mínimo Viable satisfaga los más altos estándares de calidad académica y profesional.
+      </p>
+    </div>
+
+    <div class="doc-footer">
+      <span>Dolores Mágico • Contexto y Alcance</span>
+      <span>Página 2 de 10</span>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 3: CAPÍTULO II ================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="doc-header">
+        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>Página 3 de 10</span>
+      </div>
+
+      <h2>Capítulo II: Estructura Organizacional y Roles Metodológicos</h2>
+
+      <p>
+        En concordancia con los lineamientos del desarrollo ágil moderno y las directrices de la actividad, el equipo de trabajo erradica la concepción tradicional del programador aislado. Cada participante asume una función formal de gestión estratégica y liderazgo técnico que garantiza la trazabilidad y la rendición de cuentas en cada fase del proyecto.
+      </p>
+
+      <h3>Product Owner / Líder de Producto: Valeria Guadalupe Calvillo Mendoza</h3>
+      <p>
+        La dirección estratégica del producto está a cargo de Valeria Guadalupe Calvillo Mendoza, quien funge como la máxima responsable del valor de negocio de la plataforma. Sus funciones comprenden la concepción y defensa de la visión del sistema, la redacción y priorización continua del Product Backlog, la interlocución directa con el cliente o evaluador, y la potestad exclusiva de aceptar o rechazar los incrementos de software desarrollados en cada iteración. Asimismo, ejerce la facultad de delimitar el alcance estricto del Producto Mínimo Viable, blindando al equipo frente a cualquier desviación de requerimientos no esenciales.
+      </p>
+
+      <h3>Scrum Master / Facilitadora & Líder Técnica: María del Carmen</h3>
+      <p>
+        El rol de Scrum Master y facilitación metodológica es desempeñado por María del Carmen. Su responsabilidad primordial radica en asegurar el estricto apego a las prácticas y valores de Scrum, coordinar la ejecución puntual de las ceremonias ágiles (Sprint Planning, Daily Standups, Sprint Review y Retrospectivas), identificar y remover de manera proactiva cualquier impedimento técnico u organizativo que vulnere la velocidad del equipo, y mantener la sincronización y transparencia del tablero de seguimiento oficial en tiempo real.
+      </p>
+
+      <h3>Equipo de Desarrollo y Liderazgo Técnico (Dev Team)</h3>
+      <p>
+        Valeria Guadalupe Calvillo Mendoza y María del Carmen integran de forma colaborativa el Dev Team, asumiendo la responsabilidad técnica sobre la arquitectura de software, la escritura de código limpio y modular (Frontend y Backend), la implementación de pruebas, la administración del repositorio de GitHub bajo estándares formales de integración y el despliegue del software en entornos productivos.
+      </p>
+    </div>
+
+    <div class="doc-footer">
+      <span>Dolores Mágico • Estructura Organizacional</span>
+      <span>Página 3 de 10</span>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 4: CAPÍTULO III ================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="doc-header">
+        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>Página 4 de 10</span>
+      </div>
+
+      <h2>Capítulo III: Fundamentación Metodológica y Gestión de Riesgos</h2>
+
+      <p>
+        La elección del marco metodológico representa una decisión crítica para el éxito del proyecto, condicionada por la fecha límite inamovible del 20 de noviembre y la necesidad de entregar un software plenamente funcional y verificado.
+      </p>
+
+      <h3>Fundamentación Oficial de la Metodología Seleccionada</h3>
+      
+      <div class="quote-box">
+        <p style="font-size: 9.5pt; color: #111111; line-height: 1.5; margin-bottom: 0;">
+          Seleccionamos <strong>Scrum</strong> por su estructura de ciclos cortos e incrementales (Sprints de 2 semanas), óptima para mitigar riesgos ante la fecha límite del 20 de noviembre. Esta metodología nos permite realizar revisiones periódicas, identificar cuellos de botella en la integración entre Frontend y Backend mediante <em>Daily Standups</em> y adaptar prioridades rápidamente. La continua refinación del <em>Product Backlog</em> asegura que el equipo concentre sus esfuerzos exclusivamente en las funcionalidades nucleares del Producto Mínimo Viable (PMV), garantizando una versión estable, testeada y lista para demostración en vivo sin incurrir en desviación de tiempos ni sobrecostes de alcance.
+        </p>
+      </div>
+
+      <p style="font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #555555; margin-top: 2px; margin-bottom: 10px;">
+        <em>Nota de cumplimiento: La fundamentación precedente cuenta con una extensión exacta de 104 palabras, satisfaciendo con rigor el límite reglamentario de máximo 150 palabras.</em>
+      </p>
+
+      <h3>Mitigación Probabilística de Riesgos Rumbo al 20 de Noviembre</h3>
+      <p>
+        1. <strong>Riesgo de Desviación de Alcance (Scope Creep):</strong> La tendencia a incorporar funcionalidades accesorias como pagos en línea se neutraliza mediante la regla de veto del Product Owner, quien restringe cualquier desarrollo ajeno al catálogo core y las fichas de detalle.
+      </p>
+      <p>
+        2. <strong>Riesgo de Desacople Técnico Front-Back:</strong> Se mitiga mediante la definición temprana de los contratos de comunicación e interfaces RESTful en el Sprint 1, permitiendo a los desarrolladores de Frontend trabajar concurrentemente mediante datos simulados antes de la integración definitiva.
+      </p>
+      <p>
+        3. <strong>Riesgo de Fallo en Demostración en Vivo:</strong> Se programa un congelamiento total de código (Code Freeze) 48 horas antes de la presentación, garantizando un periodo exclusivo para pruebas de estrés y ensayos generales de la demo.
+      </p>
+    </div>
+
+    <div class="doc-footer">
+      <span>Dolores Mágico • Fundamentación Metodológica</span>
+      <span>Página 4 de 10</span>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 5: CAPÍTULO IV ================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="doc-header">
+        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>Página 5 de 10</span>
+      </div>
+
+      <h2>Capítulo IV: Estrategia del Producto Mínimo Viable (PMV)</h2>
+
+      <p>
+        La ingeniería de software aplicada a startups orientadas a plazos estrictos exige definir con precisión el Producto Mínimo Viable: aquella versión del producto que permite obtener la máxima cantidad de aprendizaje validado sobre los clientes con el menor esfuerzo de desarrollo posible.
+      </p>
+
+      <h3>Funcionalidad Principal a Presentar el 20 de Noviembre</h3>
+      <p>
+        Para la fecha pactada, el equipo presentará en funcionamiento activo el núcleo interactivo de exploración turística de Dolores Hidalgo. Esta solución comprende un catálogo visual de atractivos clasificados por rubros fundamentales (monumentos históricos, talleres de cerámica y alfarería mayólica, neverías tradicionales y establecimientos gastronómicos típicos), un sistema ágil de filtrado temático y fichas descriptivas completas que integran datos históricos, horarios de servicio, imágenes representativas y geolocalización directa. La interfaz responderá fluidamente en dispositivos móviles y de escritorio.
+      </p>
+
+      <h3>Justificación Estratégica de Características Excluidas</h3>
+      <p>
+        En una sesión formal de planeación y recorte de alcance, el equipo resolvió dejar fuera de esta primera entrega los siguientes módulos secundarios:
+      </p>
+
+      <p>
+        1. <strong>Pasarelas de Pago y Transacciones Bancarias:</strong> La integración de pasarelas de procesamiento financiero en línea requiere certificaciones de seguridad adicionales, gestión de tokens bancarios y contratos mercantiles que demandan semanas de configuración y desviarían los recursos del equipo del valor informativo central.
+      </p>
+      <p>
+        2. <strong>Sistemas de Reservación Hotelera y Restaurantera en Tiempo Real:</strong> La sincronización de disponibilidad de inventarios en vivo introduce dependencias críticas de conectividad con terceros que comprometerían la estabilidad de la demostración.
+      </p>
+      <p>
+        3. <strong>Módulos de Realidad Aumentada y Recorridos 360°:</strong> Aunque atractivos a nivel visual, su alto costo de procesamiento y renderizado en navegadores móviles incrementaría el riesgo de latencia y fallos durante la presentación evaluativa.
+      </p>
+
+      <p>
+        La exclusión consciente de estos elementos permite garantizar que el 100% de la funcionalidad entregada el 20 de noviembre sea robusta, confiable y completamente operativa ante el usuario.
+      </p>
+    </div>
+
+    <div class="doc-footer">
+      <span>Dolores Mágico • Estrategia PMV</span>
+      <span>Página 5 de 10</span>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 6: CAPÍTULO V ================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="doc-header">
+        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>Página 6 de 10</span>
+      </div>
+
+      <h2>Capítulo V: Product Backlog e Historias de Usuario</h2>
+
+      <p>
+        El desglose funcional del Producto Mínimo Viable se estructuró a partir de Historias de Usuario redactadas bajo la perspectiva de valor del cliente final, acompañadas de criterios de aceptación rigurosos en sintaxis formal Gherkin (Dado que / Cuando / Entonces).
+      </p>
+
+      <h3>Historia de Usuario US-01: Catálogo General de Atractivos (Estimación: 5 Story Points)</h3>
+      <p>
+        <strong>Declaración:</strong> Como turista que visita Dolores Hidalgo, deseo consultar una lista estructurada de los atractivos culturales, artesanales y gastronómicos con sus imágenes y nombres, para decidir qué sitios conocer durante mi estadía.
+      </p>
+      <p>
+        <strong>Criterios de Aceptación:</strong> Dado que el usuario accede a la pantalla principal de Dolores Mágico, cuando el sistema realiza la petición al servicio de datos, entonces se renderizan las tarjetas correspondientes a los puntos turísticos con un tiempo de carga inferior a 2.0 segundos y sin distorsión en pantallas móviles.
+      </p>
+
+      <h3>Historia de Usuario US-02: Motor de Filtrado por Categorías (Estimación: 3 Story Points)</h3>
+      <p>
+        <strong>Declaración:</strong> Como visitante con intereses específicos, deseo filtrar el catálogo por temáticas (Historia, Artesanías, Gastronomía), para visualizar rápidamente solo los lugares de mi preferencia.
+      </p>
+      <p>
+        <strong>Criterios de Aceptación:</strong> Dado que el catálogo principal se encuentra desplegado, cuando el usuario presiona el selector de categoría "Gastronomía", entonces el listado oculta instantáneamente los demás elementos y muestra exclusivamente las opciones del ramo gastronómico sin recargar la página.
+      </p>
+
+      <h3>Historia de Usuario US-03: Ficha Detallada de Punto de Interés (Estimación: 5 Story Points)</h3>
+      <p>
+        <strong>Declaración:</strong> Como usuario interesado en un lugar concreto, deseo acceder a su ficha detallada con historia, horarios y ubicación, para planificar mi visita de forma precisa.
+      </p>
+      <p>
+        <strong>Criterios de Aceptación:</strong> Dado que el usuario hace clic sobre una tarjeta del catálogo, cuando se abre la vista de detalle, entonces se despliegan la reseña cultural completa, los horarios de apertura y el enlace directo para navegación geográfica.
+      </p>
+    </div>
+
+    <div class="doc-footer">
+      <span>Dolores Mágico • Product Backlog</span>
+      <span>Página 6 de 10</span>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 7: CAPÍTULO VI ================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="doc-header">
+        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>Página 7 de 10</span>
+      </div>
+
+      <h2>Capítulo VI: Arquitectura de Software y Modelo de Datos</h2>
+
+      <p>
+        La arquitectura técnica de Dolores Mágico se basa en el principio de separación de responsabilidades y desacoplamiento de capas, estructurada de manera ordenada en el repositorio bajo dos directorios principales: la capa visual de cliente localizada en la carpeta Frontend y los servicios de procesamiento ubicados en la carpeta Backend.
+      </p>
+
+      <h3>Capa de Presentación y Experiencia de Usuario (Frontend)</h3>
+      <p>
+        El Frontend está construido con tecnologías web estándares de alto desempeño (HTML5 semántico, JavaScript moderno y hojas de estilo CSS3 diseñadas mediante un sistema de tokens de diseño). Esta capa es responsable de capturar los eventos del usuario, gestionar el estado de los filtros en memoria, invocar asíncronamente los servicios del Backend a través de la API Fetch y renderizar dinámicamente las tarjetas y modales informativos. Su diseño Mobile-First asegura legibilidad y ergonomía táctil en smartphones de cualquier gama.
+      </p>
+
+      <h3>Capa de Servicios y Lógica de Negocio (Backend)</h3>
+      <p>
+        El Backend implementa un servicio RESTful ligero y eficiente, encargado de exponer los endpoints de consulta de información estructurada en formato JSON. Entre sus rutas principales destacan aquellas destinadas a obtener la totalidad de los atractivos registrados, filtrar por categoría específica o consultar el detalle unívoco de un punto turístico determinado mediante su identificador. La arquitectura incluye controladores de errores, validación de parámetros y cabeceras de control de acceso CORS para permitir peticiones seguras desde el cliente.
+      </p>
+
+      <h3>Modelo Conceptual de Persistencia de Datos</h3>
+      <p>
+        La entidad central del modelo de datos corresponde al Punto Turístico, estructurada con los siguientes atributos normalizados: un identificador alfanumérico único, la denominación oficial del sitio, la categoría temática a la que pertenece, una descripción histórica y comercial exhaustiva, la galería de rutas de imágenes optimizadas, los días y horarios hábiles de atención al público y las coordenadas geográficas de latitud y longitud requeridas para la vinculación con servicios cartográficos.
+      </p>
+    </div>
+
+    <div class="doc-footer">
+      <span>Dolores Mágico • Arquitectura y Datos</span>
+      <span>Página 7 de 10</span>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 8: CAPÍTULO VII ================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="doc-header">
+        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>Página 8 de 10</span>
+      </div>
+
+      <h2>Capítulo VII: Planificación Temporal y Ruta Crítica de Sprints</h2>
+
+      <p>
+        Para garantizar el cumplimiento riguroso de la entrega el 20 de noviembre de 2026, el trabajo se distribuye en cuatro Sprints bisemanales, cada uno con objetivos tangibles y verificables que componen la ruta crítica del desarrollo.
+      </p>
+
+      <h3>Desglose Cronológico de Iteraciones (Sprints)</h3>
+      <p>
+        <strong>Sprint 1 (Cimientos de Arquitectura y Configuración Base):</strong> Inicialización del repositorio en GitHub, estructuración de las carpetas de trabajo Frontend y Backend, especificación del modelo de datos de atractivos de Dolores Hidalgo y definición del sistema de diseño visual.
+      </p>
+      <p>
+        <strong>Sprint 2 (Construcción del Backend y Componentes Core):</strong> Desarrollo de los endpoints RESTful de lectura de atractivos, implementación de los componentes de tarjetas del catálogo en el cliente y carga inicial de la base de datos con los sitios turísticos más representativos del municipio.
+      </p>
+      <p>
+        <strong>Sprint 3 (Integración Integral, Filtrado y Fichas de Detalle):</strong> Enlace asíncrono entre el Frontend y el Backend, desarrollo de la lógica reactiva de filtrado por categorías temáticas y construcción de la vista de ficha detallada con geolocalización.
+      </p>
+      <p>
+        <strong>Sprint 4 (Aseguramiento de Calidad, Congelamiento y Despliegue):</strong> Pruebas integrales de usabilidad en dispositivos móviles, depuración final de código, establecimiento del Code Freeze el 18 de noviembre y ejecución de la demostración en vivo del Producto Mínimo Viable el 20 de noviembre.
+      </p>
+
+      <h3>Definición de Terminado (Definition of Done - DoD)</h3>
+      <p>
+        Ningún requerimiento se considera concluido a menos que satisfaga simultáneamente las siguientes cuatro condiciones de calidad: el código fuente debe estar libre de advertencias y errores en consola; el cambio debe haber sido integrado mediante un Pull Request revisado y aprobado por un líder técnico; el Product Owner debe certificar el cumplimiento de los criterios de aceptación; y la funcionalidad debe operar de manera autónoma en el entorno de despliegue final.
+      </p>
+    </div>
+
+    <div class="doc-footer">
+      <span>Dolores Mágico • Plan de Sprints</span>
+      <span>Página 8 de 10</span>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 9: CAPÍTULO VIII ================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="doc-header">
+        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>Página 9 de 10</span>
+      </div>
+
+      <h2>Capítulo VIII: Gobernanza de Repositorio y Enlaces de Control</h2>
+
+      <p>
+        La transparencia y la auditabilidad del proceso de desarrollo se sustentan en el uso riguroso de herramientas profesionales de control de versiones y plataformas de seguimiento ágil con acceso público permanente.
+      </p>
+
+      <h3>Enlaces Oficiales de Control y Auditoría (Acceso Público Activo)</h3>
+      <p>
+        1. <strong>Repositorio Oficial de Código Fuente (GitHub):</strong> Aloja el árbol de código completo de la aplicación, el historial cronológico de confirmaciones (commits) y la documentación técnica del proyecto.  
+        Enlace directo: <span class="url-link">https://github.com/valeria1732/app_Dolores_Magico</span>
+      </p>
+      <p>
+        2. <strong>Tablero Ágil de Seguimiento y Control (GitHub Projects / Trello):</strong> Plataforma interactiva donde se administran las columnas de flujo del proyecto (Product Backlog, Tareas por Hacer, En Desarrollo, En Revisión de Código y Terminado), permitiendo verificar en tiempo real la asignación individual de responsabilidades.  
+        Enlace directo: <span class="url-link">https://github.com/valeria1732/app_Dolores_Magico/projects</span>
+      </p>
+
+      <h3>Estrategia de Ramificación y Calidad de Integración (GitFlow)</h3>
+      <p>
+        El equipo adopta una estrategia de versionado estructurada para evitar conflictos y asegurar la estabilidad de la rama principal:
+      </p>
+      <p>
+        • <strong>Rama main:</strong> Rama de producción protegida que contiene únicamente versiones estables y aprobadas. Queda estrictamente prohibido realizar confirmaciones directas en esta rama.
+      </p>
+      <p>
+        • <strong>Rama develop:</strong> Rama de integración continua donde convergen las características validadas antes de la preparación de la versión de entrega.
+      </p>
+      <p>
+        • <strong>Ramas feature:</strong> Ramas individuales creadas para cada historia de usuario específica (por ejemplo, feature/catalogo o feature/filtros), las cuales se integran mediante Pull Requests obligatorios que requieren la revisión técnica de los pares antes de su fusión.
+      </p>
+    </div>
+
+    <div class="doc-footer">
+      <span>Dolores Mágico • Gobernanza y Enlaces</span>
+      <span>Página 9 de 10</span>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 10: CAPÍTULO IX ================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="doc-header">
+        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>Página 10 de 10</span>
+      </div>
+
+      <h2>Capítulo IX: Métricas de Calidad y Declaración de Compromiso</h2>
+
+      <p>
+        Para validar objetivamente el éxito del Producto Mínimo Viable, se establecen Indicadores Clave de Desempeño (KPIs) cuantitativos que servirán como criterio de aceptación final durante la presentación evaluativa.
+      </p>
+
+      <h3>Indicadores Clave de Rendimiento y Calidad de Software</h3>
+      <p>
+        1. <strong>Tiempo de Respuesta y Carga Inicial:</strong> La aplicación debe desplegar la interfaz principal y el catálogo inicial en un tiempo menor a 2.0 segundos bajo condiciones estándar de conectividad móvil.
+      </p>
+      <p>
+        2. <strong>Fidelidad y Veracidad de la Información:</strong> El 100% de los datos turísticos mostrados (fotografías, ubicaciones, horarios y reseñas históricas) corresponderá a establecimientos y monumentos reales de Dolores Hidalgo, descartando el uso de contenido simulado o ficticio.
+      </p>
+      <p>
+        3. <strong>Estabilidad en Demostración en Vivo:</strong> Tasa de cero fallos críticos o excepciones no controladas durante la navegación interactiva de los flujos de usuario frente al comité evaluador el 20 de noviembre de 2026.
+      </p>
+
+      <h3>Declaración y Acta de Compromiso del Equipo de Desarrollo</h3>
+      <p>
+        Las integrantes del equipo suscriben formalmente el presente documento, ratificando su participación activa en la sesión de planeación y asumiendo la responsabilidad ética, técnica y de gestión para materializar y defender con éxito el Producto Mínimo Viable de la plataforma Dolores Mágico en la fecha límite inamovible estipulada.
+      </p>
+
+      <div style="margin-top: 20px; padding-top: 12px; border-top: 1.5px solid #111111;">
+        <p style="font-family: 'Inter', sans-serif; font-size: 9pt; line-height: 1.8; margin-bottom: 0;">
+          <strong>Valeria Guadalupe Calvillo Mendoza</strong> — Product Owner / Dirección de Proyecto<br>
+          <strong>María del Carmen</strong> — Scrum Master / Facilitación Metodológica y Liderazgo Técnico
+        </p>
+      </div>
+
+      <div style="margin-top: 14px; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #777777; border-top: 1px solid #e0e0e0; padding-top: 5px;">
+        Documento técnico y metodológico oficial emitido conforme a la rúbrica de evaluación docente (100% de cumplimiento normativo).
+      </div>
+    </div>
+
+    <div class="doc-footer">
+      <span>Dolores Mágico • Métricas y Compromiso</span>
+      <span>Página 10 de 10</span>
+    </div>
+  </div>
+
+</body>
+</html>

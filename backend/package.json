@@ -1,0 +1,17 @@
+{
+  "name": "dolores-magico-backend",
+  "version": "1.0.0",
+  "description": "API RESTful para la plataforma de comercio local y de proximidad Dolores Mágico",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["comercio-local", "proximidad", "dolores-hidalgo", "artesanias", "hiperlocal"],
+  "author": "Valeria Calvillo & Dolores Mágico Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

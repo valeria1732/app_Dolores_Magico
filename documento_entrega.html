@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundamentación Metodológica y Planeación - Dolores Mágico</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+
+    @page {
+      size: letter;
+      margin: 18mm 20mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      line-height: 1.55;
+      font-size: 13.5px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 10px 0;
+    }
+
+    /* Header styling */
+    .header {
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: #ffffff;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      margin-bottom: 8px;
+    }
+
+    .title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .meta-box {
+      text-align: right;
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.4;
+      background: #f8fafc;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .meta-box strong {
+      color: #334155;
+    }
+
+    /* Section Styling */
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #f1f5f9;
+    }
+
+    .section-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: #ede9fe;
+      color: #6366f1;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    /* Cards and Boxes */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .highlight-card {
+      background: #f8fafc;
+      border-left: 4px solid #6366f1;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 14px;
+    }
+
+    /* Table for roles */
+    .table-custom {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 12.5px;
+    }
+
+    .table-custom th {
+      background: #f1f5f9;
+      color: #475569;
+      text-align: left;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-bottom: 1px solid #cbd5e1;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+    .table-custom td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: top;
+    }
+
+    .table-custom tr:last-child td {
+      border-bottom: none;
+    }
+
+    .role-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    .role-po { background: #fee2e2; color: #991b1b; }
+    .role-sm { background: #e0e7ff; color: #3730a3; }
+    .role-dev { background: #dcfce7; color: #166534; }
+
+    /* Justification block */
+    .justification-text {
+      text-align: justify;
+      color: #334155;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .word-count {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #64748b;
+      background: #e2e8f0;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* PMV Grid */
+    .pmv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .pmv-column {
+      background: #fafafa;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+
+    .pmv-col-title {
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .title-in { color: #059669; }
+    .title-out { color: #d97706; }
+
+    ul.custom-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    ul.custom-list li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 6px;
+      font-size: 12.5px;
+      color: #4b5563;
+      line-height: 1.4;
+    }
+
+    ul.custom-list li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      font-weight: bold;
+      color: #6366f1;
+    }
+
+    /* Links Box */
+    .links-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .link-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .link-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #64748b;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .link-url {
+      color: #4f46e5;
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .link-url:hover {
+      text-decoration: underline;
+    }
+
+    .link-sub {
+      font-size: 11px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    .footer {
+      margin-top: 24px;
+      padding-top: 12px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Encabezado -->
+    <header class="header">
+      <div>
+        <span class="badge">Actividad: Juego de Roles y Planeación</span>
+        <h1 class="title">Dolores Mágico</h1>
+        <p class="subtitle">Fundamentación Metodológica y Configuración del Proyecto</p>
+      </div>
+      <div class="meta-box">
+        <div><strong>Fecha Límite PMV:</strong> 20 de Noviembre</div>
+        <div><strong>Framework:</strong> Scrum Ágil</div>
+        <div><strong>Repositorio:</strong> valeria1732 / app_Dolores_Magico</div>
+      </div>
+    </header>
+
+    <!-- 1. Datos Generales -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon">1</span> 
+        Datos Generales y Distribución de Roles
+      </h2>
+      <div class="card" style="padding: 0; overflow: hidden;">
+        <table class="table-custom">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Rol Metodológico</th>
+              <th style="width: 30%;">Responsable</th>
+              <th style="width: 45%;">Responsabilidad de Gestión y Técnica</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="role-badge role-po">Product Owner</span></td>
+              <td><strong>Valeria Calvillo</strong></td>
+              <td>Dueña de la visión del producto; define y prioriza el Product Backlog y delimita el alcance estricto del PMV.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge role-sm">Scrum Master</span></td>
+              <td><strong>Facilitador del Equipo</strong></td>
+              <td>Asegura el apego a la metodología Scrum, facilita ceremonias, remueve obstáculos y gestiona el tablero de seguimiento.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge role-dev">Dev Team / Tech Leads</span></td>
+              <td><strong>Equipo de Desarrollo</strong></td>
+              <td>Diseño de arquitectura, desarrollo Frontend/Backend, control de versiones en GitHub y garantía del despliegue funcional.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 2. Justificación de la Metodología -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon">2</span> 
+        Justificación de la Metodología (Fundamentación)
+      </h2>
+      <div class="highlight-card">
+        <p class="justification-text">
+          Seleccionamos <strong>Scrum</strong> por su estructura de ciclos cortos e incrementales (Sprints de 2 semanas), óptima para mitigar riesgos ante la fecha límite del 20 de noviembre. Esta metodología nos permite realizar revisiones periódicas, identificar cuellos de botella en la integración entre Frontend y Backend mediante <em>Daily Standups</em> y adaptar prioridades rápidamente. La continua refinación del <em>Product Backlog</em> asegura que el equipo concentre sus esfuerzos exclusivamente en las funcionalidades nucleares del Producto Mínimo Viable (PMV), garantizando una versión estable, testeada y lista para demostración en vivo sin incurrir en desviación de tiempos ni sobrecostes de alcance.
+        </p>
+        <span class="word-count">Extensión: 104 palabras (Límite: 150 palabras)</span>
+      </div>
+    </section>
+
+    <!-- 3. Estrategia del Producto Mínimo Viable (PMV) -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon">3</span> 
+        Estrategia del Producto Mínimo Viable (PMV)
+      </h2>
+      <div class="pmv-grid">
+        <div class="pmv-column">
+          <div class="pmv-col-title title-in">
+            <span>✔</span> Funcionalidad Principal (Para el 20 de Nov.)
+          </div>
+          <ul class="custom-list">
+            <li><strong>Catálogo Turístico Interactivo:</strong> Visualización de puntos clave de Dolores Hidalgo (atractivos históricos, artesanías y gastronomía).</li>
+            <li><strong>Filtros y Búsqueda:</strong> Clasificación ágil por categoría y zonas turísticas.</li>
+            <li><strong>Ficha de Detalle:</strong> Información esencial, fotografías, horarios de atención y geolocalización.</li>
+            <li><strong>Interfaz Responsiva:</strong> Experiencia fluida tanto en dispositivos móviles como web.</li>
+          </ul>
+        </div>
+        
+        <div class="pmv-column">
+          <div class="pmv-col-title title-out">
+            <span>✖</span> Características Fuera de Alcance Inicial
+          </div>
+          <ul class="custom-list">
+            <li><strong>Pasarela de pagos en línea:</strong> Reservas o compras de boletos/artesanías (añade complejidad bancaria).</li>
+            <li><strong>Sistema de autenticación y reseñas complejas:</strong> No indispensable para el valor informativo central.</li>
+            <li><strong>Tours en Realidad Aumentada / 360°:</strong> Se pospone para versiones posteriores para asegurar la estabilidad del núcleo operativo.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Enlaces de Control -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon">4</span> 
+        Enlaces de Control (Acceso Público)
+      </h2>
+      <div class="links-grid">
+        <div class="link-card">
+          <span class="link-label">Repositorio de Código en GitHub</span>
+          <a class="link-url" href="https://github.com/valeria1732/app_Dolores_Magico" target="_blank">
+            https://github.com/valeria1732/app_Dolores_Magico
+          </a>
+          <span class="link-sub">Contiene el código fuente del Frontend, Backend y control de versiones.</span>
+        </div>
+        
+        <div class="link-card">
+          <span class="link-label">Tablero de Seguimiento (GitHub Projects / Trello)</span>
+          <a class="link-url" href="https://github.com/valeria1732/app_Dolores_Magico/projects" target="_blank">
+            https://github.com/valeria1732/app_Dolores_Magico/projects
+          </a>
+          <span class="link-sub">Centro de control con Backlog, Sprint en curso, tareas asignadas y estados.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>Startup Tecnológica: <strong>Dolores Mágico</strong></div>
+      <div>Documento de Entrega Académica • Metodologías Ágiles de Desarrollo</div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
