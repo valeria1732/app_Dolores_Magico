@@ -1,0 +1,279 @@
+.artisan-directory-view {
+  max-width: 1280px;
+  margin: 1.5rem auto 4rem;
+  padding: 0 1.5rem;
+}
+
+.directory-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 2.5rem;
+}
+
+.directory-badge {
+  display: inline-block;
+  background: var(--color-barro-light);
+  color: var(--color-barro);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.85rem;
+}
+
+.directory-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.75rem;
+}
+
+.directory-subtitle {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0 0 2rem;
+}
+
+.directory-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.directory-search {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1.5px solid var(--color-cantera-border);
+  border-radius: var(--radius-lg);
+  padding: 0.65rem 1rem;
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  max-width: 580px;
+}
+
+.directory-search input {
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  width: 100%;
+  color: #1e293b;
+}
+
+.directory-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+}
+
+.filter-tab {
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid #cbd5e1;
+  background: #ffffff;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: all var(--transition-fast);
+}
+
+.filter-tab:hover {
+  border-color: #0d47a1;
+  background: #f8fafc;
+}
+
+.filter-tab.active {
+  background: #0d47a1;
+  color: #ffffff;
+  border-color: #0d47a1;
+}
+
+.filter-tab.talavera.active {
+  background: #0d47a1;
+}
+
+.filter-tab.nieves.active {
+  background: #d97706;
+  border-color: #d97706;
+}
+
+/* Grid de Tarjetas */
+.artisan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1.75rem;
+}
+
+.artisan-card {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+
+.artisan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: #cbd5e1;
+}
+
+.artisan-card-media {
+  position: relative;
+  height: 200px;
+}
+
+.artisan-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artisan-tag-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(4px);
+}
+
+.tag-talavera {
+  background: rgba(13, 71, 161, 0.9);
+}
+
+.tag-nieves {
+  background: rgba(217, 119, 6, 0.9);
+}
+
+.artisan-rating-pill {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.artisan-card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.artisan-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.4rem;
+}
+
+.artisan-author {
+  font-size: 0.85rem;
+  color: #475569;
+  margin: 0 0 0.35rem;
+}
+
+.artisan-address {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 0 0 0.85rem;
+}
+
+.artisan-snippet {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0 0 1rem;
+  flex: 1;
+}
+
+.artisan-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.artisan-tag-item {
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+}
+
+.artisan-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1.15rem;
+}
+
+.btn-details {
+  flex: 1;
+  background: #0d47a1;
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: background var(--transition-fast);
+}
+
+.btn-details:hover {
+  background: #1565c0;
+}
+
+.btn-whatsapp-quick {
+  background: #25d366;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  box-shadow: 0 2px 5px rgba(37, 211, 102, 0.25);
+}
+
+.btn-whatsapp-quick:hover {
+  background: #1ebc59;
+}
+
+.btn-locate-map {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+}
+
+.btn-locate-map:hover {
+  background: #e2e8f0;
+}
+
+@media (max-width: 650px) {
+  .artisan-grid {
+    grid-template-columns: 1fr;
+  }
+}

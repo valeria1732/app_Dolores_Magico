@@ -369,5 +369,39 @@
       "createdAt": "2026-10-02T18:15:00.000Z",
       "note": "Para regalo, con caja protectora"
     }
+  ],
+  "reports": [
+    {
+      "id": "rep-1",
+      "folio": "FOL-2026-DH-1042",
+      "problemType": "alumbrado",
+      "problemTypeName": "Alumbrado Público",
+      "address": "Calle Puebla esquina con Hidalgo, Centro",
+      "lat": 21.1567,
+      "lng": -100.9333,
+      "description": "Luminaria colonial estilo farol apagada desde hace 3 noches cerca de los talleres de Talavera.",
+      "status": "en_atencion",
+      "statusLabel": "En Atención",
+      "statusColor": "#d97706",
+      "date": "2026-10-02 19:40",
+      "citizenName": "Leticia Morales",
+      "photoUrl": "https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "rep-2",
+      "folio": "FOL-2026-DH-1043",
+      "problemType": "vialidad",
+      "problemTypeName": "Vialidad y Baches",
+      "address": "Calle Michoacán frente al #30, Barrio San Juan",
+      "lat": 21.1576,
+      "lng": -100.9312,
+      "description": "Hundimiento y desprendimiento de piedras del empedrado colonial tradicional.",
+      "status": "reportado",
+      "statusLabel": "Reportado",
+      "statusColor": "#2563eb",
+      "date": "2026-10-03 11:15",
+      "citizenName": "Pedro Valenzuela",
+      "photoUrl": "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=600&q=80"
+    }
   ]
 }

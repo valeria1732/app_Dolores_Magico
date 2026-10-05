@@ -1,0 +1,67 @@
+:root {
+  /* Paleta Inspirada en Dolores Hidalgo C.I.N. - Talavera y Cantera */
+  --color-talavera-dark: #0a2540;
+  --color-talavera-blue: #0d47a1;
+  --color-talavera-light: #1976d2;
+  --color-talavera-sky: #e3f2fd;
+  
+  --color-barro-dark: #873600;
+  --color-barro: #b94a17;
+  --color-barro-light: #fbeee6;
+  
+  --color-nieve-gold: #f59e0b;
+  --color-nieve-amber: #d97706;
+  --color-nieve-light: #fef3c7;
+  
+  --color-patria-red: #c026d3;
+  --color-historico-red: #b91c1c;
+  --color-historico-light: #fee2e2;
+  
+  --color-verde-patrio: #15803d;
+  --color-verde-light: #dcfce7;
+  
+  --color-cantera-bg: #faf7f2;
+  --color-cantera-surface: #ffffff;
+  --color-cantera-border: #e6ded3;
+  --color-cantera-text: #2c2523;
+  --color-cantera-muted: #6b635b;
+  
+  /* Sombras y Elevaciones */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(10, 37, 64, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 25px rgba(10, 37, 64, 0.12), 0 4px 10px rgba(0, 0, 0, 0.06);
+  --shadow-xl: 0 20px 35px rgba(10, 37, 64, 0.16);
+  
+  /* Radios */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Transiciones */
+  --transition-fast: 0.18s ease;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--color-cantera-bg);
+  color: var(--color-cantera-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input, select, textarea {
+  font-family: inherit;
+}

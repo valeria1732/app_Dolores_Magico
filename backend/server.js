@@ -24,7 +24,7 @@ function readDB() {
     return JSON.parse(raw);
   } catch (err) {
     console.error('Error leyendo base de datos:', err);
-    return { merchants: [], products: [], orders: [] };
+    return { merchants: [], products: [], orders: [], reports: [] };
   }
 }
 
@@ -468,6 +468,103 @@ app.patch('/api/orders/:id/status', (req, res) => {
   res.json({
     message: 'Estado del pedido actualizado',
     order
+  });
+});
+
+// ==========================================
+// RUTAS DE REPORTES CIUDADANOS (INCIDENCIAS URBANAS)
+// ==========================================
+
+// GET /api/reports - Listado de incidencias ciudadanas
+app.get('/api/reports', (req, res) => {
+  const db = readDB();
+  const { status, problemType } = req.query;
+
+  let reports = db.reports || [];
+  if (status) {
+    reports = reports.filter((r) => r.status === status);
+  }
+  if (problemType) {
+    reports = reports.filter((r) => r.problemType === problemType);
+  }
+
+  res.json({
+    total: reports.length,
+    reports
+  });
+});
+
+// POST /api/reports - Crear reporte ciudadano y generar folio de seguimiento
+app.post('/api/reports', (req, res) => {
+  const db = readDB();
+  if (!db.reports) db.reports = [];
+
+  const {
+    problemType,
+    problemTypeName,
+    address,
+    lat,
+    lng,
+    description,
+    citizenName,
+    citizenPhone,
+    photoUrl,
+    folio
+  } = req.body;
+
+  const year = new Date().getFullYear();
+  const randomFolio = folio || `FOL-${year}-DH-${Math.floor(1000 + Math.random() * 9000)}`;
+  const now = new Date();
+  const formattedDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+  const newReport = {
+    id: `rep-${Date.now()}`,
+    folio: randomFolio,
+    problemType: problemType || 'alumbrado',
+    problemTypeName: problemTypeName || 'Incidencia Urbana',
+    address: address || 'Dolores Hidalgo C.I.N., Gto.',
+    lat: lat || 21.15605,
+    lng: lng || -100.93245,
+    description: description || 'Sin descripción',
+    status: 'reportado',
+    statusLabel: 'Reportado',
+    statusColor: '#2563eb',
+    date: formattedDate,
+    citizenName: citizenName || 'Ciudadano Dolorense',
+    citizenPhone: citizenPhone || '',
+    photoUrl: photoUrl || 'https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?auto=format&fit=crop&w=600&q=80'
+  };
+
+  db.reports.unshift(newReport);
+  writeDB(db);
+
+  res.status(201).json({
+    message: 'Reporte ciudadano registrado exitosamente',
+    report: newReport
+  });
+});
+
+// PATCH /api/reports/:id/status - Actualizar estatus del reporte
+app.patch('/api/reports/:id/status', (req, res) => {
+  const db = readDB();
+  if (!db.reports) db.reports = [];
+
+  const { status, statusLabel, statusColor } = req.body;
+  const report = db.reports.find((r) => r.id === req.params.id || r.folio === req.params.id);
+
+  if (!report) {
+    return res.status(404).json({ error: 'Reporte no encontrado' });
+  }
+
+  report.status = status;
+  if (statusLabel) report.statusLabel = statusLabel;
+  if (statusColor) report.statusColor = statusColor;
+  report.updatedAt = new Date().toISOString();
+  writeDB(db);
+
+  res.json({
+    message: 'Estatus del reporte actualizado correctamente',
+    report
   });
 });
 
