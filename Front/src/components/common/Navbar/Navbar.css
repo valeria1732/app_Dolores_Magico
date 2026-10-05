@@ -1,0 +1,193 @@
+.dolores-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--color-cantera-border);
+  box-shadow: 0 4px 15px rgba(10, 37, 64, 0.05);
+  transition: all var(--transition-normal);
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.65rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-logo-emblem {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(13, 71, 161, 0.35);
+  border: 2px solid #e3f2fd;
+}
+
+.emblem-talavera {
+  font-size: 1.4rem;
+}
+
+.brand-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-talavera-dark);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.brand-highlight {
+  color: var(--color-barro);
+}
+
+.brand-subtitle {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--color-cantera-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  color: var(--color-cantera-text);
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.nav-item:hover {
+  background: var(--color-talavera-sky);
+  color: var(--color-talavera-blue);
+}
+
+.nav-item.active {
+  background: #0d47a1;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(13, 71, 161, 0.25);
+}
+
+.nav-badge-pill {
+  font-size: 0.65rem;
+  background: var(--color-nieve-gold);
+  color: #78350f;
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  margin-left: 0.2rem;
+}
+
+.nav-item.report-cta {
+  background: var(--color-barro-light);
+  color: var(--color-barro);
+  border: 1px dashed var(--color-barro);
+}
+
+.nav-item.report-cta:hover {
+  background: var(--color-barro);
+  color: #ffffff;
+}
+
+.nav-item.report-cta.active {
+  background: var(--color-barro);
+  color: #ffffff;
+  border-style: solid;
+}
+
+.nav-item.admin-tab {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.role-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-cantera-border);
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.role-pill:hover {
+  border-color: var(--color-talavera-blue);
+  box-shadow: var(--shadow-md);
+}
+
+.badge-tourist {
+  background: #f0fdf4;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.badge-citizen {
+  background: #eff6ff;
+  color: #1e40af;
+  border-color: #bfdbfe;
+}
+
+.badge-artisan {
+  background: #fffbeb;
+  color: #b45309;
+  border-color: #fde68a;
+}
+
+.badge-admin {
+  background: #f5f3ff;
+  color: #6b21a8;
+  border-color: #ddd6fe;
+}
+
+.role-change-arrow {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .navbar-container {
+    flex-wrap: wrap;
+    padding: 0.5rem 0.75rem;
+  }
+  .navbar-menu {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+  .nav-item {
+    font-size: 0.82rem;
+    padding: 0.45rem 0.65rem;
+    white-space: nowrap;
+  }
+}
