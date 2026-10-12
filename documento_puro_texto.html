@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dossier Técnico Ejecutivo - Dolores Mágico</title>
+  <title>Dossier Técnico Móvil y Bitácora de Seguimiento - DoloresMágico App (Flutter)</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
@@ -22,13 +22,12 @@
       font-family: 'Lora', Georgia, serif;
       color: #1a1a1a;
       background-color: #ffffff;
-      line-height: 1.55;
-      font-size: 10pt;
+      line-height: 1.5;
+      font-size: 9.8pt;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
 
-    /* Page container */
     .page {
       page-break-after: always;
       break-after: page;
@@ -52,7 +51,6 @@
       flex: 1;
     }
 
-    /* Cover specific */
     .cover-page {
       display: flex;
       flex-direction: column;
@@ -68,7 +66,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #333333;
+      color: #0d47a1;
       margin-bottom: 6px;
     }
 
@@ -77,35 +75,35 @@
       font-size: 8.5pt;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #666666;
+      color: #555555;
     }
 
     .cover-divider-top {
       width: 60px;
       height: 2px;
-      background-color: #111111;
-      margin: 20px auto;
+      background-color: #0d47a1;
+      margin: 18px auto;
     }
 
     .cover-project-title {
       font-family: 'Inter', sans-serif;
-      font-size: 28pt;
+      font-size: 26pt;
       font-weight: 800;
       letter-spacing: -0.5px;
       color: #0f172a;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       line-height: 1.1;
       text-transform: uppercase;
     }
 
     .cover-project-sub {
       font-family: 'Inter', sans-serif;
-      font-size: 11.5pt;
+      font-size: 11pt;
       font-weight: 500;
       color: #334155;
       line-height: 1.5;
-      max-width: 90%;
-      margin: 0 auto 20px auto;
+      max-width: 92%;
+      margin: 0 auto 18px auto;
     }
 
     .cover-activity-tag {
@@ -115,20 +113,20 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .cover-meta-box {
       font-family: 'Inter', sans-serif;
       text-align: left;
-      border-top: 1.5px solid #111111;
-      border-bottom: 1.5px solid #111111;
-      padding: 16px 20px;
+      border-top: 1.5px solid #0f172a;
+      border-bottom: 1.5px solid #0f172a;
+      padding: 14px 18px;
       margin: 0 auto;
       width: 100%;
-      font-size: 9pt;
-      line-height: 1.8;
-      background: #fafafa;
+      font-size: 8.8pt;
+      line-height: 1.72;
+      background: #f8fafc;
     }
 
     .cover-meta-box strong {
@@ -143,17 +141,16 @@
       letter-spacing: 1px;
     }
 
-    /* Running Header & Footer */
     .doc-header {
       font-family: 'Inter', sans-serif;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #1a1a1a;
+      border-bottom: 1px solid #0f172a;
       padding-bottom: 5px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       font-size: 7.5pt;
-      color: #555555;
+      color: #475569;
       text-transform: uppercase;
       letter-spacing: 0.8px;
     }
@@ -166,55 +163,74 @@
       border-top: 1px solid #cccccc;
       padding-top: 5px;
       font-size: 7.5pt;
-      color: #777777;
-      margin-top: 10px;
+      color: #64748b;
+      margin-top: 8px;
     }
 
-    /* Typography */
     h1, h2, h3, h4 {
       font-family: 'Inter', sans-serif;
-      color: #111111;
-      letter-spacing: -0.2px;
+      color: #0f172a;
     }
 
     h2 {
-      font-size: 12.5pt;
+      font-size: 12pt;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       padding-bottom: 3px;
-      border-bottom: 1px solid #e0e0e0;
+      border-bottom: 1.5px solid #0d47a1;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
     }
 
     h3 {
-      font-size: 10pt;
-      font-weight: 600;
-      margin-top: 10px;
-      margin-bottom: 4px;
-      color: #222222;
+      font-size: 9.8pt;
+      font-weight: 700;
+      margin-top: 8px;
+      margin-bottom: 3px;
+      color: #1e293b;
     }
 
     p {
-      margin-bottom: 8px;
+      margin-bottom: 7px;
       text-align: justify;
-      text-justify: inter-word;
-      line-height: 1.5;
+      line-height: 1.48;
     }
 
     .quote-box {
-      border-left: 3px solid #111111;
+      border-left: 3.5px solid #0d47a1;
       padding: 8px 12px;
       margin: 8px 0;
-      background: #fbfbfb;
+      background: #eff6ff;
     }
 
     .url-link {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 8.5pt;
-      color: #0033aa;
+      font-size: 8.2pt;
+      color: #0d47a1;
       text-decoration: underline;
       word-break: break-all;
+    }
+
+    table.log-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Inter', sans-serif;
+      font-size: 7.6pt;
+      margin-top: 6px;
+    }
+
+    table.log-table th {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 4px 6px;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    table.log-table td {
+      padding: 4px 6px;
+      border-bottom: 1px solid #cbd5e1;
+      vertical-align: top;
     }
   </style>
 </head>
@@ -224,35 +240,37 @@
   <div class="page">
     <div class="cover-page">
       <div>
-        <div class="cover-inst">Ingeniería de Software & Metodologías Ágiles</div>
-        <div class="cover-sub-inst">Actividad Didáctica: Juego de Roles y Planeación de Proyectos</div>
+        <div class="cover-inst">Universidad Tecnológica del Norte de Guanajuato (UTNG)</div>
+        <div class="cover-sub-inst">Materia: Desarrollo Móvil Integral • Docente: José de Jesús Eduardo Barrientos Avalos • Grupo: GIDS6101-E</div>
         <div class="cover-divider-top"></div>
       </div>
 
       <div>
-        <div class="cover-activity-tag">Documento Oficial de Fundamentación Metodológica</div>
-        <h1 class="cover-project-title">Dolores Mágico</h1>
+        <div class="cover-activity-tag">Fundamentación Metodológica, App Móvil Flutter y Bitácora de Seguimiento</div>
+        <h1 class="cover-project-title">DoloresMágico App</h1>
         <p class="cover-project-sub">
-          Dossier Técnico de Arquitectura, Asignación de Roles Metodológicos, Gestión de Riesgos y Definición del Producto Mínimo Viable (PMV)
+          Aplicación Móvil Multiplataforma en Flutter &amp; Dart con Arquitectura MVVM + Clean Architecture, Servicios en la Nube Firebase y Bitácora Oficial de Seguimiento Rumbo al PMV del 20 de Noviembre
         </p>
       </div>
 
       <div>
         <div class="cover-meta-box">
-          <p><strong>Identificador del Proyecto / Repositorio:</strong> app_Dolores_Magico</p>
-          <p><strong>Product Owner / Líder de Producto:</strong> Valeria Guadalupe Calvillo Mendoza</p>
-          <p><strong>Scrum Master / Facilitadora & Líder Técnica:</strong> María del Carmen</p>
-          <p><strong>Dev Team / Equipo de Ingeniería:</strong> Valeria Calvillo & María del Carmen</p>
-          <p><strong>Marco Metodológico Adoptado:</strong> Scrum Ágil (Sprints Bisemanales)</p>
-          <p><strong>Fecha Inamovible de Demostración del PMV:</strong> 20 de Noviembre de 2026</p>
-          <p><strong>Repositorio de Código Fuente:</strong> https://github.com/valeria1732/app_Dolores_Magico</p>
+          <p><strong>Nombre de la Aplicación Móvil:</strong> DoloresMágico App (Identificador de Repositorio: <code>app_Dolores_Magico</code>)</p>
+          <p><strong>Product Owner / Líder de Producto y Backend Móvil:</strong> Valeria Guadalupe Calvillo Mendoza (Matrícula: 1223100392)</p>
+          <p><strong>Scrum Master / Facilitadora y Líder UI Flutter:</strong> María del Carmen Vargas Martínez (Matrícula: 1220100084)</p>
+          <p><strong>Stack Tecnológico Móvil:</strong> Flutter • Dart • Firebase (Auth, Firestore, Storage, FCM) • Geolocator • Image Picker • Hive</p>
+          <p><strong>Arquitectura de la App Móvil:</strong> MVVM (Model-View-ViewModel) integrada con Clean Architecture</p>
+          <p><strong>Marco Metodológico:</strong> Scrum con Enfoque Hackathon + Tablero Kanban en GitHub Projects</p>
+          <p><strong>Fecha Límite Inamovible del PMV:</strong> 20 de Noviembre de 2026</p>
+          <p><strong>Repositorio de Código Móvil (Flutter/Dart):</strong> https://github.com/valeria1732/app_Dolores_Magico</p>
+          <p><strong>Bitácora de Seguimiento en GitHub:</strong> https://github.com/valeria1732/app_Dolores_Magico/blob/main/BITACORA_SEGUIMIENTO.md</p>
           <p><strong>Tablero Ágil de Seguimiento:</strong> https://github.com/valeria1732/app_Dolores_Magico/projects</p>
         </div>
       </div>
 
       <div>
         <div class="cover-footer">
-          Dolores Hidalgo C.I.N., Guanajuato • Septiembre de 2026
+          Dolores Hidalgo C.I.N., Guanajuato • Octubre de 2026
         </div>
       </div>
     </div>
@@ -262,38 +280,34 @@
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span>Página 2 de 10</span>
       </div>
 
-      <h2>Capítulo I: Contexto Estratégico y Alcance Global del Software</h2>
+      <h2>Capítulo I: Planteamiento del Problema y Propuesta de Solución Móvil</h2>
 
       <p>
-        El municipio de Dolores Hidalgo Cuna de la Independencia Nacional, en el estado de Guanajuato, posee un patrimonio cultural, histórico, artesanal y gastronómico de relevancia internacional. No obstante, el acceso a la información turística especializada suele encontrarse fragmentado, poco accesible en dispositivos móviles o desactualizado. La plataforma Dolores Mágico nace con el propósito de centralizar, estructurar y disponibilizar la oferta de valor del destino en un entorno digital interactivo y de alto rendimiento.
-      </p>
-
-      <p>
-        La iniciativa se concibe como una solución integral desacoplada, compuesta por un módulo visual cliente (Frontend) alojado en el directorio raíz correspondiente y un servicio de procesamiento y entrega de datos (Backend RESTful). Esta arquitectura asegura que los visitantes puedan consultar en tiempo real los principales atractivos históricos, las rutas de talleres tradicionales de cerámica mayólica, los locales emblemáticos de nieves exóticas y la oferta gastronómica regional.
-      </p>
-
-      <h3>Objetivos Estratégicos del Proyecto</h3>
-      <p>
-        1. Proveer una experiencia de usuario inmediata, accesible desde cualquier navegador web y optimizada para dispositivos móviles, garantizando tiempos de respuesta mínimos y navegación intuitiva.
-      </p>
-      <p>
-        2. Establecer un catálogo estructurado y georreferenciado que permita a los turistas planificar su itinerario en la ciudad con información precisa sobre ubicaciones, horarios de atención y reseñas históricas fidedignas.
-      </p>
-      <p>
-        3. Cumplir con un estándar de entrega ininterrumpida y libre de fallos para la sesión plenaria de presentación y validación en vivo estipulada para el 20 de noviembre de 2026.
+        En el municipio de Dolores Hidalgo Cuna de la Independencia Nacional, Guanajuato, convergen dos problemáticas prioritarias: en el ámbito económico y turístico, los pequeños talleres artesanales de Talavera, alfarería y comerciantes de nieves tradicionales sufren de baja visibilidad digital y dependencia de intermediarios; en el ámbito urbano y comunitario, la carencia de un canal digital directo retrasa la atención de desperfectos en servicios públicos como alumbrado, recolección de basura y baches.
       </p>
 
       <p>
-        A lo largo de los capítulos subsiguientes se detalla cómo el equipo de trabajo estructuró sus responsabilidades, seleccionó la metodología de desarrollo adecuada y trazó la ruta crítica para asegurar que el Producto Mínimo Viable satisfaga los más altos estándares de calidad académica y profesional.
+        Como solución se desarrolla <strong>DoloresMágico App</strong>, una <strong>aplicación móvil nativa multiplataforma (Android e iOS) construida en Flutter y Dart</strong>. A diferencia de un portal web tradicional, la aplicación móvil aprovecha de forma directa el hardware del teléfono inteligente: el sensor de geolocalización GPS (mediante el plugin <code>geolocator</code>) para trazar rutas hacia los talleres artesanales y georreferenciar incidencias urbanas; la cámara fotográfica del dispositivo (mediante <code>image_picker</code>) para capturar evidencia en campo; el almacenamiento local sin conexión (<code>Hive</code>) para zonas con cobertura limitada; y las notificaciones push (<code>Firebase Cloud Messaging</code>).
+      </p>
+
+      <h3>Pantallas Conceptuales de la Aplicación Móvil (Prototipo Inicial)</h3>
+      <p>
+        1. <strong>Pantalla 1 — Home / Menú Principal (<code>home_menu_page.dart</code>):</strong> Selector móvil directo entre <em>"Explorar Dolores Mágico (Ruta Artesanal/Gastronómica)"</em> y <em>"Mi Comunidad (Reporte Urbano)"</em>, integrado con barra de navegación inferior nativa (<code>NavigationBar</code>).
+      </p>
+      <p>
+        2. <strong>Pantalla 2 — Mapa Interactivo y Ficha del Taller (<code>mapa_turistico_page.dart</code> y <code>ficha_taller_artesano_page.dart</code>):</strong> Mapa GPS con pines interactivos codificados por color: <strong>Azul</strong> para talleres de Talavera, <strong>Amarillo</strong> para neverías tradicionales y <strong>Rojo</strong> para sitios históricos. Al tocar un pin, despliega la ficha técnica del artesano con catálogo y botón directo a WhatsApp (<code>url_launcher</code>).
+      </p>
+      <p>
+        3. <strong>Pantalla 3 — Formulario de Reporte Ciudadano y Confirmación (<code>reporte_ciudadano_page.dart</code>):</strong> Captura de foto con cámara móvil, detección automática de coordenadas GPS, selección de categoría (alumbrado, basura, vialidad) y diálogo de confirmación con el folio oficial (<code>FOL-2026-DH-XXXX</code>).
       </p>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico • Contexto y Alcance</span>
+      <span>DoloresMágico App • Planteamiento y Solución Móvil</span>
       <span>Página 2 de 10</span>
     </div>
   </div>
@@ -302,34 +316,34 @@
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span>Página 3 de 10</span>
       </div>
 
-      <h2>Capítulo II: Estructura Organizacional y Roles Metodológicos</h2>
+      <h2>Capítulo II: Estructura Organizacional y Roles Metodológicos (Scrum)</h2>
 
       <p>
-        En concordancia con los lineamientos del desarrollo ágil moderno y las directrices de la actividad, el equipo de trabajo erradica la concepción tradicional del programador aislado. Cada participante asume una función formal de gestión estratégica y liderazgo técnico que garantiza la trazabilidad y la rendición de cuentas en cada fase del proyecto.
+        Siguiendo las reglas de la actividad de Juego de Roles y Planeación, cada integrante del equipo adopta y defiende una responsabilidad ejecutiva de gestión dentro de la metodología <strong>Scrum con enfoque Hackathon</strong>, además de sus responsabilidades técnicas en el desarrollo de la aplicación móvil en Flutter.
       </p>
 
-      <h3>Product Owner / Líder de Producto: Valeria Guadalupe Calvillo Mendoza</h3>
+      <h3>1. Product Owner / Líder de Producto: Valeria Guadalupe Calvillo Mendoza (Matrícula: 1223100392)</h3>
       <p>
-        La dirección estratégica del producto está a cargo de Valeria Guadalupe Calvillo Mendoza, quien funge como la máxima responsable del valor de negocio de la plataforma. Sus funciones comprenden la concepción y defensa de la visión del sistema, la redacción y priorización continua del Product Backlog, la interlocución directa con el cliente o evaluador, y la potestad exclusiva de aceptar o rechazar los incrementos de software desarrollados en cada iteración. Asimismo, ejerce la facultad de delimitar el alcance estricto del Producto Mínimo Viable, blindando al equipo frente a cualquier desviación de requerimientos no esenciales.
+        Es la dueña de la visión del producto móvil y responsable de maximizar el valor entregado a los artesanos y ciudadanos dolorenses. Define y prioriza las características indispensables del <em>Product Backlog</em> para el Producto Mínimo Viable (PMV) y valida el cumplimiento de los criterios de aceptación. En el ámbito técnico móvil, lidera la <strong>Capa de Dominio y la Capa de Datos en Dart</strong> (implementación de <code>RegistrarReporteUseCase</code>, <code>ReporteRepositoryImpl</code>, <code>ArtesanoRepositoryImpl</code> y la integración con Firebase Authentication, Cloud Firestore y Cloud Storage).
       </p>
 
-      <h3>Scrum Master / Facilitadora & Líder Técnica: María del Carmen</h3>
+      <h3>2. Scrum Master / Facilitadora de Metodología: María del Carmen Vargas Martínez (Matrícula: 1220100084)</h3>
       <p>
-        El rol de Scrum Master y facilitación metodológica es desempeñado por María del Carmen. Su responsabilidad primordial radica en asegurar el estricto apego a las prácticas y valores de Scrum, coordinar la ejecución puntual de las ceremonias ágiles (Sprint Planning, Daily Standups, Sprint Review y Retrospectivas), identificar y remover de manera proactiva cualquier impedimento técnico u organizativo que vulnere la velocidad del equipo, y mantener la sincronización y transparencia del tablero de seguimiento oficial en tiempo real.
+        Asegura que el equipo respete los principios y ceremonias de Scrum con enfoque Hackathon (<em>Sprint Planning</em>, <em>Daily Standup</em>, <em>Sprint Review</em> y <em>Retrospectiva</em>), elimina obstáculos técnicos y mantiene actualizados tanto el tablero Kanban en <strong>GitHub Projects</strong> como la <strong>Bitácora Oficial de Seguimiento</strong>. En el ámbito técnico móvil, lidera la <strong>Capa de Presentación en Flutter</strong> (diseño en Figma, maquetación de <code>HomeMenuPage</code>, <code>MapaTuristicoPage</code>, <code>FichaTallerArtesanoPage</code>, <code>ReporteCiudadanoPage</code> y gestión de estado reactivo con <code>Provider</code>).
       </p>
 
-      <h3>Equipo de Desarrollo y Liderazgo Técnico (Dev Team)</h3>
+      <h3>3. Dev Team / Líderes Técnicos Móviles (Valeria Calvillo &amp; María Vargas)</h3>
       <p>
-        Valeria Guadalupe Calvillo Mendoza y María del Carmen integran de forma colaborativa el Dev Team, asumiendo la responsabilidad técnica sobre la arquitectura de software, la escritura de código limpio y modular (Frontend y Backend), la implementación de pruebas, la administración del repositorio de GitHub bajo estándares formales de integración y el despliegue del software en entornos productivos.
+        Ambas integrantes conforman colaborativamente el equipo de ingeniería móvil, encargándose de mantener la arquitectura <strong>MVVM + Clean Architecture</strong>, aplicar commits semánticos (<code>feat:</code>, <code>fix:</code>, <code>docs:</code>), revisar <em>Pull Requests</em> hacia la rama <code>develop</code> y generar los paquetes instalables APK para pruebas en dispositivos Android.
       </p>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico • Estructura Organizacional</span>
+      <span>DoloresMágico App • Roles del Equipo</span>
       <span>Página 3 de 10</span>
     </div>
   </div>
@@ -338,42 +352,36 @@
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span>Página 4 de 10</span>
       </div>
 
-      <h2>Capítulo III: Fundamentación Metodológica y Gestión de Riesgos</h2>
+      <h2>Capítulo III: Fundamentación Metodológica y Mitigación de Riesgos</h2>
 
-      <p>
-        La elección del marco metodológico representa una decisión crítica para el éxito del proyecto, condicionada por la fecha límite inamovible del 20 de noviembre y la necesidad de entregar un software plenamente funcional y verificado.
-      </p>
-
-      <h3>Fundamentación Oficial de la Metodología Seleccionada</h3>
-      
+      <h3>Párrafo Oficial de Justificación de la Metodología (Requisito de la Tarea)</h3>
       <div class="quote-box">
-        <p style="font-size: 9.5pt; color: #111111; line-height: 1.5; margin-bottom: 0;">
-          Seleccionamos <strong>Scrum</strong> por su estructura de ciclos cortos e incrementales (Sprints de 2 semanas), óptima para mitigar riesgos ante la fecha límite del 20 de noviembre. Esta metodología nos permite realizar revisiones periódicas, identificar cuellos de botella en la integración entre Frontend y Backend mediante <em>Daily Standups</em> y adaptar prioridades rápidamente. La continua refinación del <em>Product Backlog</em> asegura que el equipo concentre sus esfuerzos exclusivamente en las funcionalidades nucleares del Producto Mínimo Viable (PMV), garantizando una versión estable, testeada y lista para demostración en vivo sin incurrir en desviación de tiempos ni sobrecostes de alcance.
+        <p style="font-size: 9.6pt; color: #0f172a; line-height: 1.52; margin-bottom: 0;">
+          Seleccionamos <strong>Scrum con enfoque Hackathon</strong> apoyado en un tablero <strong>Kanban en GitHub Projects</strong> por su estructura de ciclos cortos e incrementales (Sprints de 2 semanas), óptima para mitigar riesgos ante la fecha límite del 20 de noviembre. Esta metodología nos permite realizar entregas progresivas de la aplicación móvil en Flutter, detectar errores de integración con sensores del dispositivo (cámara y GPS) y servicios de Firebase mediante <em>Daily Standups</em>, y recibir retroalimentación temprana de artesanos y ciudadanos. Además, desacoplar la app móvil en capas de Clean Architecture y MVVM asegura que el equipo concentre su esfuerzo en las funcionalidades prioritarias del Producto Mínimo Viable (PMV), garantizando un APK estable, probado y funcional en vivo.
         </p>
       </div>
-
-      <p style="font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #555555; margin-top: 2px; margin-bottom: 10px;">
-        <em>Nota de cumplimiento: La fundamentación precedente cuenta con una extensión exacta de 104 palabras, satisfaciendo con rigor el límite reglamentario de máximo 150 palabras.</em>
+      <p style="font-family: 'Inter', sans-serif; font-size: 7.8pt; color: #0d47a1; font-weight: 600;">
+        Extensión verificada: 120 palabras (Cumple estrictamente con el máximo de 150 palabras).
       </p>
 
-      <h3>Mitigación Probabilística de Riesgos Rumbo al 20 de Noviembre</h3>
+      <h3>Mitigación de Riesgos Técnicos en el Desarrollo Móvil Rumbo al 20 de Noviembre</h3>
       <p>
-        1. <strong>Riesgo de Desviación de Alcance (Scope Creep):</strong> La tendencia a incorporar funcionalidades accesorias como pagos en línea se neutraliza mediante la regla de veto del Product Owner, quien restringe cualquier desarrollo ajeno al catálogo core y las fichas de detalle.
+        1. <strong>Riesgo de Permisos de Hardware (Cámara y GPS en Android/iOS):</strong> Se mitiga declarando desde el Sprint 2 los permisos exactos en <code>AndroidManifest.xml</code> e <code>Info.plist</code> bajo el principio de mínimo privilegio y encapsulando los plugins <code>geolocator</code> e <code>image_picker</code> en el servicio <code>LocationCameraSingleton</code>.
       </p>
       <p>
-        2. <strong>Riesgo de Desacople Técnico Front-Back:</strong> Se mitiga mediante la definición temprana de los contratos de comunicación e interfaces RESTful en el Sprint 1, permitiendo a los desarrolladores de Frontend trabajar concurrentemente mediante datos simulados antes de la integración definitiva.
+        2. <strong>Riesgo de Conectividad Limitada en Talleres Alejados del Centro:</strong> Se mitiga aplicando el patrón <em>Repository</em> junto con persistencia local en <strong>Hive</strong> (<code>HiveLocalDataSource</code>), permitiendo consultar el catálogo y el mapa aún con señal móvil intermitente.
       </p>
       <p>
-        3. <strong>Riesgo de Fallo en Demostración en Vivo:</strong> Se programa un congelamiento total de código (Code Freeze) 48 horas antes de la presentación, garantizando un periodo exclusivo para pruebas de estrés y ensayos generales de la demo.
+        3. <strong>Riesgo de Conflictos de Integración en Git:</strong> La separación en tres capas (Presentación, Dominio y Datos) permite que María Vargas trabaje en las vistas Flutter mientras Valeria Calvillo desarrolla los casos de uso y repositorios de Firebase en ramas <code>feature/*</code> independientes.
       </p>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico • Fundamentación Metodológica</span>
+      <span>DoloresMágico App • Fundamentación Metodológica</span>
       <span>Página 4 de 10</span>
     </div>
   </div>
@@ -382,43 +390,34 @@
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span>Página 5 de 10</span>
       </div>
 
-      <h2>Capítulo IV: Estrategia del Producto Mínimo Viable (PMV)</h2>
+      <h2>Capítulo IV: Estrategia del Producto Mínimo Viable (PMV Móvil)</h2>
 
+      <h3>Funcionalidad Principal de la App Móvil a Presentar el 20 de Noviembre</h3>
       <p>
-        La ingeniería de software aplicada a startups orientadas a plazos estrictos exige definir con precisión el Producto Mínimo Viable: aquella versión del producto que permite obtener la máxima cantidad de aprendizaje validado sobre los clientes con el menor esfuerzo de desarrollo posible.
-      </p>
-
-      <h3>Funcionalidad Principal a Presentar el 20 de Noviembre</h3>
-      <p>
-        Para la fecha pactada, el equipo presentará en funcionamiento activo el núcleo interactivo de exploración turística de Dolores Hidalgo. Esta solución comprende un catálogo visual de atractivos clasificados por rubros fundamentales (monumentos históricos, talleres de cerámica y alfarería mayólica, neverías tradicionales y establecimientos gastronómicos típicos), un sistema ágil de filtrado temático y fichas descriptivas completas que integran datos históricos, horarios de servicio, imágenes representativas y geolocalización directa. La interfaz responderá fluidamente en dispositivos móviles y de escritorio.
-      </p>
-
-      <h3>Justificación Estratégica de Características Excluidas</h3>
-      <p>
-        En una sesión formal de planeación y recorte de alcance, el equipo resolvió dejar fuera de esta primera entrega los siguientes módulos secundarios:
-      </p>
-
-      <p>
-        1. <strong>Pasarelas de Pago y Transacciones Bancarias:</strong> La integración de pasarelas de procesamiento financiero en línea requiere certificaciones de seguridad adicionales, gestión de tokens bancarios y contratos mercantiles que demandan semanas de configuración y desviarían los recursos del equipo del valor informativo central.
+        1. <strong>Autenticación y Perfiles Diferenciados (HU01):</strong> Registro e inicio de sesión mediante <strong>Firebase Authentication</strong> diferenciando perfiles de <em>Turista/Ciudadano</em>, <em>Artesano/Comerciante</em> y <em>Administrador</em>, integrando el consentimiento expreso del Aviso de Privacidad conforme a la LFPDPPP.
       </p>
       <p>
-        2. <strong>Sistemas de Reservación Hotelera y Restaurantera en Tiempo Real:</strong> La sincronización de disponibilidad de inventarios en vivo introduce dependencias críticas de conectividad con terceros que comprometerían la estabilidad de la demostración.
+        2. <strong>Mapa Interactivo Geolocalizado de Dolores Hidalgo (HU02):</strong> Mapa móvil con coordenadas GPS en tiempo real y marcadores interactivos diferenciados por color: <strong>Pines Azules</strong> para talleres de Talavera, <strong>Pines Amarillos</strong> para neverías tradicionales y <strong>Pines Rojos</strong> para sitios históricos de la Independencia.
       </p>
       <p>
-        3. <strong>Módulos de Realidad Aumentada y Recorridos 360°:</strong> Aunque atractivos a nivel visual, su alto costo de procesamiento y renderizado en navegadores móviles incrementaría el riesgo de latencia y fallos durante la presentación evaluativa.
+        3. <strong>Directorio, Catálogo del Artesano y Contacto Directo WhatsApp (HU04):</strong> Ficha técnica del taller con fotografías de piezas artesanales, reseña histórica y botón de enlace profundo (<code>url_launcher</code>) hacia WhatsApp y llamada telefónica para venta directa sin intermediarios ni comisiones.
+      </p>
+      <p>
+        4. <strong>Módulo de Reporte Ciudadano con Cámara, GPS y Folio (HU03):</strong> Envío de incidencias urbanas (alumbrado, basura, vialidad) capturando fotografía con la cámara del dispositivo, coordenadas GPS automáticas y almacenamiento en <strong>Firebase Cloud Storage y Firestore</strong>, devolviendo un código de folio único (<code>FOL-2026-DH-XXXX</code>).
       </p>
 
+      <h3>Justificación de las Características Excluidas por el Momento</h3>
       <p>
-        La exclusión consciente de estos elementos permite garantizar que el 100% de la funcionalidad entregada el 20 de noviembre sea robusta, confiable y completamente operativa ante el usuario.
+        Se dejaron fuera de esta primera entrega los recorridos virtuales con <strong>Realidad Aumentada (AR)</strong>, la <strong>pasarela de pagos bancarios integrada</strong> para envíos nacionales y el <strong>sistema de insignias, recompensas y reseñas complejas</strong>. Incorporar motores 3D de AR o pasarelas financieras implicaría dependencias de terceros y tiempos de certificación que pondrían en riesgo la fecha límite del 20 de noviembre; en cambio, el contacto directo vía WhatsApp resuelve de inmediato la conexión comercial justa con el artesano.
       </p>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico • Estrategia PMV</span>
+      <span>DoloresMágico App • Estrategia del PMV Móvil</span>
       <span>Página 5 de 10</span>
     </div>
   </div>
@@ -427,43 +426,40 @@
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span>Página 6 de 10</span>
       </div>
 
-      <h2>Capítulo V: Product Backlog e Historias de Usuario</h2>
+      <h2>Capítulo V: Product Backlog Móvil e Historias de Usuario</h2>
 
+      <h3>HU01. Registro del Artesano y Perfiles Diferenciados (Prioridad: Alta — MVP)</h3>
       <p>
-        El desglose funcional del Producto Mínimo Viable se estructuró a partir de Historias de Usuario redactadas bajo la perspectiva de valor del cliente final, acompañadas de criterios de aceptación rigurosos en sintaxis formal Gherkin (Dado que / Cuando / Entonces).
-      </p>
-
-      <h3>Historia de Usuario US-01: Catálogo General de Atractivos (Estimación: 5 Story Points)</h3>
-      <p>
-        <strong>Declaración:</strong> Como turista que visita Dolores Hidalgo, deseo consultar una lista estructurada de los atractivos culturales, artesanales y gastronómicos con sus imágenes y nombres, para decidir qué sitios conocer durante mi estadía.
-      </p>
-      <p>
-        <strong>Criterios de Aceptación:</strong> Dado que el usuario accede a la pantalla principal de Dolores Mágico, cuando el sistema realiza la petición al servicio de datos, entonces se renderizan las tarjetas correspondientes a los puntos turísticos con un tiempo de carga inferior a 2.0 segundos y sin distorsión en pantallas móviles.
+        <strong>Como</strong> artesano de Talavera de Dolores Hidalgo, <strong>quiero</strong> registrar mi taller en la app móvil proporcionando fotografías, información comercial y ubicación GPS, <strong>para que</strong> los visitantes puedan conocer mi negocio y llegar directamente a él. <em>Implementación Flutter:</em> <code>lib/presentation/views/auth/registro_artesano_page.dart</code> y <code>AuthViewModel</code>.
       </p>
 
-      <h3>Historia de Usuario US-02: Motor de Filtrado por Categorías (Estimación: 3 Story Points)</h3>
+      <h3>HU02. Exploración Turística en Mapa GPS (Prioridad: Alta — MVP)</h3>
       <p>
-        <strong>Declaración:</strong> Como visitante con intereses específicos, deseo filtrar el catálogo por temáticas (Historia, Artesanías, Gastronomía), para visualizar rápidamente solo los lugares de mi preferencia.
-      </p>
-      <p>
-        <strong>Criterios de Aceptación:</strong> Dado que el catálogo principal se encuentra desplegado, cuando el usuario presiona el selector de categoría "Gastronomía", entonces el listado oculta instantáneamente los demás elementos y muestra exclusivamente las opciones del ramo gastronómico sin recargar la página.
+        <strong>Como</strong> visitante o turista, <strong>quiero</strong> consultar en mi teléfono un mapa interactivo que pueda filtrar por categorías con pines Azules (Talavera), Amarillos (Nieves) y Rojos (Sitios Históricos), <strong>para</strong> planificar una ruta de recorrido por la ciudad. <em>Implementación Flutter:</em> <code>lib/presentation/views/mapa/mapa_turistico_page.dart</code> y <code>MapaTuristicoViewModel</code>.
       </p>
 
-      <h3>Historia de Usuario US-03: Ficha Detallada de Punto de Interés (Estimación: 5 Story Points)</h3>
+      <h3>HU03. Reporte Ciudadano con Cámara, GPS y Folio (Prioridad: Alta — MVP)</h3>
       <p>
-        <strong>Declaración:</strong> Como usuario interesado en un lugar concreto, deseo acceder a su ficha detallada con historia, horarios y ubicación, para planificar mi visita de forma precisa.
+        <strong>Como</strong> ciudadano de Dolores Hidalgo, <strong>quiero</strong> enviar una fotografía tomada con mi celular acompañada de la ubicación GPS de un servicio público con fallas, <strong>para</strong> solicitar su atención y recibir un folio de seguimiento. <em>Implementación Flutter:</em> <code>lib/presentation/views/reportes/reporte_ciudadano_page.dart</code> y <code>ReporteViewModel</code>.
       </p>
+
+      <h3>HU04. Contacto Directo con Artesanos vía WhatsApp (Prioridad: Alta — MVP)</h3>
       <p>
-        <strong>Criterios de Aceptación:</strong> Dado que el usuario hace clic sobre una tarjeta del catálogo, cuando se abre la vista de detalle, entonces se despliegan la reseña cultural completa, los horarios de apertura y el enlace directo para navegación geográfica.
+        <strong>Como</strong> usuario de la app móvil, <strong>quiero</strong> comunicarme directamente con un artesano mediante WhatsApp desde su ficha técnica, <strong>para</strong> consultar precios, disponibilidad o realizar pedidos sin intermediarios. <em>Implementación Flutter:</em> <code>lib/presentation/views/catalogo/ficha_taller_artesano_page.dart</code> y <code>ContactarArtesanoWhatsappUseCase</code>.
+      </p>
+
+      <h3>HU05. Administración y Validación Municipal (Prioridad: Alta — MVP)</h3>
+      <p>
+        <strong>Como</strong> administrador del sistema, <strong>quiero</strong> validar los registros de los artesanos y actualizar el estatus de los reportes urbanos, <strong>para</strong> garantizar que la información publicada sea confiable. <em>Implementación Flutter:</em> <code>lib/presentation/views/admin/admin_validacion_page.dart</code>.
       </p>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico • Product Backlog</span>
+      <span>DoloresMágico App • Product Backlog e Historias de Usuario</span>
       <span>Página 6 de 10</span>
     </div>
   </div>
@@ -472,74 +468,125 @@
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span>Página 7 de 10</span>
       </div>
 
-      <h2>Capítulo VI: Arquitectura de Software y Modelo de Datos</h2>
+      <h2>Capítulo VI: Arquitectura de la App Móvil (Flutter, MVVM y Clean Architecture)</h2>
 
       <p>
-        La arquitectura técnica de Dolores Mágico se basa en el principio de separación de responsabilidades y desacoplamiento de capas, estructurada de manera ordenada en el repositorio bajo dos directorios principales: la capa visual de cliente localizada en la carpeta Frontend y los servicios de procesamiento ubicados en la carpeta Backend.
+        En atención a las observaciones docentes, el repositorio de GitHub contiene exclusivamente la arquitectura de la <strong>Aplicación Móvil en Flutter y Dart</strong>, estructurada bajo el patrón <strong>MVVM (Model-View-ViewModel)</strong> integrado con <strong>Clean Architecture</strong> y los patrones <strong>Repository</strong> y <strong>Singleton</strong>:
       </p>
 
-      <h3>Capa de Presentación y Experiencia de Usuario (Frontend)</h3>
+      <h3>1. Capa de Presentación Móvil (<code>lib/presentation/</code>)</h3>
       <p>
-        El Frontend está construido con tecnologías web estándares de alto desempeño (HTML5 semántico, JavaScript moderno y hojas de estilo CSS3 diseñadas mediante un sistema de tokens de diseño). Esta capa es responsable de capturar los eventos del usuario, gestionar el estado de los filtros en memoria, invocar asíncronamente los servicios del Backend a través de la API Fetch y renderizar dinámicamente las tarjetas y modales informativos. Su diseño Mobile-First asegura legibilidad y ergonomía táctil en smartphones de cualquier gama.
+        Encargada de la interfaz gráfica móvil en Flutter y la gestión reactiva de estado con <code>Provider</code> / <code>ChangeNotifier</code>. Incluye las vistas <code>HomeMenuPage</code>, <code>MapaTuristicoPage</code>, <code>FichaTallerArtesanoPage</code> y <code>ReporteCiudadanoPage</code> (con sus métodos UML <code>displayForm()</code>, <code>capturePhoto()</code> y <code>showConfirmationFolio(folio)</code>), conectadas a <code>ReporteViewModel</code>, <code>MapaTuristicoViewModel</code> y <code>AuthViewModel</code>.
       </p>
 
-      <h3>Capa de Servicios y Lógica de Negocio (Backend)</h3>
+      <h3>2. Capa de Dominio (<code>lib/domain/</code>)</h3>
       <p>
-        El Backend implementa un servicio RESTful ligero y eficiente, encargado de exponer los endpoints de consulta de información estructurada en formato JSON. Entre sus rutas principales destacan aquellas destinadas a obtener la totalidad de los atractivos registrados, filtrar por categoría específica o consultar el detalle unívoco de un punto turístico determinado mediante su identificador. La arquitectura incluye controladores de errores, validación de parámetros y cabeceras de control de acceso CORS para permitir peticiones seguras desde el cliente.
+        Contiene las entidades de negocio puras (<code>ReporteUrbano</code>, <code>TallerArtesano</code>, <code>ProductoArtesanal</code>, <code>UsuarioApp</code>), las interfaces abstractas de repositorio (<code>ReporteRepository</code>, <code>ArtesanoRepository</code>) y los casos de uso (<code>RegistrarReporteUseCase</code>, <code>ExplorarMapaTuristicoUseCase</code>, <code>ContactarArtesanoWhatsappUseCase</code>).
       </p>
 
-      <h3>Modelo Conceptual de Persistencia de Datos</h3>
+      <h3>3. Capa de Datos y Servicios Nativos (<code>lib/data/</code> y <code>lib/core/</code>)</h3>
       <p>
-        La entidad central del modelo de datos corresponde al Punto Turístico, estructurada con los siguientes atributos normalizados: un identificador alfanumérico único, la denominación oficial del sitio, la categoría temática a la que pertenece, una descripción histórica y comercial exhaustiva, la galería de rutas de imágenes optimizadas, los días y horarios hábiles de atención al público y las coordenadas geográficas de latitud y longitud requeridas para la vinculación con servicios cartográficos.
+        Implementa <code>ReporteRepositoryImpl</code> y <code>ArtesanoRepositoryImpl</code> comunicándose con <strong>Firebase Cloud Firestore</strong>, <strong>Firebase Cloud Storage</strong> (<code>FirestoreRemoteDataSource</code>) y almacenamiento local <strong>Hive</strong> (<code>HiveLocalDataSource</code>). Asimismo, aplica el patrón <strong>Singleton</strong> en <code>FirebaseSingletonService</code> y <code>LocationCameraSingleton</code> (plugins <code>geolocator</code> e <code>image_picker</code>), respaldados por los manifiestos nativos <code>android/app/src/main/AndroidManifest.xml</code> e <code>ios/Runner/Info.plist</code>.
       </p>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico • Arquitectura y Datos</span>
+      <span>DoloresMágico App • Arquitectura Móvil Flutter</span>
       <span>Página 7 de 10</span>
     </div>
   </div>
 
-  <!-- ================= PAGE 8: CAPÍTULO VII ================= -->
+  <!-- ================= PAGE 8: CAPÍTULO VII (BITÁCORA DE SEGUIMIENTO) ================= -->
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span>Página 8 de 10</span>
       </div>
 
-      <h2>Capítulo VII: Planificación Temporal y Ruta Crítica de Sprints</h2>
+      <h2>Capítulo VII: Bitácora Oficial de Seguimiento del Proyecto</h2>
 
       <p>
-        Para garantizar el cumplimiento riguroso de la entrega el 20 de noviembre de 2026, el trabajo se distribuye en cuatro Sprints bisemanales, cada uno con objetivos tangibles y verificables que componen la ruta crítica del desarrollo.
+        Para garantizar la trazabilidad y el seguimiento puntual exigido para la evaluación continua rumbo al 20 de noviembre, se registra la bitácora oficial de Sprints, ceremonias Scrum y atención a observaciones docentes:
       </p>
 
-      <h3>Desglose Cronológico de Iteraciones (Sprints)</h3>
-      <p>
-        <strong>Sprint 1 (Cimientos de Arquitectura y Configuración Base):</strong> Inicialización del repositorio en GitHub, estructuración de las carpetas de trabajo Frontend y Backend, especificación del modelo de datos de atractivos de Dolores Hidalgo y definición del sistema de diseño visual.
-      </p>
-      <p>
-        <strong>Sprint 2 (Construcción del Backend y Componentes Core):</strong> Desarrollo de los endpoints RESTful de lectura de atractivos, implementación de los componentes de tarjetas del catálogo en el cliente y carga inicial de la base de datos con los sitios turísticos más representativos del municipio.
-      </p>
-      <p>
-        <strong>Sprint 3 (Integración Integral, Filtrado y Fichas de Detalle):</strong> Enlace asíncrono entre el Frontend y el Backend, desarrollo de la lógica reactiva de filtrado por categorías temáticas y construcción de la vista de ficha detallada con geolocalización.
-      </p>
-      <p>
-        <strong>Sprint 4 (Aseguramiento de Calidad, Congelamiento y Despliegue):</strong> Pruebas integrales de usabilidad en dispositivos móviles, depuración final de código, establecimiento del Code Freeze el 18 de noviembre y ejecución de la demostración en vivo del Producto Mínimo Viable el 20 de noviembre.
-      </p>
-
-      <h3>Definición de Terminado (Definition of Done - DoD)</h3>
-      <p>
-        Ningún requerimiento se considera concluido a menos que satisfaga simultáneamente las siguientes cuatro condiciones de calidad: el código fuente debe estar libre de advertencias y errores en consola; el cambio debe haber sido integrado mediante un Pull Request revisado y aprobado por un líder técnico; el Product Owner debe certificar el cumplimiento de los criterios de aceptación; y la funcionalidad debe operar de manera autónoma en el entorno de despliegue final.
-      </p>
+      <table class="log-table">
+        <thead>
+          <tr>
+            <th style="width: 11%;">Fecha</th>
+            <th style="width: 17%;">Ceremonia / Fase</th>
+            <th style="width: 16%;">Responsables</th>
+            <th style="width: 32%;">Actividades Realizadas (App Móvil)</th>
+            <th style="width: 24%;">Impedimentos / Observaciones y Solución</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>02/09/2026</strong></td>
+            <td>Kickoff Curso</td>
+            <td>Valeria C.<br>María V.</td>
+            <td>Definición del stack móvil: Flutter, Dart y servicios en la nube de Firebase.</td>
+            <td>Sin impedimentos. Entregable: Reporte Inicial.</td>
+          </tr>
+          <tr>
+            <td><strong>04/09/2026</strong></td>
+            <td>Sprint 1 Planning</td>
+            <td>Valeria C. (PO)<br>María V. (SM)</td>
+            <td>Planteamiento del problema en Dolores Hidalgo y recorte del alcance a las 4 funciones clave del MVP.</td>
+            <td>Se descartaron AR y pasarela de pagos para mitigar riesgo de tiempo.</td>
+          </tr>
+          <tr>
+            <td><strong>11/09/2026</strong></td>
+            <td>Daily Standup / UI</td>
+            <td>María V. (SM/UI)</td>
+            <td>Diseño de las 3 pantallas móviles (Home, Mapa de 3 pines y Formulario de Reporte con Folio).</td>
+            <td>Estandarización de pines Azul, Amarillo y Rojo en <code>AppColors</code>.</td>
+          </tr>
+          <tr>
+            <td><strong>14/09/2026</strong></td>
+            <td>Sesión Arquitectura</td>
+            <td>Valeria C.<br>María V.</td>
+            <td>Selección de arquitectura <strong>MVVM + Clean Architecture</strong> para Flutter y Diagrama UML de clases.</td>
+            <td>Separación en capas <code>domain</code>, <code>data</code> y <code>presentation</code>.</td>
+          </tr>
+          <tr>
+            <td><strong>23/09/2026</strong></td>
+            <td>Juego de Roles / Sprint 2 Planning</td>
+            <td>Valeria C. (PO)<br>María V. (SM)</td>
+            <td>Asignación formal de roles Scrum, redacción de historias <code>HU01</code>–<code>HU05</code> y creación del repositorio GitHub.</td>
+            <td>Estructuración de ramas GitFlow (<code>main</code>, <code>develop</code>, <code>feature/*</code>).</td>
+          </tr>
+          <tr>
+            <td><strong>02/10/2026</strong></td>
+            <td>Daily / Seguridad</td>
+            <td>Valeria C.<br>María V.</td>
+            <td>Aplicación de LFPDPPP (Aviso de Privacidad) y OWASP Mobile Top 10 (Mínimo Privilegio en Android/iOS).</td>
+            <td>Permisos acotados a <code>CAMERA</code> y <code>ACCESS_FINE_LOCATION</code>.</td>
+          </tr>
+          <tr>
+            <td><strong>04/10/2026</strong></td>
+            <td>Control de Backlog</td>
+            <td>María V. (SM)</td>
+            <td>Registro automatizado de los 7 Issues oficiales, etiquetas de prioridad y Milestones en GitHub.</td>
+            <td>Tablero Kanban sincronizado con el repositorio.</td>
+          </tr>
+          <tr>
+            <td><strong>12/10/2026</strong></td>
+            <td><strong>Sprint 2 Review &amp; Retrospectiva</strong></td>
+            <td>Valeria C. (PO)<br>María V. (SM)</td>
+            <td><strong>Atención a retroalimentación docente:</strong> Sustitución del prototipo web por el proyecto nativo de <strong>App Móvil en Flutter &amp; Dart</strong> e inclusión de esta <strong>Bitácora de Seguimiento</strong>.</td>
+            <td><strong>Observación Docente Atendida:</strong> Código migrado 100% a Flutter móvil (<code>lib/</code>, <code>pubspec.yaml</code>, <code>android/</code>, <code>ios/</code>) y bitácora publicada.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico • Plan de Sprints</span>
+      <span>DoloresMágico App • Bitácora Oficial de Seguimiento</span>
       <span>Página 8 de 10</span>
     </div>
   </div>
@@ -548,43 +595,43 @@
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span>Página 9 de 10</span>
       </div>
 
-      <h2>Capítulo VIII: Gobernanza de Repositorio y Enlaces de Control</h2>
+      <h2>Capítulo VIII: Estrategia de Versionamiento, Pruebas Móviles y Enlaces</h2>
 
+      <h3>Enlaces Oficiales de Control (Acceso Público Activo)</h3>
       <p>
-        La transparencia y la auditabilidad del proceso de desarrollo se sustentan en el uso riguroso de herramientas profesionales de control de versiones y plataformas de seguimiento ágil con acceso público permanente.
+        1. <strong>Repositorio de Código de la App Móvil (Flutter &amp; Dart):</strong><br>
+        <span class="url-link">https://github.com/valeria1732/app_Dolores_Magico</span>
+      </p>
+      <p>
+        2. <strong>Bitácora Oficial de Seguimiento en el Repositorio:</strong><br>
+        <span class="url-link">https://github.com/valeria1732/app_Dolores_Magico/blob/main/BITACORA_SEGUIMIENTO.md</span>
+      </p>
+      <p>
+        3. <strong>Tablero Kanban de Seguimiento e Issues (GitHub Projects):</strong><br>
+        <span class="url-link">https://github.com/valeria1732/app_Dolores_Magico/projects</span> | <span class="url-link">https://github.com/valeria1732/app_Dolores_Magico/issues</span>
       </p>
 
-      <h3>Enlaces Oficiales de Control y Auditoría (Acceso Público Activo)</h3>
+      <h3>Estructura de Ramas en Git y GitHub (Sección 16 del Documento Técnico)</h3>
       <p>
-        1. <strong>Repositorio Oficial de Código Fuente (GitHub):</strong> Aloja el árbol de código completo de la aplicación, el historial cronológico de confirmaciones (commits) y la documentación técnica del proyecto.  
-        Enlace directo: <span class="url-link">https://github.com/valeria1732/app_Dolores_Magico</span>
-      </p>
-      <p>
-        2. <strong>Tablero Ágil de Seguimiento y Control (GitHub Projects / Trello):</strong> Plataforma interactiva donde se administran las columnas de flujo del proyecto (Product Backlog, Tareas por Hacer, En Desarrollo, En Revisión de Código y Terminado), permitiendo verificar en tiempo real la asignación individual de responsabilidades.  
-        Enlace directo: <span class="url-link">https://github.com/valeria1732/app_Dolores_Magico/projects</span>
+        • <code>main</code>: Contiene la versión estable de la aplicación móvil lista para generar el paquete APK de despliegue.<br>
+        • <code>develop</code>: Rama principal de integración de las funcionalidades móviles desarrolladas y probadas.<br>
+        • <code>feature/mapa-turistico</code>: Desarrollo de <code>MapaTuristicoPage</code> y filtrado de pines GPS (<code>HU02</code>).<br>
+        • <code>feature/reporte-ciudadano</code>: Desarrollo de <code>ReporteCiudadanoPage</code>, cámara, GPS y folio (<code>HU03</code>).<br>
+        • <code>feature/catalogo-artesano</code>: Desarrollo de <code>FichaTallerArtesanoPage</code>, registro y enlace a WhatsApp (<code>HU01</code> y <code>HU04</code>).
       </p>
 
-      <h3>Estrategia de Ramificación y Calidad de Integración (GitFlow)</h3>
+      <h3>Estrategia Inicial de Pruebas Móviles (Sección 17)</h3>
       <p>
-        El equipo adopta una estrategia de versionado estructurada para evitar conflictos y asegurar la estabilidad de la rama principal:
-      </p>
-      <p>
-        • <strong>Rama main:</strong> Rama de producción protegida que contiene únicamente versiones estables y aprobadas. Queda estrictamente prohibido realizar confirmaciones directas en esta rama.
-      </p>
-      <p>
-        • <strong>Rama develop:</strong> Rama de integración continua donde convergen las características validadas antes de la preparación de la versión de entrega.
-      </p>
-      <p>
-        • <strong>Ramas feature:</strong> Ramas individuales creadas para cada historia de usuario específica (por ejemplo, feature/catalogo o feature/filtros), las cuales se integran mediante Pull Requests obligatorios que requieren la revisión técnica de los pares antes de su fusión.
+        Incluye pruebas unitarias en <code>test/unit/registrar_reporte_usecase_test.dart</code> sobre validación de formularios, coordenadas GPS y generación de folios <code>FOL-2026-DH-XXXX</code>, además de pruebas de integración con Firebase Storage/Firestore y pruebas de campo con artesanos dolorenses.
       </p>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico • Gobernanza y Enlaces</span>
+      <span>DoloresMágico App • Versionamiento, Pruebas y Enlaces</span>
       <span>Página 9 de 10</span>
     </div>
   </div>
@@ -593,46 +640,35 @@
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico • Plan Director de Ingeniería</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span>Página 10 de 10</span>
       </div>
 
-      <h2>Capítulo IX: Métricas de Calidad y Declaración de Compromiso</h2>
+      <h2>Capítulo IX: Cronograma Final Rumbo al 20 de Noviembre y Compromiso</h2>
 
+      <h3>Ruta Crítica de Cierre (Sprints 3 y 4)</h3>
       <p>
-        Para validar objetivamente el éxito del Producto Mínimo Viable, se establecen Indicadores Clave de Desempeño (KPIs) cuantitativos que servirán como criterio de aceptación final durante la presentación evaluativa.
-      </p>
-
-      <h3>Indicadores Clave de Rendimiento y Calidad de Software</h3>
-      <p>
-        1. <strong>Tiempo de Respuesta y Carga Inicial:</strong> La aplicación debe desplegar la interfaz principal y el catálogo inicial en un tiempo menor a 2.0 segundos bajo condiciones estándar de conectividad móvil.
+        • <strong>Sprint 3 (13 de octubre al 02 de noviembre de 2026):</strong> Pruebas en dispositivo físico Android de la captura fotográfica con cámara (<code>image_picker</code>), lectura de coordenadas reales con <code>geolocator</code>, subida de evidencias a Firebase Cloud Storage y notificaciones con Firebase Cloud Messaging.
       </p>
       <p>
-        2. <strong>Fidelidad y Veracidad de la Información:</strong> El 100% de los datos turísticos mostrados (fotografías, ubicaciones, horarios y reseñas históricas) corresponderá a establecimientos y monumentos reales de Dolores Hidalgo, descartando el uso de contenido simulado o ficticio.
-      </p>
-      <p>
-        3. <strong>Estabilidad en Demostración en Vivo:</strong> Tasa de cero fallos críticos o excepciones no controladas durante la navegación interactiva de los flujos de usuario frente al comité evaluador el 20 de noviembre de 2026.
+        • <strong>Sprint 4 (03 de noviembre al 20 de noviembre de 2026):</strong> Pruebas de campo con artesanos de Talavera y neveros tradicionales del Centro Histórico de Dolores Hidalgo, congelamiento de código (<em>Code Freeze</em> el 18 de noviembre), generación del paquete instalable firmado (<code>flutter build apk --release</code>) y presentación del PMV funcional en vivo el <strong>20 de noviembre de 2026</strong>.
       </p>
 
-      <h3>Declaración y Acta de Compromiso del Equipo de Desarrollo</h3>
+      <h3>Declaración y Firmas de Compromiso del Equipo</h3>
       <p>
-        Las integrantes del equipo suscriben formalmente el presente documento, ratificando su participación activa en la sesión de planeación y asumiendo la responsabilidad ética, técnica y de gestión para materializar y defender con éxito el Producto Mínimo Viable de la plataforma Dolores Mágico en la fecha límite inamovible estipulada.
+        Las integrantes del equipo suscriben el presente documento y su bitácora de seguimiento, certificando que el repositorio oficial aloja la arquitectura y código fuente de la aplicación móvil en Flutter &amp; Dart y ratificando su compromiso para presentar el Producto Mínimo Viable funcional en la fecha límite estipulada.
       </p>
 
-      <div style="margin-top: 20px; padding-top: 12px; border-top: 1.5px solid #111111;">
-        <p style="font-family: 'Inter', sans-serif; font-size: 9pt; line-height: 1.8; margin-bottom: 0;">
-          <strong>Valeria Guadalupe Calvillo Mendoza</strong> — Product Owner / Dirección de Proyecto<br>
-          <strong>María del Carmen</strong> — Scrum Master / Facilitación Metodológica y Liderazgo Técnico
+      <div style="margin-top: 22px; padding-top: 12px; border-top: 1.5px solid #0f172a;">
+        <p style="font-family: 'Inter', sans-serif; font-size: 9pt; line-height: 1.85; margin-bottom: 0;">
+          <strong>Valeria Guadalupe Calvillo Mendoza (Matrícula: 1223100392)</strong> — Product Owner &amp; Mobile Backend / Clean Architecture Lead<br>
+          <strong>María del Carmen Vargas Martínez (Matrícula: 1220100084)</strong> — Scrum Master &amp; Mobile UI/UX Flutter Lead
         </p>
-      </div>
-
-      <div style="margin-top: 14px; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #777777; border-top: 1px solid #e0e0e0; padding-top: 5px;">
-        Documento técnico y metodológico oficial emitido conforme a la rúbrica de evaluación docente (100% de cumplimiento normativo).
       </div>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico • Métricas y Compromiso</span>
+      <span>DoloresMágico App • UTNG GIDS6101-E</span>
       <span>Página 10 de 10</span>
     </div>
   </div>

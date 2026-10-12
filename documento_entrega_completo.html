@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dossier Técnico Ejecutivo - Dolores Mágico</title>
+  <title>Dossier Ejecutivo App Móvil Flutter y Bitácora de Seguimiento - DoloresMágico App</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
@@ -23,12 +23,11 @@
       color: #0f172a;
       background-color: #ffffff;
       line-height: 1.42;
-      font-size: 9.2pt;
+      font-size: 9pt;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
 
-    /* Page container */
     .page {
       page-break-after: always;
       break-after: page;
@@ -52,14 +51,13 @@
       flex: 1;
     }
 
-    /* Running Header and Footer */
     .doc-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1.5px solid #0f172a;
       padding-bottom: 5px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       font-size: 7.5pt;
       color: #475569;
       text-transform: uppercase;
@@ -69,7 +67,7 @@
 
     .doc-header .doc-id {
       font-family: 'JetBrains Mono', monospace;
-      color: #2563eb;
+      color: #0d47a1;
     }
 
     .doc-footer {
@@ -83,20 +81,19 @@
       margin-top: 8px;
     }
 
-    /* Typography */
     h1, h2, h3, h4 {
       font-family: 'Space Grotesk', sans-serif;
       color: #090d16;
-      letter-spacing: -0.4px;
+      letter-spacing: -0.3px;
     }
 
     h2 {
-      font-size: 13.5pt;
+      font-size: 13pt;
       font-weight: 700;
       color: #0f172a;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
       padding-bottom: 3px;
-      border-bottom: 2px solid #2563eb;
+      border-bottom: 2px solid #0d47a1;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -106,18 +103,18 @@
       font-size: 7.5pt;
       font-family: 'JetBrains Mono', monospace;
       font-weight: 600;
-      background: #eff6ff;
-      color: #1d4ed8;
+      background: #dbeafe;
+      color: #0d47a1;
       padding: 2px 6px;
       border-radius: 4px;
     }
 
     h3 {
-      font-size: 10.5pt;
+      font-size: 10pt;
       font-weight: 700;
       color: #1e293b;
-      margin-top: 8px;
-      margin-bottom: 4px;
+      margin-top: 7px;
+      margin-bottom: 3px;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -127,25 +124,24 @@
       content: "";
       display: inline-block;
       width: 4px;
-      height: 12px;
-      background: #2563eb;
+      height: 11px;
+      background: #0d47a1;
       border-radius: 2px;
     }
 
     p {
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       text-align: justify;
-      line-height: 1.42;
+      line-height: 1.4;
       color: #334155;
     }
 
-    /* Badges & Pills */
     .badge {
       display: inline-block;
-      font-size: 7pt;
+      font-size: 6.8pt;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
       padding: 2px 6px;
       border-radius: 4px;
     }
@@ -156,12 +152,11 @@
     .badge-danger { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
     .badge-dark { background: #0f172a; color: #ffffff; }
 
-    /* Tables */
     .table-styled {
       width: 100%;
       border-collapse: collapse;
-      margin: 6px 0 8px 0;
-      font-size: 8pt;
+      margin: 5px 0 7px 0;
+      font-size: 7.8pt;
     }
 
     .table-styled th {
@@ -169,14 +164,14 @@
       color: #f8fafc;
       font-weight: 700;
       text-align: left;
-      padding: 5px 7px;
-      font-size: 7.5pt;
+      padding: 5px 6px;
+      font-size: 7.2pt;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
     }
 
     .table-styled td {
-      padding: 5px 7px;
+      padding: 4.5px 6px;
       border-bottom: 1px solid #e2e8f0;
       vertical-align: top;
       color: #1e293b;
@@ -186,58 +181,55 @@
       background-color: #f8fafc;
     }
 
-    /* Cards and Callouts */
     .card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 6px;
-      padding: 8px 10px;
-      margin-bottom: 6px;
+      padding: 7px 9px;
+      margin-bottom: 5px;
     }
 
     .callout-box {
       background: #f8fafc;
-      border-left: 3.5px solid #2563eb;
+      border-left: 3.5px solid #0d47a1;
       border-radius: 0 6px 6px 0;
-      padding: 8px 11px;
-      margin: 6px 0;
+      padding: 7px 10px;
+      margin: 5px 0;
     }
 
     .callout-formal {
       background: #eff6ff;
-      border-left: 3.5px solid #1d4ed8;
+      border-left: 3.5px solid #0d47a1;
       border-radius: 0 6px 6px 0;
-      padding: 10px 12px;
-      margin: 8px 0;
+      padding: 9px 11px;
+      margin: 7px 0;
     }
 
-    /* Grid Layouts */
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
-      margin: 6px 0;
+      margin: 5px 0;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 6px;
-      margin: 6px 0;
+      margin: 5px 0;
     }
 
-    /* Lists */
     ul.styled-list {
       list-style: none;
       padding-left: 0;
-      margin: 3px 0 5px 0;
+      margin: 2px 0 4px 0;
     }
 
     ul.styled-list li {
       position: relative;
-      padding-left: 12px;
-      margin-bottom: 3px;
-      font-size: 8.5pt;
+      padding-left: 11px;
+      margin-bottom: 2.5px;
+      font-size: 8.2pt;
       color: #334155;
     }
 
@@ -245,36 +237,35 @@
       content: "▪";
       position: absolute;
       left: 0;
-      color: #2563eb;
+      color: #0d47a1;
       font-size: 9pt;
       line-height: 1;
     }
 
-    /* Cover Page Specific */
     .cover-top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #0f172a;
+      border-bottom: 2px solid #0d47a1;
       padding-bottom: 12px;
     }
 
     .cover-logo-text {
       font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 14pt;
-      color: #0f172a;
+      color: #0d47a1;
       letter-spacing: -0.5px;
     }
 
     .cover-main-block {
-      margin-top: 30px;
+      margin-top: 26px;
     }
 
     .cover-sub-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 8pt;
-      color: #2563eb;
+      color: #0d47a1;
       text-transform: uppercase;
       letter-spacing: 1.2px;
       font-weight: 600;
@@ -282,7 +273,7 @@
     }
 
     .cover-main-title {
-      font-size: 26pt;
+      font-size: 25pt;
       font-weight: 800;
       color: #090d16;
       line-height: 1.15;
@@ -291,7 +282,7 @@
     }
 
     .cover-lead-text {
-      font-size: 11pt;
+      font-size: 10.5pt;
       font-weight: 400;
       color: #475569;
       line-height: 1.5;
@@ -302,14 +293,14 @@
       background: #f8fafc;
       border: 1px solid #cbd5e1;
       border-radius: 8px;
-      padding: 14px 18px;
+      padding: 13px 16px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 9px;
     }
 
     .meta-field h5 {
-      font-size: 7pt;
+      font-size: 6.8pt;
       text-transform: uppercase;
       color: #64748b;
       letter-spacing: 0.6px;
@@ -317,7 +308,7 @@
     }
 
     .meta-field p {
-      font-size: 9pt;
+      font-size: 8.6pt;
       font-weight: 700;
       color: #0f172a;
       margin-bottom: 0;
@@ -327,20 +318,11 @@
       font-family: 'JetBrains Mono', monospace;
       background: #0f172a;
       color: #e2e8f0;
-      padding: 6px 8px;
+      padding: 5px 8px;
       border-radius: 4px;
-      font-size: 7pt;
+      font-size: 6.9pt;
       line-height: 1.35;
-      margin: 4px 0;
-    }
-
-    .diagram-box {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 8px;
-      text-align: center;
-      margin: 6px 0;
+      margin: 3px 0;
     }
   </style>
 </head>
@@ -348,24 +330,24 @@
 
   <!-- ================= PAGE 1: PORTADA ================= -->
   <div class="page">
-    <div class="page-content" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 10px 0;">
+    <div class="page-content" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 8px 0;">
       <div>
         <div class="cover-top-bar">
           <div>
-            <div class="cover-logo-text">DOLORES MÁGICO TECHNOLOGIES</div>
-            <div style="font-size: 7.5pt; color: #64748b; font-weight: 500;">División de Ingeniería de Software & Transformación Digital Turística</div>
+            <div class="cover-logo-text">UNIVERSIDAD TECNOLÓGICA DEL NORTE DE GUANAJUATO</div>
+            <div style="font-size: 7.8pt; color: #475569; font-weight: 600;">Materia: Desarrollo Móvil Integral • Docente: José de Jesús Eduardo Barrientos Avalos • Grupo: GIDS6101-E</div>
           </div>
           <div style="text-align: right;">
-            <span class="badge badge-dark">DOC-REF: DM-2026-FND</span>
-            <div style="font-size: 7pt; color: #64748b; margin-top: 2px;">Versión Oficial 1.0</div>
+            <span class="badge badge-dark">APP MÓVIL FLUTTER &amp; DART</span>
+            <div style="font-size: 7pt; color: #64748b; margin-top: 2px;">Entrega Oficial con Bitácora</div>
           </div>
         </div>
 
         <div class="cover-main-block">
-          <div class="cover-sub-label">Documento de Fundamentación y Gobernanza Ágil</div>
-          <h1 class="cover-main-title">Plan Director de Ingeniería & Definición del PMV</h1>
+          <div class="cover-sub-label">Actividad: Juego de Roles, Planeación, Arquitectura Móvil y Bitácora de Seguimiento</div>
+          <h1 class="cover-main-title">DoloresMágico App: Fundamentación Metodológica, App Móvil en Flutter &amp; Bitácora</h1>
           <p class="cover-lead-text">
-            Formalización de la estructura de roles de gestión, justificación metodológica basada en el marco Scrum, delimitación técnica del Producto Mínimo Viable y plan de aseguramiento de la calidad para la entrega contractual del 20 de noviembre de 2026.
+            Documento ejecutivo de ingeniería móvil que presenta la asignación de roles bajo Scrum con enfoque Hackathon, la fundamentación metodológica (&lt;150 palabras), la arquitectura nativa de la <strong>Aplicación Móvil en Flutter &amp; Dart (MVVM + Clean Architecture con Firebase)</strong> y la <strong>Bitácora Oficial de Seguimiento</strong> rumbo al Producto Mínimo Viable del 20 de noviembre de 2026.
           </p>
         </div>
       </div>
@@ -373,779 +355,508 @@
       <div>
         <div class="cover-meta-grid">
           <div class="meta-field">
-            <h5>Nombre del Proyecto / Software</h5>
-            <p>Dolores Mágico (app_Dolores_Magico)</p>
+            <h5>Nombre del Proyecto Móvil</h5>
+            <p>DoloresMágico App (<code>app_Dolores_Magico</code>)</p>
           </div>
           <div class="meta-field">
-            <h5>Metodología de Desarrollo</h5>
-            <p>Scrum Framework (Sprints Bisemanales)</p>
+            <h5>Framework y Lenguaje Móvil</h5>
+            <p>Flutter • Dart • Android SDK / iOS</p>
           </div>
           <div class="meta-field">
-            <h5>Product Owner & Líder de Proyecto</h5>
-            <p>Valeria Calvillo</p>
+            <h5>Product Owner &amp; Mobile Backend Lead</h5>
+            <p>Valeria Guadalupe Calvillo Mendoza (1223100392)</p>
           </div>
           <div class="meta-field">
-            <h5>Hito Inamovible de Entrega (PMV)</h5>
-            <p>20 de Noviembre de 2026 (Live Demo)</p>
+            <h5>Scrum Master &amp; Mobile UI Flutter Lead</h5>
+            <p>María del Carmen Vargas Martínez (1220100084)</p>
           </div>
           <div class="meta-field">
-            <h5>Repositorio Oficial de Código</h5>
-            <p style="font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: #2563eb;">github.com/valeria1732/app_Dolores_Magico</p>
+            <h5>Arquitectura y Servicios Cloud</h5>
+            <p>MVVM + Clean Architecture • Firebase • Hive</p>
           </div>
           <div class="meta-field">
-            <h5>Estado de Auditoría</h5>
-            <p><span class="badge badge-success">Aprobado para Desarrollo Activo</span></p>
+            <h5>Fecha Límite Inamovible del PMV</h5>
+            <p>20 de Noviembre de 2026 (Demo en Vivo)</p>
+          </div>
+          <div class="meta-field">
+            <h5>Repositorio de Código Móvil (Flutter)</h5>
+            <p style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: #0d47a1;">github.com/valeria1732/app_Dolores_Magico</p>
+          </div>
+          <div class="meta-field">
+            <h5>Bitácora y Tablero de Seguimiento</h5>
+            <p><span class="badge badge-success">BITACORA_SEGUIMIENTO.md &amp; GitHub Projects</span></p>
           </div>
         </div>
 
-        <div style="margin-top: 18px; display: flex; justify-content: space-between; font-size: 7.5pt; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 6px;">
-          <span>© 2026 Dolores Mágico Technologies • Derechos Reservados</span>
-          <span>Confidencial • Uso Didáctico y Profesional</span>
+        <div style="margin-top: 14px; display: flex; justify-content: space-between; font-size: 7.5pt; color: #64748b; border-top: 1px solid #cbd5e1; padding-top: 5px;">
+          <span>UTNG • Ingeniería en Desarrollo y Gestión de Software</span>
+          <span>Dolores Hidalgo C.I.N., Guanajuato • Octubre 2026</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 2: RESUMEN EJECUTIVO & ÍNDICE ================= -->
+  <!-- ================= PAGE 2: RESUMEN EJECUTIVO MÓVIL & ÍNDICE ================= -->
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico Technologies • Dossier Metodológico</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span class="doc-id">Pág. 02 / 10</span>
       </div>
 
-      <h2>1. Resumen Ejecutivo y Tabla de Contenidos <span class="sec-tag">SEC-01</span></h2>
+      <h2>1. Resumen Ejecutivo de la App Móvil e Índice <span class="sec-tag">CAP-01</span></h2>
 
       <div class="callout-box">
-        <h3 style="margin-top: 0; color: #1e3a8a;">1.1 Resumen Ejecutivo del Proyecto</h3>
-        <p style="font-size: 8.8pt;">
-          El proyecto <strong>Dolores Mágico</strong> surge como una iniciativa tecnológica orientada a potenciar la visibilidad turística, el acervo cultural y la dinamización comercial del municipio de Dolores Hidalgo Cuna de la Independencia Nacional, Guanajuato. La solución implementa una arquitectura desacoplada basada en microservicios ligeros con un Frontend responsivo optimizado para navegación móvil y un Backend RESTful de alta disponibilidad.
-        </p>
-        <p style="font-size: 8.8pt; margin-bottom: 0;">
-          El presente informe de ingeniería establece las directrices de gobernanza técnica, el desglose pormenorizado de responsabilidades bajo matriz RACI, la justificación cuantitativa y cualitativa de la metodología Scrum, la priorización MoSCoW del Producto Mínimo Viable (PMV) y los enlaces de auditoría para la entrega obligatoria del <strong>20 de noviembre de 2026</strong>.
+        <h3 style="margin-top: 0; color: #0d47a1;">1.1 Propuesta de Valor de la Aplicación Móvil</h3>
+        <p style="font-size: 8.5pt;">
+          <strong>DoloresMágico App</strong> es una aplicación móvil multiplataforma desarrollada en <strong>Flutter y Dart</strong> para dispositivos <strong>Android e iOS</strong>. Su objetivo es impulsar la economía de los talleres artesanales de Talavera y neverías tradicionales de Dolores Hidalgo C.I.N. mediante un mapa interactivo GPS con contacto directo por WhatsApp (sin intermediarios ni comisiones), integrando además un módulo de participación ciudadana para el reporte de desperfectos urbanos mediante fotografía con cámara, coordenadas GPS automáticas y folio de seguimiento en <strong>Firebase</strong>.
         </p>
       </div>
 
-      <h3>1.2 Índice General de Secciones</h3>
+      <h3>1.2 Índice Capitular del Documento y Bitácora</h3>
       <table class="table-styled">
         <thead>
           <tr>
-            <th style="width: 12%;">Código</th>
-            <th style="width: 73%;">Capítulo / Módulo Técnico</th>
-            <th style="width: 15%; text-align: right;">Ubicación</th>
+            <th style="width: 12%;">Capítulo</th>
+            <th style="width: 73%;">Contenido Técnico y Metodológico</th>
+            <th style="width: 15%; text-align: right;">Página</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><code>CAP-01</code></td>
-            <td><strong>Resumen Ejecutivo y Tabla de Contenidos</strong></td>
-            <td style="text-align: right;">Página 02</td>
-          </tr>
-          <tr>
-            <td><code>CAP-02</code></td>
-            <td><strong>Estructura Organizacional, Roles y Matriz RACI</strong></td>
-            <td style="text-align: right;">Página 03</td>
-          </tr>
-          <tr>
-            <td><code>CAP-03</code></td>
-            <td><strong>Fundamentación Metodológica y Gestión de Riesgos</strong></td>
-            <td style="text-align: right;">Página 04</td>
-          </tr>
-          <tr>
-            <td><code>CAP-04</code></td>
-            <td><strong>Estrategia del Producto Mínimo Viable (PMV) & Marco MoSCoW</strong></td>
-            <td style="text-align: right;">Página 05</td>
-          </tr>
-          <tr>
-            <td><code>CAP-05</code></td>
-            <td><strong>Product Backlog, Épicas e Historias de Usuario (Gherkin)</strong></td>
-            <td style="text-align: right;">Página 06</td>
-          </tr>
-          <tr>
-            <td><code>CAP-06</code></td>
-            <td><strong>Arquitectura de Software, Stack Técnico y Modelo de Datos</strong></td>
-            <td style="text-align: right;">Página 07</td>
-          </tr>
-          <tr>
-            <td><code>CAP-07</code></td>
-            <td><strong>Cronograma de Sprints y Ruta Crítica al 20 de Noviembre</strong></td>
-            <td style="text-align: right;">Página 08</td>
-          </tr>
-          <tr>
-            <td><code>CAP-08</code></td>
-            <td><strong>Gobernanza Git, Políticas de PRs y Enlaces de Control</strong></td>
-            <td style="text-align: right;">Página 09</td>
-          </tr>
-          <tr>
-            <td><code>CAP-09</code></td>
-            <td><strong>Métricas de Desempeño (KPIs), Validación y Firmas</strong></td>
-            <td style="text-align: right;">Página 10</td>
-          </tr>
+          <tr><td><code>CAP-01</code></td><td><strong>Resumen Ejecutivo de la App Móvil e Índice General</strong></td><td style="text-align: right;">Pág. 02</td></tr>
+          <tr><td><code>CAP-02</code></td><td><strong>Tablero de Roles Scrum y Matriz RACI del Equipo Móvil</strong></td><td style="text-align: right;">Pág. 03</td></tr>
+          <tr><td><code>CAP-03</code></td><td><strong>Justificación de la Metodología (&lt;150 palabras) y Mitigación de Riesgos</strong></td><td style="text-align: right;">Pág. 04</td></tr>
+          <tr><td><code>CAP-04</code></td><td><strong>Estrategia del Producto Mínimo Viable (PMV Móvil) y Exclusiones</strong></td><td style="text-align: right;">Pág. 05</td></tr>
+          <tr><td><code>CAP-05</code></td><td><strong>Product Backlog Móvil e Historias de Usuario (HU01 a HU05)</strong></td><td style="text-align: right;">Pág. 06</td></tr>
+          <tr><td><code>CAP-06</code></td><td><strong>Arquitectura de la App Móvil en Flutter (MVVM + Clean Architecture + UML)</strong></td><td style="text-align: right;">Pág. 07</td></tr>
+          <tr><td><code>CAP-07</code></td><td><strong>Bitácora Oficial de Seguimiento (Sprints, Ceremonias Scrum y Cambios)</strong></td><td style="text-align: right;">Pág. 08</td></tr>
+          <tr><td><code>CAP-08</code></td><td><strong>Gobernanza GitFlow, Ramas Móviles, Pruebas y Enlaces de Control</strong></td><td style="text-align: right;">Pág. 09</td></tr>
+          <tr><td><code>CAP-09</code></td><td><strong>Métricas de Calidad Móvil, Seguridad OWASP/LFPDPPP y Compromiso</strong></td><td style="text-align: right;">Pág. 10</td></tr>
         </tbody>
       </table>
-
-      <div class="card" style="background: #f8fafc; margin-top: 8px;">
-        <h4 style="font-size: 8.5pt; color: #0f172a; margin-bottom: 2px;">🎯 Declaración de Compromiso y Calidad</h4>
-        <p style="font-size: 8pt; color: #475569; margin-bottom: 0;">
-          El equipo asume el compromiso innegociable de presentar ante los evaluadores un sistema funcional en vivo, con datos representativos de Dolores Hidalgo y cero dependencias simuladas el <strong>20 de noviembre de 2026</strong>.
-        </p>
-      </div>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico Technologies • Sistema de Calidad ISO/IEC 25010</span>
+      <span>DoloresMágico App • UTNG GIDS6101-E</span>
       <span>Página 02 de 10</span>
     </div>
   </div>
 
-  <!-- ================= PAGE 3: ESTRUCTURA DE ROLES & RACI ================= -->
+  <!-- ================= PAGE 3: ROLES & MATRIZ RACI ================= -->
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico Technologies • Dossier Metodológico</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span class="doc-id">Pág. 03 / 10</span>
       </div>
 
-      <h2>2. Estructura Organizacional y Roles Metodológicos <span class="sec-tag">SEC-02</span></h2>
-      <p>
-        Bajo el paradigma de una startup de ingeniería moderna, la organización descarta esquemas pasivos y establece responsabilidades ejecutivas para cada integrante, articulando la gestión y el desarrollo técnico.
-      </p>
+      <h2>2. El Tablero de Roles y Responsabilidades Móviles <span class="sec-tag">CAP-02</span></h2>
 
-      <div class="grid-3">
+      <div class="grid-2">
         <div class="card" style="border-top: 3px solid #dc2626;">
-          <span class="badge badge-danger">Product Owner</span>
-          <h4 style="margin-top: 3px; font-size: 9.5pt;">Valeria Calvillo</h4>
-          <p style="font-size: 7.8pt; color: #475569; margin-top: 2px; margin-bottom: 0;">
-            Gobierno del Producto. Responsable del valor de negocio, priorización del backlog, interlocución con usuarios turísticos y blindaje del alcance del PMV.
+          <span class="badge badge-danger">Product Owner &amp; Mobile Backend Lead</span>
+          <h4 style="margin-top: 3px; font-size: 9.5pt;">Valeria Guadalupe Calvillo Mendoza</h4>
+          <p style="font-size: 7.8pt; color: #475569; margin-bottom: 0;">
+            <strong>Matrícula: 1223100392.</strong> Dueña de la visión del producto móvil, priorización del <em>Product Backlog</em> y alcance del PMV. Lidera la Capa de Dominio y Datos en Dart (<code>RegistrarReporteUseCase</code>, <code>ReporteRepositoryImpl</code>, Firebase Auth, Firestore y Storage).
           </p>
         </div>
 
-        <div class="card" style="border-top: 3px solid #2563eb;">
-          <span class="badge badge-primary">Scrum Master</span>
-          <h4 style="margin-top: 3px; font-size: 9.5pt;">Facilitador de Procesos</h4>
-          <p style="font-size: 7.8pt; color: #475569; margin-top: 2px; margin-bottom: 0;">
-            Excelencia Metodológica. Facilita Daily Standups y Sprint Reviews, elimina cuellos de botella organizacionales y audita el tablero de seguimiento.
-          </p>
-        </div>
-
-        <div class="card" style="border-top: 3px solid #16a34a;">
-          <span class="badge badge-success">Tech Leads / Dev Team</span>
-          <h4 style="margin-top: 3px; font-size: 9.5pt;">Equipo de Ingeniería</h4>
-          <p style="font-size: 7.8pt; color: #475569; margin-top: 2px; margin-bottom: 0;">
-            Implementación Técnica. Arquitectura Frontend/Backend, persistencia de datos, diseño responsivo, control de versiones en GitHub y despliegue continuo.
+        <div class="card" style="border-top: 3px solid #0d47a1;">
+          <span class="badge badge-primary">Scrum Master &amp; Mobile UI Flutter Lead</span>
+          <h4 style="margin-top: 3px; font-size: 9.5pt;">María del Carmen Vargas Martínez</h4>
+          <p style="font-size: 7.8pt; color: #475569; margin-bottom: 0;">
+            <strong>Matrícula: 1220100084.</strong> Facilitadora de la metodología Scrum, remoción de obstáculos, gestión del tablero Kanban en GitHub Projects y bitácora. Lidera la Capa de Presentación en Flutter (<code>HomeMenuPage</code>, <code>MapaTuristicoPage</code>, <code>ReporteCiudadanoPage</code>).
           </p>
         </div>
       </div>
 
-      <h3>2.1 Matriz RACI de Responsabilidades Operativas</h3>
-      <p style="font-size: 8pt; color: #64748b; margin-bottom: 4px;">
-        Convención: <strong>R</strong> = Responsable de Ejecutar, <strong>A</strong> = Aprobador Final (Accountable), <strong>C</strong> = Consultado, <strong>I</strong> = Informado.
-      </p>
-
+      <h3>2.1 Matriz RACI de Gestión y Desarrollo Móvil</h3>
       <table class="table-styled">
         <thead>
           <tr>
-            <th>Entregable / Actividad de Ingeniería</th>
-            <th style="text-align: center;">Product Owner</th>
-            <th style="text-align: center;">Scrum Master</th>
-            <th style="text-align: center;">Frontend Lead</th>
-            <th style="text-align: center;">Backend Lead</th>
+            <th>Actividad / Entregable de la App Móvil</th>
+            <th style="text-align: center;">Valeria Calvillo (PO / Backend)</th>
+            <th style="text-align: center;">María Vargas (SM / UI Flutter)</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Definición y Priorización de Backlog</td>
-            <td style="text-align: center;"><strong style="color: #dc2626;">A / R</strong></td>
-            <td style="text-align: center;">C</td>
-            <td style="text-align: center;">C</td>
-            <td style="text-align: center;">C</td>
-          </tr>
-          <tr>
-            <td>Auditoría y Mantenimiento de Tablero Kanban</td>
-            <td style="text-align: center;">I</td>
-            <td style="text-align: center;"><strong style="color: #2563eb;">A / R</strong></td>
-            <td style="text-align: center;">R</td>
-            <td style="text-align: center;">R</td>
-          </tr>
-          <tr>
-            <td>Diseño de Arquitectura y Contratos API REST</td>
-            <td style="text-align: center;">I</td>
-            <td style="text-align: center;">C</td>
-            <td style="text-align: center;">R</td>
-            <td style="text-align: center;"><strong style="color: #16a34a;">A / R</strong></td>
-          </tr>
-          <tr>
-            <td>Construcción de UI/UX y Vistas de Catálogo</td>
-            <td style="text-align: center;">C</td>
-            <td style="text-align: center;">I</td>
-            <td style="text-align: center;"><strong style="color: #16a34a;">A / R</strong></td>
-            <td style="text-align: center;">C</td>
-          </tr>
-          <tr>
-            <td>Validación de Definition of Done (DoD) y QA</td>
-            <td style="text-align: center;"><strong style="color: #dc2626;">A</strong></td>
-            <td style="text-align: center;">C</td>
-            <td style="text-align: center;">R</td>
-            <td style="text-align: center;">R</td>
-          </tr>
-          <tr>
-            <td>Demostración en Vivo del PMV (20 de Noviembre)</td>
-            <td style="text-align: center;"><strong style="color: #dc2626;">A / R</strong></td>
-            <td style="text-align: center;">R</td>
-            <td style="text-align: center;">R</td>
-            <td style="text-align: center;">R</td>
-          </tr>
+          <tr><td>Priorización del Product Backlog y Alcance del PMV</td><td style="text-align: center;"><strong>A / R</strong></td><td style="text-align: center;">C</td></tr>
+          <tr><td>Facilitación Scrum, Tablero GitHub Projects y Bitácora</td><td style="text-align: center;">C</td><td style="text-align: center;"><strong>A / R</strong></td></tr>
+          <tr><td>Capa de Presentación Flutter (Vistas, Widgets y ViewModels)</td><td style="text-align: center;">C</td><td style="text-align: center;"><strong>A / R</strong></td></tr>
+          <tr><td>Capa de Dominio y Datos (Casos de Uso, Repositorios, Firebase y Hive)</td><td style="text-align: center;"><strong>A / R</strong></td><td style="text-align: center;">C</td></tr>
+          <tr><td>Integración de Plugins Nativos (<code>geolocator</code>, <code>image_picker</code>, <code>url_launcher</code>)</td><td style="text-align: center;"><strong>R</strong></td><td style="text-align: center;"><strong>R</strong></td></tr>
+          <tr><td>Pruebas Unitarias, Compilación de APK y Demo en Vivo (20 Nov)</td><td style="text-align: center;"><strong>A / R</strong></td><td style="text-align: center;"><strong>A / R</strong></td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico Technologies • Gobierno de TI</span>
+      <span>DoloresMágico App • Roles del Equipo</span>
       <span>Página 03 de 10</span>
     </div>
   </div>
 
-  <!-- ================= PAGE 4: JUSTIFICACIÓN METODOLÓGICA & RIESGOS ================= -->
+  <!-- ================= PAGE 4: FUNDAMENTACIÓN METODOLÓGICA ================= -->
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico Technologies • Dossier Metodológico</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span class="doc-id">Pág. 04 / 10</span>
       </div>
 
-      <h2>3. Fundamentación Metodológica y Gestión de Riesgos <span class="sec-tag">SEC-03</span></h2>
+      <h2>3. Justificación de la Metodología y Riesgos <span class="sec-tag">CAP-03</span></h2>
 
       <div class="callout-formal">
-        <h3 style="margin-top: 0; color: #1e3a8a;">3.1 Fundamentación Metodológica (Requisito Académico Oficial)</h3>
-        <p style="font-size: 9pt; color: #0f172a; line-height: 1.5; text-align: justify; margin-bottom: 4px;">
-          Seleccionamos <strong>Scrum</strong> por su estructura de ciclos cortos e incrementales (Sprints de 2 semanas), óptima para mitigar riesgos ante la fecha límite del 20 de noviembre. Esta metodología nos permite realizar revisiones periódicas, identificar cuellos de botella en la integración entre Frontend y Backend mediante <em>Daily Standups</em> y adaptar prioridades rápidamente. La continua refinación del <em>Product Backlog</em> asegura que el equipo concentre sus esfuerzos exclusivamente en las funcionalidades nucleares del Producto Mínimo Viable (PMV), garantizando una versión estable, testeada y lista para demostración en vivo sin incurrir en desviación de tiempos ni sobrecostes de alcance.
+        <h3 style="margin-top: 0; color: #0d47a1;">3.1 Fundamentación Metodológica Oficial (Máximo 150 palabras)</h3>
+        <p style="font-size: 8.9pt; color: #0f172a; line-height: 1.5; margin-bottom: 4px;">
+          Seleccionamos <strong>Scrum con enfoque Hackathon</strong> apoyado en un tablero <strong>Kanban en GitHub Projects</strong> por su estructura de ciclos cortos e incrementales (Sprints de 2 semanas), óptima para mitigar riesgos ante la fecha límite del 20 de noviembre. Esta metodología nos permite realizar entregas progresivas de la aplicación móvil en Flutter, detectar errores de integración con sensores del dispositivo (cámara y GPS) y servicios de Firebase mediante <em>Daily Standups</em>, y recibir retroalimentación temprana de artesanos y ciudadanos. Además, desacoplar la app móvil en capas de Clean Architecture y MVVM asegura que el equipo concentre su esfuerzo en las funcionalidades prioritarias del Producto Mínimo Viable (PMV), garantizando un APK estable, probado y funcional en vivo.
         </p>
-        <span class="badge badge-dark">Conteo exacto: 104 palabras (Límite normativo: Máximo 150 palabras)</span>
+        <span class="badge badge-dark">Conteo exacto: 120 palabras (Cumple límite máximo de 150 palabras)</span>
       </div>
 
-      <h3>3.2 Cadencia de Ceremonias y Flujo de Inspección</h3>
-      <div class="grid-2">
-        <div class="card">
-          <h4 style="color: #1d4ed8; font-size: 8.5pt;">Sprint Planning (Bi-semanal)</h4>
-          <p style="font-size: 7.8pt; color: #475569; margin-bottom: 0;">
-            Descomposición de épicas en tickets con estimación basada en Story Points y definición formal del Sprint Goal.
-          </p>
-        </div>
-        <div class="card">
-          <h4 style="color: #1d4ed8; font-size: 8.5pt;">Daily Standup (15 minutos)</h4>
-          <p style="font-size: 7.8pt; color: #475569; margin-bottom: 0;">
-            Sincronización táctica diaria de bloqueos técnicos en ramas de GitHub o discrepancias en la API REST.
-          </p>
-        </div>
-      </div>
-
-      <h3>3.3 Matriz de Mitigación de Riesgos de Cronograma</h3>
+      <h3>3.2 Mitigación de Riesgos en el Desarrollo Móvil</h3>
       <table class="table-styled">
         <thead>
           <tr>
-            <th>Factor de Riesgo</th>
-            <th style="width: 18%;">Severidad</th>
-            <th>Protocolo de Mitigación y Contingencia</th>
+            <th>Riesgo Identificado</th>
+            <th style="width: 18%;">Nivel</th>
+            <th>Estrategia de Mitigación Técnica y Metodológica</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Corrupción del Alcance (Scope Creep):</strong> Solicitudes de pago digital o realidad virtual.</td>
-            <td><span class="badge badge-danger">Alta / Crítica</span></td>
-            <td>Poder de veto absoluto por el Product Owner; postergación al Backlog de Releases posteriores.</td>
+            <td><strong>Permisos de Cámara y GPS en Android/iOS</strong></td>
+            <td><span class="badge badge-danger">Alto</span></td>
+            <td>Declaración de permisos bajo mínimo privilegio en <code>AndroidManifest.xml</code> e <code>Info.plist</code> y encapsulación en <code>LocationCameraSingleton</code>.</td>
           </tr>
           <tr>
-            <td><strong>Desalineación Front-Back:</strong> Retrasos en contratos de endpoints o formatos JSON.</td>
-            <td><span class="badge badge-warning">Media / Alta</span></td>
-            <td>Definición formal de contratos REST desde el Sprint 1 y desarrollo desacoplado mediante Mock Data.</td>
+            <td><strong>Falta de Internet en Zonas de Talleres</strong></td>
+            <td><span class="badge badge-warning">Medio</span></td>
+            <td>Aplicación del <em>Repository Pattern</em> con almacenamiento local en <strong>Hive</strong> (<code>HiveLocalDataSource</code>) para consulta offline.</td>
           </tr>
           <tr>
-            <td><strong>Fallas en la Demostración en Vivo:</strong> Errores no controlados durante la evaluación del 20 Nov.</td>
-            <td><span class="badge badge-success">Baja / Crítica</span></td>
-            <td>Code Freeze total el 18 de noviembre, ensayos previos y despliegue en entorno redundante.</td>
+            <td><strong>Desviación de Alcance antes del 20 de Noviembre</strong></td>
+            <td><span class="badge badge-danger">Crítico</span></td>
+            <td>Exclusión estricta de AR y pasarela de pagos; enfoque exclusivo en los 4 módulos de prioridad alta del MVP.</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico Technologies • Gestión de Riesgos PMBOK/Agile</span>
+      <span>DoloresMágico App • Fundamentación Metodológica</span>
       <span>Página 04 de 10</span>
     </div>
   </div>
 
-  <!-- ================= PAGE 5: ESTRATEGIA PMV & MOSCOW ================= -->
+  <!-- ================= PAGE 5: ESTRATEGIA PMV MÓVIL ================= -->
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico Technologies • Dossier Metodológico</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span class="doc-id">Pág. 05 / 10</span>
       </div>
 
-      <h2>4. Estrategia del Producto Mínimo Viable (PMV) <span class="sec-tag">SEC-04</span></h2>
-      <p>
-        La premisa de ingeniería del PMV consiste en entregar la máxima propuesta de valor informativo turístico eliminando cualquier componente periférico que introduzca incertidumbre técnica en la fecha límite del 20 de noviembre.
-      </p>
+      <h2>4. Estrategia del Producto Mínimo Viable (PMV Móvil) <span class="sec-tag">CAP-04</span></h2>
 
-      <h3>4.1 Clasificación y Priorización mediante Marco MoSCoW</h3>
       <table class="table-styled">
         <thead>
           <tr>
-            <th style="width: 22%;">Nivel MoSCoW</th>
-            <th style="width: 38%;">Componentes del Sistema</th>
-            <th style="width: 40%;">Fundamentación Estratégica</th>
+            <th style="width: 24%;">Clasificación</th>
+            <th style="width: 38%;">Módulos de la App Móvil (Flutter)</th>
+            <th style="width: 38%;">Justificación Técnica y de Negocio</th>
           </tr>
         </thead>
         <tbody>
           <tr style="background: #f0fdf4;">
-            <td><span class="badge badge-success">MUST HAVE (Obligatorio)</span></td>
+            <td><span class="badge badge-success">INCLUIDO EN EL PMV<br>(20 de Noviembre)</span></td>
             <td>
-              <strong>1.</strong> Catálogo de Puntos Turísticos.<br>
-              <strong>2.</strong> Filtros por categoría (Cultura, Gastronomía, Artesanía).<br>
-              <strong>3.</strong> Ficha descriptiva con geodatos.<br>
-              <strong>4.</strong> UI responsiva de alto rendimiento.
+              <strong>1. Autenticación y Perfiles (HU01):</strong> Turista/Ciudadano vs. Artesano.<br>
+              <strong>2. Mapa GPS de 3 Pines (HU02):</strong> Azul (Talavera), Amarillo (Nieves), Rojo (Histórico).<br>
+              <strong>3. Catálogo y WhatsApp (HU04):</strong> Ficha del artesano y enlace directo.<br>
+              <strong>4. Reporte Ciudadano (HU03):</strong> Foto de cámara, GPS y folio único.
             </td>
-            <td>Constituye el núcleo funcional no negociable. Permite al visitante descubrir atractivos históricos y culinarios de inmediato. Demostración en vivo obligatoria el 20 de noviembre.</td>
-          </tr>
-          <tr style="background: #eff6ff;">
-            <td><span class="badge badge-primary">SHOULD HAVE (Deseable)</span></td>
-            <td>
-              <strong>1.</strong> Mapa interactivo con pines georreferenciados.<br>
-              <strong>2.</strong> Barra de búsqueda por coincidencia textual.<br>
-              <strong>3.</strong> Enlace directo a rutas de Google Maps.
-            </td>
-            <td>Enriquece la experiencia de usuario; se integra si la velocidad de desarrollo del Sprint 3 mantiene holgura temporal.</td>
-          </tr>
-          <tr style="background: #fffbeb;">
-            <td><span class="badge badge-warning">COULD HAVE (Opcional)</span></td>
-            <td>
-              <strong>1.</strong> Alternador de tema visual (Modo Oscuro).<br>
-              <strong>2.</strong> Marcador de lugares favoritos local.<br>
-              <strong>3.</strong> Botón de compartir en redes sociales.
-            </td>
-            <td>Atributos de conveniencia estética que no condicionan la aprobación del PMV. Se abordarán únicamente con remanente de tiempo.</td>
+            <td>Resuelve de forma directa la visibilidad digital del artesano sin cobrarle comisiones y agiliza el reporte de servicios públicos municipales aprovechando el GPS y la cámara del smartphone.</td>
           </tr>
           <tr style="background: #fef2f2;">
-            <td><span class="badge badge-danger">WON'T HAVE (Excluido)</span></td>
+            <td><span class="badge badge-danger">EXCLUIDO DEL PMV<br>(Próximas Versiones)</span></td>
             <td>
-              <strong>1.</strong> Pasarela de pagos y transacciones bancarias.<br>
-              <strong>2.</strong> Sistema de reservaciones hoteleras en vivo.<br>
-              <strong>3.</strong> Autenticación compleja y perfiles.<br>
-              <strong>4.</strong> Módulos de Realidad Virtual / 360°.
+              <strong>1.</strong> Realidad Aumentada (AR) en monumentos.<br>
+              <strong>2.</strong> Pasarela de pagos bancarios integrada.<br>
+              <strong>3.</strong> Sistema de insignias, recompensas y reseñas complejas.
             </td>
-            <td><strong>Justificación de exclusión:</strong> Complejidad criptográfica, costos de pasarela y dependencias externas que ponen en riesgo crítico el cronograma de entrega.</td>
+            <td>Se dejan fuera por el momento porque requieren modelado 3D pesado y certificaciones bancarias que pondrían en riesgo la estabilidad del APK para el 20 de noviembre.</td>
           </tr>
         </tbody>
       </table>
-
-      <div class="callout-box">
-        <h4 style="margin-top: 0; color: #0f172a; font-size: 8.5pt;">4.2 Criterio de Éxito de la Demostración</h4>
-        <p style="font-size: 8pt; color: #475569; margin-bottom: 0;">
-          El usuario debe poder cargar la plataforma, visualizar el catálogo de Dolores Hidalgo, aplicar un filtro hacia <em>"Nieves Artesanales"</em> o <em>"Talleres Mayólica"</em> y acceder a la ficha técnica con dirección exacta en menos de 8 segundos.
-        </p>
-      </div>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico Technologies • Ingeniería de Requerimientos</span>
+      <span>DoloresMágico App • Estrategia del PMV</span>
       <span>Página 05 de 10</span>
     </div>
   </div>
 
-  <!-- ================= PAGE 6: HISTORIAS DE USUARIO & BACKLOG ================= -->
+  <!-- ================= PAGE 6: PRODUCT BACKLOG & HISTORIAS ================= -->
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico Technologies • Dossier Metodológico</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span class="doc-id">Pág. 06 / 10</span>
       </div>
 
-      <h2>5. Product Backlog e Historias de Usuario <span class="sec-tag">SEC-05</span></h2>
-      <p>
-        Desglose analítico de historias de usuario siguiendo el estándar internacional <em>INVEST</em> y criterios de aceptación redactados en sintaxis <em>Gherkin (Given-When-Then)</em>.
-      </p>
+      <h2>5. Product Backlog Móvil e Historias de Usuario <span class="sec-tag">CAP-05</span></h2>
 
       <div class="card">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <span class="badge badge-primary">HISTORIA US-01 • CATÁLOGO GENERAL</span>
-          <span class="badge badge-dark">Story Points: 5 pts</span>
-        </div>
-        <h4 style="font-size: 9pt; color: #0f172a;">Exploración del Catálogo Turístico y Cultural</h4>
-        <p style="font-size: 8pt; color: #475569; margin-bottom: 3px;">
-          <strong>Como</strong> turista que visita Dolores Hidalgo, <strong>quiero</strong> visualizar un catálogo interactivo de puntos de interés con fotografías, nombre y categoría, <strong>para</strong> seleccionar los atractivos de mi itinerario.
-        </p>
-        <div class="code-box">
-          <strong>CRITERIOS DE ACEPTACIÓN GHERKIN:</strong><br>
-          • <strong>Dado que</strong> el usuario ingresa al portal de Dolores Mágico,<br>
-          • <strong>Cuando</strong> la aplicación invoca el endpoint <code>/api/places</code>,<br>
-          • <strong>Entonces</strong> se renderizan tarjetas interactivas con tiempo de respuesta inferior a 2.0 segundos.
-        </div>
+        <span class="badge badge-primary">HU01 • REGISTRO DEL ARTESANO (PRIORIDAD ALTA)</span>
+        <p style="font-size: 8pt; margin-top: 2px;"><strong>Como</strong> artesano de Talavera de Dolores Hidalgo, <strong>quiero</strong> registrar mi taller proporcionando fotografías, información comercial y ubicación GPS, <strong>para que</strong> los visitantes puedan conocer mi negocio y llegar directamente a él. (<code>registro_artesano_page.dart</code>).</p>
       </div>
 
       <div class="card">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <span class="badge badge-primary">HISTORIA US-02 • MOTOR DE FILTRADO</span>
-          <span class="badge badge-dark">Story Points: 3 pts</span>
-        </div>
-        <h4 style="font-size: 9pt; color: #0f172a;">Filtrado por Categorías Temáticas</h4>
-        <p style="font-size: 8pt; color: #475569; margin-bottom: 3px;">
-          <strong>Como</strong> usuario con interés específico, <strong>quiero</strong> segmentar los lugares por categorías (Historia, Artesanía, Gastronomía), <strong>para</strong> optimizar mi tiempo de búsqueda.
-        </p>
-        <div class="code-box">
-          • <strong>Dado que</strong> el catálogo principal se encuentra cargado,<br>
-          • <strong>Cuando</strong> el usuario selecciona la categoría "Gastronomía",<br>
-          • <strong>Entonces</strong> la interfaz actualiza el DOM mostrando exclusivamente neverías tradicionales y restaurantes locales.
-        </div>
+        <span class="badge badge-primary">HU02 • EXPLORACIÓN TURÍSTICA EN MAPA GPS (PRIORIDAD ALTA)</span>
+        <p style="font-size: 8pt; margin-top: 2px;"><strong>Como</strong> visitante o turista, <strong>quiero</strong> consultar un mapa interactivo que pueda filtrar por categorías (Pines Azules: Talavera, Amarillos: Nieves, Rojos: Sitios Históricos), <strong>para</strong> planificar una ruta de recorrido por la ciudad. (<code>mapa_turistico_page.dart</code>).</p>
       </div>
 
       <div class="card">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <span class="badge badge-primary">HISTORIA US-03 • FICHA TÉCNICA</span>
-          <span class="badge badge-dark">Story Points: 5 pts</span>
-        </div>
-        <h4 style="font-size: 9pt; color: #0f172a;">Ficha Informativa y Ubicación Geográfica</h4>
-        <p style="font-size: 8pt; color: #475569; margin-bottom: 3px;">
-          <strong>Como</strong> visitante interesado en un lugar, <strong>quiero</strong> acceder a su historia, horarios y geolocalización, <strong>para</strong> coordinar mi visita sin contratiempos.
-        </p>
-        <div class="code-box">
-          • <strong>Dado que</strong> el usuario hace clic en un punto de interés,<br>
-          • <strong>Cuando</strong> se abre la vista detallada,<br>
-          • <strong>Entonces</strong> se visualiza la descripción histórica, galería fotográfica, horarios de atención y enlace a navegación.
-        </div>
+        <span class="badge badge-primary">HU03 • REPORTE CIUDADANO CON CÁMARA Y GPS (PRIORIDAD ALTA)</span>
+        <p style="font-size: 8pt; margin-top: 2px;"><strong>Como</strong> ciudadano de Dolores Hidalgo, <strong>quiero</strong> enviar una fotografía acompañada de la ubicación GPS de un servicio o espacio público con algún problema, <strong>para</strong> solicitar su atención y recibir un folio de seguimiento <code>FOL-2026-DH-XXXX</code>. (<code>reporte_ciudadano_page.dart</code>).</p>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-primary">HU04 • CONTACTO DIRECTO CON ARTESANOS POR WHATSAPP (PRIORIDAD ALTA)</span>
+        <p style="font-size: 8pt; margin-top: 2px;"><strong>Como</strong> usuario, <strong>quiero</strong> comunicarme directamente con un artesano mediante WhatsApp desde la aplicación móvil, <strong>para</strong> consultar precios, disponibilidad o realizar pedidos sin intermediarios. (<code>ficha_taller_artesano_page.dart</code>).</p>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-primary">HU05 • ADMINISTRACIÓN Y VALIDACIÓN MUNICIPAL (PRIORIDAD ALTA)</span>
+        <p style="font-size: 8pt; margin-top: 2px;"><strong>Como</strong> administrador del sistema, <strong>quiero</strong> validar los registros de los artesanos y consultar los reportes urbanos, <strong>para</strong> garantizar que la información publicada sea confiable. (<code>admin_validacion_page.dart</code>).</p>
       </div>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico Technologies • Especificación Funcional</span>
+      <span>DoloresMágico App • Historias de Usuario</span>
       <span>Página 06 de 10</span>
     </div>
   </div>
 
-  <!-- ================= PAGE 7: ARQUITECTURA TÉCNICA ================= -->
+  <!-- ================= PAGE 7: ARQUITECTURA DE LA APP MÓVIL ================= -->
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico Technologies • Dossier Metodológico</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span class="doc-id">Pág. 07 / 10</span>
       </div>
 
-      <h2>6. Arquitectura de Software y Modelo de Datos <span class="sec-tag">SEC-06</span></h2>
+      <h2>6. Arquitectura de la App Móvil en Flutter &amp; Dart <span class="sec-tag">CAP-06</span></h2>
       <p>
-        La solución adopta una arquitectura orientada a servicios desacoplados, separando la capa de presentación (`/Front`) de la capa de servicios de datos (`/backend`) para maximizar la mantenibilidad.
+        En cumplimiento con la observación del docente, el repositorio contiene la arquitectura nativa de la <strong>App Móvil en Flutter y Dart</strong> basada en <strong>MVVM (Model-View-ViewModel)</strong> integrada con <strong>Clean Architecture</strong>:
       </p>
 
-      <div class="grid-2">
-        <div class="card" style="border-left: 3px solid #0284c7;">
-          <h4 style="color: #0369a1; font-size: 9pt;">Frontend Layer (`/Front`)</h4>
-          <ul class="styled-list">
-            <li><strong>Tecnología:</strong> JavaScript ES6+, HTML5 Semántico, CSS3 con tokens de diseño.</li>
-            <li><strong>Patrón:</strong> Componentes modulares y consumo asíncrono vía Fetch API.</li>
-            <li><strong>Optimización:</strong> Renderizado eficiente y carga progresiva de recursos gráficos.</li>
-          </ul>
-        </div>
-
-        <div class="card" style="border-left: 3px solid #7c3aed;">
-          <h4 style="color: #6d28d9; font-size: 9pt;">Backend Layer (`/backend`)</h4>
-          <ul class="styled-list">
-            <li><strong>Tecnología:</strong> Node.js / Python con arquitectura RESTful estandarizada.</li>
-            <li><strong>Endpoints Core:</strong> <code>GET /api/places</code>, <code>GET /api/places/:id</code>, <code>GET /api/categories</code>.</li>
-            <li><strong>Persistencia:</strong> Repositorio de datos estructurado en formato JSON / Base Relacional.</li>
-          </ul>
-        </div>
+      <div class="code-box">
+app_Dolores_Magico/<br>
+├── pubspec.yaml &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# SDK Flutter/Dart, provider, firebase_*, google_maps_flutter, geolocator, image_picker, hive, url_launcher<br>
+├── android/app/src/main/AndroidManifest.xml &nbsp;# Permisos móviles CAMERA, ACCESS_FINE_LOCATION e intents WhatsApp<br>
+├── ios/Runner/Info.plist &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Descripciones de privacidad para Cámara y GPS en iOS<br>
+├── lib/<br>
+│ &nbsp;&nbsp;├── main.dart &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Inicialización de Singletons, Repositorios y MultiProvider (MVVM)<br>
+│ &nbsp;&nbsp;├── core/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# AppColors (Pines Azul/Amarillo/Rojo), FirebaseSingletonService y LocationCameraSingleton<br>
+│ &nbsp;&nbsp;├── domain/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Entidades (ReporteUrbano, TallerArtesano), Interfaces y Casos de Uso (RegistrarReporteUseCase)<br>
+│ &nbsp;&nbsp;├── data/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# ReporteRepositoryImpl, ArtesanoRepositoryImpl, FirestoreRemoteDataSource y HiveLocalDataSource<br>
+│ &nbsp;&nbsp;└── presentation/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# ReporteViewModel, MapaTuristicoViewModel y Vistas Flutter (Home, Mapa, Catálogo, Reportes)<br>
+└── test/unit/registrar_reporte_usecase_test.dart &nbsp;# Pruebas unitarias de validación GPS y generación de folio
       </div>
 
-      <h3>6.1 Diagrama de Topología del Sistema</h3>
-      <div class="diagram-box">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 7pt; text-align: left; background: #0f172a; color: #38bdf8; padding: 8px; border-radius: 4px;">
-          [ Dispositivo Cliente (Navegador Móvil / Desktop) ]<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼ Peticiones HTTPS (CORS Habilitado)<br>
-          [ Frontend Client (`/Front`) ] ── Renderizado Dinámico de Vistas e Interfaz<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼ REST API (Consumo Asíncrono JSON)<br>
-          [ Backend Service (`/backend`) ] ── Validación, Enrutamiento y Lógica de Negocio<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼ Repositorio de Datos Persistentes<br>
-          [ Atractivos de Dolores Hidalgo ] (Coordenadas, Metadatos Culturales, Galería)
-        </div>
-      </div>
-
-      <h3>6.2 Esquema de Entidad Principal (`PuntoTuristico`)</h3>
+      <h3>6.1 Correspondencia Exacta con el Diagrama de Clases UML</h3>
       <table class="table-styled">
         <thead>
           <tr>
-            <th>Atributo</th>
-            <th>Tipo de Dato</th>
-            <th>Descripción Técnica</th>
-            <th>Ejemplo en Producción</th>
+            <th>Capa Arquitectónica</th>
+            <th>Clase en Dart / Flutter</th>
+            <th>Métodos y Responsabilidades Implementadas</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><code>id</code></td>
-            <td>String (Slug)</td>
-            <td>Clave primaria unívoca del atractivo</td>
-            <td><code>"parroquia-dolores"</code></td>
-          </tr>
-          <tr>
-            <td><code>nombre</code></td>
-            <td>String (VARCHAR)</td>
-            <td>Nombre oficial del punto histórico o comercial</td>
-            <td><code>"Parroquia de N. S. de los Dolores"</code></td>
-          </tr>
-          <tr>
-            <td><code>categoria</code></td>
-            <td>Enum</td>
-            <td><code>"Historia" | "Artesania" | "Gastronomia"</code></td>
-            <td><code>"Historia"</code></td>
-          </tr>
-          <tr>
-            <td><code>horarios</code></td>
-            <td>String / Object</td>
-            <td>Días y ventanas horarias de atención pública</td>
-            <td><code>"Lun - Dom: 08:00 - 20:00"</code></td>
-          </tr>
-          <tr>
-            <td><code>coordenadas</code></td>
-            <td>Object (GeoJSON)</td>
-            <td>Latitud y longitud para renderizado cartográfico</td>
-            <td><code>{ lat: 21.1561, lng: -100.9325 }</code></td>
-          </tr>
+          <tr><td><strong>Presentación (Vista)</strong></td><td><code>ReporteCiudadanoPage</code></td><td><code>+ displayForm()</code>, <code>+ capturePhoto()</code>, <code>+ showConfirmationFolio(folio)</code></td></tr>
+          <tr><td><strong>Presentación (ViewModel)</strong></td><td><code>ReporteViewModel</code></td><td><code>+ capturarFotoYUbicacion()</code>, <code>+ enviarReporte(descripcion, categoria)</code></td></tr>
+          <tr><td><strong>Dominio (UseCase / Entity)</strong></td><td><code>RegistrarReporteUseCase</code> / <code>ReporteUrbano</code></td><td><code>+ execute(reporte: ReporteUrbano)</code>, validación GPS y generación de folio <code>FOL-2026-DH-XXXX</code></td></tr>
+          <tr><td><strong>Datos (Repository Impl)</strong></td><td><code>ReporteRepositoryImpl</code></td><td><code>+ guardarReporte(r: ReporteUrbano)</code> en Firebase Storage, Firestore y caché Hive</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico Technologies • Arquitectura de Software</span>
+      <span>DoloresMágico App • Arquitectura Móvil Flutter</span>
       <span>Página 07 de 10</span>
     </div>
   </div>
 
-  <!-- ================= PAGE 8: PLAN DE SPRINTS ================= -->
+  <!-- ================= PAGE 8: BITÁCORA OFICIAL DE SEGUIMIENTO ================= -->
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico Technologies • Dossier Metodológico</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
         <span class="doc-id">Pág. 08 / 10</span>
       </div>
 
-      <h2>7. Plan de Sprints y Ruta Crítica al 20 de Noviembre <span class="sec-tag">SEC-07</span></h2>
+      <h2>7. Bitácora Oficial de Seguimiento del Proyecto <span class="sec-tag">CAP-07</span></h2>
       <p>
-        El desarrollo se organiza en 4 Sprints bisemanales rigurosos, garantizando que el alcance comprometido esté integrado, probado y congelado antes de la presentación final.
+        Registro cronológico de sesiones, ceremonias Scrum, avances del código móvil y atención puntual a la retroalimentación del docente:
       </p>
 
-      <div class="card" style="margin-bottom: 5px;">
-        <div style="display: flex; justify-content: space-between;">
-          <strong style="color: #1d4ed8; font-size: 8.5pt;">Sprint 1: Cimientos y Setup de Entorno</strong>
-          <span class="badge badge-primary">Semanas 1 y 2</span>
-        </div>
-        <p style="font-size: 7.8pt; color: #475569; margin: 2px 0 0 0;">
-          • Inicialización del repositorio GitHub con estructura `/Front` y `/backend`.<br>
-          • Definición de especificación de datos de atractivos turísticos de Dolores Hidalgo.<br>
-          • Maquetación del sistema de diseño base (paleta, tipografía y componentes atómicos).
-        </p>
-      </div>
-
-      <div class="card" style="margin-bottom: 5px;">
-        <div style="display: flex; justify-content: space-between;">
-          <strong style="color: #1d4ed8; font-size: 8.5pt;">Sprint 2: Backend REST y Componentes Base</strong>
-          <span class="badge badge-primary">Semanas 3 y 4</span>
-        </div>
-        <p style="font-size: 7.8pt; color: #475569; margin: 2px 0 0 0;">
-          • Desarrollo de controladores y rutas REST (`GET /api/places`).<br>
-          • Construcción de tarjetas de catálogo en Frontend con diseño premium.<br>
-          • Carga inicial de datos de los 15 atractivos más representativos.
-        </p>
-      </div>
-
-      <div class="card" style="margin-bottom: 5px;">
-        <div style="display: flex; justify-content: space-between;">
-          <strong style="color: #1d4ed8; font-size: 8.5pt;">Sprint 3: Integración Front-End, Filtros y Fichas</strong>
-          <span class="badge badge-primary">Semanas 5 y 6</span>
-        </div>
-        <p style="font-size: 7.8pt; color: #475569; margin: 2px 0 0 0;">
-          • Conexión integral de la capa visual con endpoints REST vía Fetch asíncrono.<br>
-          • Lógica de filtros temáticos en tiempo real y vista modal de ficha de detalle.<br>
-          • Integración de enlaces de geonavegación.
-        </p>
-      </div>
-
-      <div class="card" style="margin-bottom: 6px; border-left: 3px solid #16a34a;">
-        <div style="display: flex; justify-content: space-between;">
-          <strong style="color: #15803d; font-size: 8.5pt;">Sprint 4: QA, Testing, Code Freeze y Demo Final</strong>
-          <span class="badge badge-success">Semanas 7 y 8 (Hasta 20 Nov)</span>
-        </div>
-        <p style="font-size: 7.8pt; color: #475569; margin: 2px 0 0 0;">
-          • Pruebas de compatibilidad móvil y validación de criterios de aceptación.<br>
-          • <strong>18 de Noviembre:</strong> Code Freeze definitivo (bloqueo total de ramas).<br>
-          • <strong>20 de Noviembre:</strong> Presentación en vivo 100% operativa ante el cliente/evaluador.
-        </p>
-      </div>
-
-      <h3>7.1 Definición de Terminado (Definition of Done - DoD)</h3>
-      <ul class="styled-list">
-        <li><strong>Calidad de Código:</strong> Cero errores en consola, sintaxis limpia y componentes documentados.</li>
-        <li><strong>Control de Versiones:</strong> Pull Request aprobado por al menos un Tech Lead antes de merge a `main`.</li>
-        <li><strong>Validación Funcional:</strong> Aprobación de la historia por el Product Owner bajo criterios Gherkin.</li>
-        <li><strong>Despliegue Operativo:</strong> Desplegado en entorno de prueba accesible vía web.</li>
-      </ul>
-    </div>
-
-    <div class="doc-footer">
-      <span>Dolores Mágico Technologies • Planificación Temporal</span>
-      <span>Página 08 de 10</span>
-    </div>
-  </div>
-
-  <!-- ================= PAGE 9: ENLACES DE CONTROL & GIT FLOW ================= -->
-  <div class="page">
-    <div class="page-content">
-      <div class="doc-header">
-        <span>Dolores Mágico Technologies • Dossier Metodológico</span>
-        <span class="doc-id">Pág. 09 / 10</span>
-      </div>
-
-      <h2>8. Enlaces de Control y Gobernanza de Repositorio <span class="sec-tag">SEC-08</span></h2>
-      <p>
-        Acceso formal a las herramientas de control y versionado para la auditoría técnica continua y evaluación de la actividad docente.
-      </p>
-
-      <div class="grid-2">
-        <div class="card" style="background: #f8fafc; border: 1.5px solid #cbd5e1;">
-          <span class="badge badge-dark">REPOSITORIO DE CÓDIGO FUENTE</span>
-          <h4 style="margin-top: 4px; font-size: 9.5pt;">GitHub Enterprise Repository</h4>
-          <p style="font-size: 7.8pt; color: #64748b; margin: 2px 0 5px 0;">
-            Historial de commits, control de versiones, ramas de trabajo y código fuente Frontend/Backend.
-          </p>
-          <a href="https://github.com/valeria1732/app_Dolores_Magico" target="_blank" style="color: #1d4ed8; font-size: 8pt; font-weight: 700; word-break: break-all; text-decoration: none;">
-            https://github.com/valeria1732/app_Dolores_Magico
-          </a>
-        </div>
-
-        <div class="card" style="background: #f8fafc; border: 1.5px solid #cbd5e1;">
-          <span class="badge badge-primary">CENTRO DE CONTROL Y SEGUIMIENTO</span>
-          <h4 style="margin-top: 4px; font-size: 9.5pt;">Tablero Ágil de Tareas</h4>
-          <p style="font-size: 7.8pt; color: #64748b; margin: 2px 0 5px 0;">
-            Gestión de estados: <em>Product Backlog</em>, <em>In Progress</em>, <em>Code Review</em> y <em>Done</em>.
-          </p>
-          <a href="https://github.com/valeria1732/app_Dolores_Magico/projects" target="_blank" style="color: #1d4ed8; font-size: 8pt; font-weight: 700; word-break: break-all; text-decoration: none;">
-            https://github.com/valeria1732/app_Dolores_Magico/projects
-          </a>
-        </div>
-      </div>
-
-      <h3>8.1 Estrategia de Ramificación (Git Flow Adaptado)</h3>
-      <div class="diagram-box">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 7pt; text-align: left; background: #0f172a; color: #a5f3fc; padding: 8px; border-radius: 4px;">
-          main ──────────●────────────────────────────────────────● (Release Oficial PMV 20 Nov)<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▲<br>
-          develop ───────┴──────●──────────────●──────────────────┘ (Rama de Integración Continua)<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▲&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▲<br>
-          feature/catalog ──────┘&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-          feature/detail-view ─────────────────┘
-        </div>
-      </div>
-
-      <h3>8.2 Estándares de Calidad en Commits y Pull Requests</h3>
       <table class="table-styled">
         <thead>
           <tr>
-            <th>Protocolo Git</th>
-            <th>Convención Estandarizada</th>
-            <th>Propósito de Ingeniería</th>
+            <th style="width: 11%;">Fecha</th>
+            <th style="width: 18%;">Sprint / Ceremonia</th>
+            <th style="width: 16%;">Responsables</th>
+            <th style="width: 32%;">Actividades Ejecutadas</th>
+            <th style="width: 23%;">Observaciones / Solución Aplicada</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Commits Semánticos</strong></td>
-            <td><code>feat:</code>, <code>fix:</code>, <code>docs:</code>, <code>style:</code>, <code>refactor:</code></td>
-            <td>Trazabilidad y generación automatizada de changelogs.</td>
+            <td><strong>04/09/2026</strong></td>
+            <td>Sprint 1 Planning</td>
+            <td>Valeria C. (PO)<br>María V. (SM)</td>
+            <td>Planteamiento del problema en Dolores Hidalgo y definición de las 4 funcionalidades del MVP móvil.</td>
+            <td>Exclusión de AR y pasarela de pagos para asegurar meta al 20 de noviembre.</td>
           </tr>
           <tr>
-            <td><strong>Protección de Rama `main`</strong></td>
-            <td>Revisión obligatoria de PR y pruebas locales exitosas.</td>
-            <td>Garantizar cero builds rotos en la versión productiva.</td>
+            <td><strong>14/09/2026</strong></td>
+            <td>Arquitectura Móvil</td>
+            <td>Valeria C.<br>María V.</td>
+            <td>Selección de arquitectura <strong>MVVM + Clean Architecture</strong> en Flutter y Diagrama UML.</td>
+            <td>División modular en <code>domain</code>, <code>data</code> y <code>presentation</code>.</td>
+          </tr>
+          <tr>
+            <td><strong>23/09/2026</strong></td>
+            <td>Juego de Roles / Sprint 2 Planning</td>
+            <td>Valeria C. (PO)<br>María V. (SM)</td>
+            <td>Asignación de roles Scrum, redacción de historias <code>HU01</code>–<code>HU05</code> y creación del repositorio GitHub.</td>
+            <td>Creación de estructura de ramas GitFlow (<code>main</code>, <code>develop</code>, <code>feature/*</code>).</td>
+          </tr>
+          <tr>
+            <td><strong>02/10/2026</strong></td>
+            <td>Daily Standup Seguridad</td>
+            <td>Valeria C.<br>María V.</td>
+            <td>Aplicación de LFPDPPP (Aviso de Privacidad) y OWASP Mobile Top 10 (Mínimo Privilegio en Android/iOS).</td>
+            <td>Configuración de permisos en <code>AndroidManifest.xml</code> e <code>Info.plist</code>.</td>
+          </tr>
+          <tr>
+            <td><strong>04/10/2026</strong></td>
+            <td>Control de Tablero</td>
+            <td>María V. (SM)</td>
+            <td>Alta automatizada de los 7 Issues del Product Backlog, etiquetas y Milestones en GitHub.</td>
+            <td>Tablero Kanban sincronizado en GitHub Projects.</td>
+          </tr>
+          <tr>
+            <td><strong>12/10/2026</strong></td>
+            <td><strong>Sprint 2 Review &amp; Retrospectiva</strong></td>
+            <td>Valeria C. (PO)<br>María V. (SM)</td>
+            <td><strong>Atención a retroalimentación docente:</strong> Migración del repositorio al código nativo de la <strong>App Móvil en Flutter &amp; Dart</strong> e integración de esta <strong>Bitácora de Seguimiento</strong>.</td>
+            <td><strong>Obs. Docente Atendida:</strong> Se sustituyó la estructura web por el proyecto móvil Flutter (<code>lib/</code>, <code>pubspec.yaml</code>, <code>android/</code>, <code>ios/</code>) y se integró bitácora.</td>
+          </tr>
+          <tr>
+            <td><strong>13/10 – 20/11</strong></td>
+            <td>Sprints 3 y 4</td>
+            <td>Equipo Dev Móvil</td>
+            <td>Pruebas en dispositivo Android físico (cámara + GPS + Firebase), pruebas de campo, <em>Code Freeze</em> (18 Nov) y Demo PMV (20 Nov).</td>
+            <td>Ruta crítica activa rumbo al 20 de noviembre.</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico Technologies • Gobernanza y CI/CD</span>
-      <span>Página 09 de 10</span>
+      <span>DoloresMágico App • Bitácora Oficial de Seguimiento</span>
+      <span>Página 08 de 10</span>
     </div>
   </div>
 
-  <!-- ================= PAGE 10: VALIDACIÓN, KPIS & FIRMAS ================= -->
+  <!-- ================= PAGE 9: ENLACES DE CONTROL & GITFLOW ================= -->
   <div class="page">
     <div class="page-content">
       <div class="doc-header">
-        <span>Dolores Mágico Technologies • Dossier Metodológico</span>
-        <span class="doc-id">Pág. 10 / 10</span>
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
+        <span class="doc-id">Pág. 09 / 10</span>
       </div>
 
-      <h2>9. Métricas de Éxito, Validación y Firmas <span class="sec-tag">SEC-09</span></h2>
-      <p>
-        Indicadores Clave de Desempeño (KPIs) para asegurar la excelencia del PMV y formalización del compromiso ético y profesional del equipo de trabajo.
-      </p>
+      <h2>8. Enlaces de Control y Estrategia de Ramas GitFlow <span class="sec-tag">CAP-08</span></h2>
 
-      <h3>9.1 Indicadores Clave de Desempeño (KPIs del PMV)</h3>
-      <div class="grid-3">
-        <div class="card" style="text-align: center;">
-          <div style="font-size: 15pt; font-weight: 800; color: #1d4ed8;">&lt; 2.0s</div>
-          <div style="font-size: 7.5pt; font-weight: 700; color: #0f172a; margin-top: 1px;">Tiempo de Carga</div>
-          <p style="font-size: 7.2pt; color: #64748b; margin-top: 1px; margin-bottom: 0;">Rendimiento óptimo en redes móviles 3G/4G.</p>
+      <div class="grid-2">
+        <div class="card" style="background: #f8fafc;">
+          <span class="badge badge-dark">REPOSITORIO DE LA APP MÓVIL (FLUTTER &amp; DART)</span>
+          <h4 style="margin-top: 4px; font-size: 9pt;">GitHub Repository</h4>
+          <p style="font-size: 7.6pt; color: #475569; margin: 2px 0;">Contiene <code>pubspec.yaml</code>, <code>lib/</code> (MVVM + Clean Architecture), <code>android/</code>, <code>ios/</code>, <code>test/</code> y <code>BITACORA_SEGUIMIENTO.md</code>.</p>
+          <a href="https://github.com/valeria1732/app_Dolores_Magico" style="color: #0d47a1; font-size: 7.8pt; font-weight: 700;">https://github.com/valeria1732/app_Dolores_Magico</a>
         </div>
 
-        <div class="card" style="text-align: center;">
-          <div style="font-size: 15pt; font-weight: 800; color: #16a34a;">100%</div>
-          <div style="font-size: 7.5pt; font-weight: 700; color: #0f172a; margin-top: 1px;">Datos Reales</div>
-          <p style="font-size: 7.2pt; color: #64748b; margin-top: 1px; margin-bottom: 0;">Información verificada de Dolores Hidalgo.</p>
-        </div>
-
-        <div class="card" style="text-align: center;">
-          <div style="font-size: 15pt; font-weight: 800; color: #b45309;">0 Errores</div>
-          <div style="font-size: 7.5pt; font-weight: 700; color: #0f172a; margin-top: 1px;">En Live Demo</div>
-          <p style="font-size: 7.2pt; color: #64748b; margin-top: 1px; margin-bottom: 0;">Flujos de usuario 100% estables.</p>
+        <div class="card" style="background: #f8fafc;">
+          <span class="badge badge-primary">TABLERO DE SEGUIMIENTO E ISSUES</span>
+          <h4 style="margin-top: 4px; font-size: 9pt;">GitHub Projects &amp; Issues</h4>
+          <p style="font-size: 7.6pt; color: #475569; margin: 2px 0;">Centro de control con los 7 Issues (HU01 a HU05), etiquetas de prioridad, Milestones y Bitácora de Seguimiento.</p>
+          <a href="https://github.com/valeria1732/app_Dolores_Magico/projects" style="color: #0d47a1; font-size: 7.8pt; font-weight: 700;">https://github.com/valeria1732/app_Dolores_Magico/projects</a>
         </div>
       </div>
 
-      <h3>9.2 Declaración y Firmas de Compromiso de Entrega</h3>
-      <p style="font-size: 8pt; color: #475569;">
-        Los miembros del equipo certifican su participación activa en la sesión de planeación y asumen la responsabilidad compartida de entregar el Producto Mínimo Viable funcional el día <strong>20 de noviembre de 2026</strong>.
-      </p>
-
-      <div class="grid-2" style="margin-top: 18px;">
-        <div style="text-align: center; border-top: 1px solid #94a3b8; padding-top: 5px; margin: 0 10px;">
-          <p style="font-weight: 700; font-size: 9pt; color: #0f172a; margin-bottom: 1px;">Valeria Calvillo</p>
-          <p style="font-size: 7.5pt; color: #64748b; margin-bottom: 0;">Product Owner / Líder de Proyecto</p>
-        </div>
-
-        <div style="text-align: center; border-top: 1px solid #94a3b8; padding-top: 5px; margin: 0 10px;">
-          <p style="font-weight: 700; font-size: 9pt; color: #0f172a; margin-bottom: 1px;">Scrum Master Facilitador</p>
-          <p style="font-size: 7.5pt; color: #64748b; margin-bottom: 0;">Líder de Metodología y Procesos</p>
-        </div>
-      </div>
-
-      <div class="grid-2" style="margin-top: 18px;">
-        <div style="text-align: center; border-top: 1px solid #94a3b8; padding-top: 5px; margin: 0 10px;">
-          <p style="font-weight: 700; font-size: 9pt; color: #0f172a; margin-bottom: 1px;">Tech Lead Frontend</p>
-          <p style="font-size: 7.5pt; color: #64748b; margin-bottom: 0;">Dev Team / UI Architecture</p>
-        </div>
-
-        <div style="text-align: center; border-top: 1px solid #94a3b8; padding-top: 5px; margin: 0 10px;">
-          <p style="font-weight: 700; font-size: 9pt; color: #0f172a; margin-bottom: 1px;">Tech Lead Backend</p>
-          <p style="font-size: 7.5pt; color: #64748b; margin-bottom: 0;">Dev Team / API & Data Layer</p>
-        </div>
-      </div>
-
-      <div style="margin-top: 14px; text-align: center; font-size: 7pt; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 5px;">
-        Documento técnico oficial emitido para evaluación académica con validez del 100%.
+      <h3>8.1 Ramas Oficiales Configuradas en el Repositorio (Sección 16)</h3>
+      <div class="code-box">
+main ────────────────────●──────────────────────────────────────────────● (Versión estable para APK Release)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▲<br>
+develop ─────────────────┴──────●──────────────────●────────────────────┘ (Rama principal de integración móvil)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── feature/mapa-turistico &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(MapaTuristicoPage &amp; Pines GPS - HU02)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── feature/reporte-ciudadano &nbsp;&nbsp;(ReporteCiudadanoPage, Cámara y Folio - HU03)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── feature/catalogo-artesano &nbsp;&nbsp;(FichaTallerArtesanoPage y WhatsApp - HU01/HU04)
       </div>
     </div>
 
     <div class="doc-footer">
-      <span>Dolores Mágico Technologies • Certificación Final</span>
+      <span>DoloresMágico App • Gobernanza GitFlow y Enlaces</span>
+      <span>Página 09 de 10</span>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 10: PRUEBAS MÓVILES, SEGURIDAD Y FIRMAS ================= -->
+  <div class="page">
+    <div class="page-content">
+      <div class="doc-header">
+        <span>DoloresMágico App • Desarrollo Móvil Integral (UTNG)</span>
+        <span class="doc-id">Pág. 10 / 10</span>
+      </div>
+
+      <h2>9. Estrategia de Pruebas Móviles, Seguridad y Compromiso <span class="sec-tag">CAP-09</span></h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <h4 style="font-size: 8.5pt; color: #0d47a1;">Pruebas Unitarias y Widgets</h4>
+          <p style="font-size: 7.5pt; margin-bottom: 0;">Verificación en <code>test/unit/registrar_reporte_usecase_test.dart</code> de validación de formulario, coordenadas GPS y folio <code>FOL-2026-DH-XXXX</code>.</p>
+        </div>
+        <div class="card">
+          <h4 style="font-size: 8.5pt; color: #16a34a;">Seguridad Móvil (OWASP)</h4>
+          <p style="font-size: 7.5pt; margin-bottom: 0;">Principio de mínimo privilegio en manifiestos móviles, transporte cifrado HTTPS/TLS 1.3 con Firebase y consentimiento LFPDPPP.</p>
+        </div>
+        <div class="card">
+          <h4 style="font-size: 8.5pt; color: #b45309;">Pruebas de Campo</h4>
+          <p style="font-size: 7.5pt; margin-bottom: 0;">Validación directa en Dolores Hidalgo con artesanos de Talavera y neveros tradicionales antes del 20 de noviembre.</p>
+        </div>
+      </div>
+
+      <h3>9.1 Firmas de Compromiso del Equipo de Desarrollo Móvil</h3>
+      <div class="grid-2" style="margin-top: 22px;">
+        <div style="text-align: center; border-top: 1.5px solid #0f172a; padding-top: 6px; margin: 0 12px;">
+          <p style="font-weight: 700; font-size: 9pt; color: #0f172a; margin-bottom: 1px;">Valeria Guadalupe Calvillo Mendoza</p>
+          <p style="font-size: 7.5pt; color: #475569; margin-bottom: 0;">Matrícula: 1223100392 • Product Owner &amp; Mobile Backend Lead</p>
+        </div>
+
+        <div style="text-align: center; border-top: 1.5px solid #0f172a; padding-top: 6px; margin: 0 12px;">
+          <p style="font-weight: 700; font-size: 9pt; color: #0f172a; margin-bottom: 1px;">María del Carmen Vargas Martínez</p>
+          <p style="font-size: 7.5pt; color: #475569; margin-bottom: 0;">Matrícula: 1220100084 • Scrum Master &amp; Mobile UI Flutter Lead</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-footer">
+      <span>DoloresMágico App • UTNG GIDS6101-E</span>
       <span>Página 10 de 10</span>
     </div>
   </div>

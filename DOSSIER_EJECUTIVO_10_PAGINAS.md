@@ -1,93 +1,71 @@
-# PLAN DIRECTOR DE INGENIERÍA & DEFINICIÓN DEL PMV
-**Proyecto:** Dolores Mágico (`app_Dolores_Magico`)  
-**División:** Ingeniería de Software & Transformación Digital Turística  
-**Repositorio GitHub:** [valeria1732 / app_Dolores_Magico](https://github.com/valeria1732/app_Dolores_Magico)  
-**Centro de Control / Tablero:** [GitHub Projects / Trello](https://github.com/valeria1732/app_Dolores_Magico/projects)  
+# PLAN DIRECTOR DE INGENIERÍA MÓVIL, ARQUITECTURA FLUTTER Y BITÁCORA DE SEGUIMIENTO
+**Proyecto:** DoloresMágico App (`app_Dolores_Magico` — Aplicación Móvil en Flutter & Dart)  
+**Institución / Materia:** Universidad Tecnológica del Norte de Guanajuato (UTNG) — Desarrollo Móvil Integral  
+**Docente:** José de Jesús Eduardo Barrientos Avalos | **Grupo:** GIDS6101-E  
+**Integrantes:**  
+- **Valeria Guadalupe Calvillo Mendoza** (Matrícula: `1223100392`) — *Product Owner & Mobile Backend / Clean Architecture Lead*  
+- **María del Carmen Vargas Martínez** (Matrícula: `1220100084`) — *Scrum Master & Mobile UI/UX Flutter Lead*  
+**Repositorio GitHub (App Móvil Flutter):** [valeria1732 / app_Dolores_Magico](https://github.com/valeria1732/app_Dolores_Magico)  
+**Bitácora Oficial en GitHub:** [BITACORA_SEGUIMIENTO.md](https://github.com/valeria1732/app_Dolores_Magico/blob/main/BITACORA_SEGUIMIENTO.md)  
+**Centro de Control / Tablero:** [GitHub Projects / Issues](https://github.com/valeria1732/app_Dolores_Magico/projects)  
 **Hito Contractual (PMV Live Demo):** 20 de Noviembre de 2026  
 
 ---
 
-## 📑 ÍNDICE GENERAL DEL DOSSIER EJECUTIVO (10 PÁGINAS)
+## 📑 ÍNDICE GENERAL DEL DOSSIER EJECUTIVO MÓVIL (10 PÁGINAS)
 
-* **Página 01:** Portada Ejecutiva & Metadatos de Gobernanza Técnica
-* **Página 02:** Resumen Ejecutivo e Índice General de Secciones
-* **Página 03:** Estructura Organizacional, Roles Metodológicos y Matriz RACI
-* **Página 04:** Fundamentación Metodológica y Gestión de Riesgos de Cronograma
-* **Página 05:** Estrategia del Producto Mínimo Viable (PMV) & Priorización MoSCoW
-* **Página 06:** Product Backlog, Épicas e Historias de Usuario (Sintaxis Gherkin)
-* **Página 07:** Arquitectura de Software, Topología del Sistema y Modelo de Datos
-* **Página 08:** Cronograma de Sprints, Ruta Crítica y Definition of Done (DoD)
-* **Página 09:** Gobernanza Git, Estándares de Integración y Enlaces de Control
-* **Página 10:** Indicadores Clave de Desempeño (KPIs), Validación y Firmas de Compromiso
+* **Página 01:** Portada Ejecutiva & Metadatos de Gobernanza de la App Móvil
+* **Página 02:** Resumen Ejecutivo Móvil e Índice General de Secciones
+* **Página 03:** Estructura Organizacional, Roles Scrum y Matriz RACI
+* **Página 04:** Fundamentación Metodológica (<150 palabras) y Gestión de Riesgos
+* **Página 05:** Estrategia del Producto Mínimo Viable (PMV Móvil) & Priorización MoSCoW
+* **Página 06:** Product Backlog Móvil (`HU01`–`HU05`) e Historias de Usuario
+* **Página 07:** Arquitectura de la App Móvil (Flutter, Dart, MVVM + Clean Architecture y Firebase)
+* **Página 08:** Bitácora Oficial de Seguimiento (Sprints, Ceremonias Scrum y Control de Cambios)
+* **Página 09:** Gobernanza Git, Ramas Móviles (`feature/*`) y Enlaces de Control
+* **Página 10:** Estrategia de Pruebas Móviles, KPIs y Firmas de Compromiso
 
 ---
 
-## 📄 CAPÍTULO 1: PORTADA Y RESUMEN EJECUTIVO (Págs. 1-2)
-El proyecto **Dolores Mágico** implementa una arquitectura orientada a servicios desacoplados para potenciar la visibilidad turística y cultural de Dolores Hidalgo, Guanajuato. Mediante una capa visual responsiva (`/Front`) y un backend RESTful (`/backend`), se centraliza la oferta de patrimonio histórico, artesanías mayólicas y gastronomía en una plataforma de alto rendimiento.
+## 📄 CAPÍTULO 1: PORTADA Y RESUMEN EJECUTIVO MÓVIL (Págs. 1-2)
+**DoloresMágico App** es una aplicación móvil multiplataforma (**Android e iOS**) construida con **Flutter y Dart** bajo la arquitectura **MVVM integrada con Clean Architecture** y respaldada por servicios en la nube de **Firebase** (`Authentication`, `Cloud Firestore`, `Cloud Storage` y `Cloud Messaging`). Su objetivo es impulsar el comercio justo de los talleres de Talavera y neverías tradicionales de Dolores Hidalgo C.I.N., integrando un módulo de reporte ciudadano con cámara (`image_picker`), geolocalización GPS (`geolocator`) y folio de seguimiento.
 
 ---
 
 ## 👥 CAPÍTULO 2: ESTRUCTURA ORGANIZACIONAL & MATRIZ RACI (Pág. 3)
-* **Product Owner (Valeria Calvillo):** Gobierno del producto, priorización del backlog y blindaje del alcance.
-* **Scrum Master (Facilitador Ágil):** Excelencia metodológica, resolución de impedimentos y gestión del tablero.
-* **Tech Leads / Dev Team (Frontend & Backend):** Arquitectura técnica, desarrollo de APIs, componentes UI y despliegue.
-
-| Entregable / Actividad | Product Owner | Scrum Master | Frontend Lead | Backend Lead |
-| :--- | :---: | :---: | :---: | :---: |
-| **Priorización de Backlog** | **A / R** | C | C | C |
-| **Mantenimiento de Tablero** | I | **A / R** | R | R |
-| **Arquitectura & APIs REST** | I | C | R | **A / R** |
-| **Construcción UI Catálogo** | C | I | **A / R** | C |
-| **Validación DoD & QA** | **A** | C | R | R |
-| **Live Demo (20 Nov)** | **A / R** | R | R | R |
+* **Product Owner (Valeria Guadalupe Calvillo Mendoza - 1223100392):** Gobierno del producto móvil, priorización del backlog y liderazgo de la Capa de Dominio y Datos en Dart/Firebase.
+* **Scrum Master (María del Carmen Vargas Martínez - 1220100084):** Facilitación metodológica Scrum, mantenimiento del tablero Kanban y bitácora de seguimiento, y liderazgo de la Capa de Presentación en Flutter.
+* **Dev Team Móvil (Valeria Calvillo & María Vargas):** Construcción de vistas Flutter, ViewModels (`Provider`), repositorios (`Firestore` / `Hive`) y compilación de APK.
 
 ---
 
 ## 🛡️ CAPÍTULO 3: FUNDAMENTACIÓN METODOLÓGICA & RIESGOS (Pág. 4)
 
-### Párrafo Oficial de Fundamentación (Cumplimiento de Extensión):
-> *Seleccionamos **Scrum** por su estructura de ciclos cortos e incrementales (Sprints de 2 semanas), óptima para mitigar riesgos ante la fecha límite del 20 de noviembre. Esta metodología nos permite realizar revisiones periódicas, identificar cuellos de botella en la integración entre Frontend y Backend mediante Daily Standups y adaptar prioridades rápidamente. La continua refinación del Product Backlog asegura que el equipo concentre sus esfuerzos exclusivamente en las funcionalidades nucleares del Producto Mínimo Viable (PMV), garantizando una versión estable, testeada y lista para demostración en vivo sin incurrir en desviación de tiempos ni sobrecostes de alcance.*  
-> **(Extensión: 104 palabras — Cumple estrictamente el límite de máx. 150 palabras).**
+### Párrafo Oficial de Fundamentación (120 palabras — Cumple límite máx. 150 palabras):
+> *Seleccionamos **Scrum con enfoque Hackathon** apoyado en un tablero **Kanban en GitHub Projects** por su estructura de ciclos cortos e incrementales (Sprints de 2 semanas), óptima para mitigar riesgos ante la fecha límite del 20 de noviembre. Esta metodología nos permite realizar entregas progresivas de la aplicación móvil en Flutter, detectar errores de integración con sensores del dispositivo (cámara y GPS) y servicios de Firebase mediante Daily Standups, y recibir retroalimentación temprana de artesanos y ciudadanos. Además, desacoplar la app móvil en capas de Clean Architecture y MVVM asegura que el equipo concentre su esfuerzo en las funcionalidades prioritarias del Producto Mínimo Viable (PMV), garantizando un APK estable, probado y funcional en vivo.*
 
 ---
 
-## 🎯 CAPÍTULO 4: ESTRATEGIA PMV & MARCO MOSCOW (Pág. 5)
-* **MUST HAVE (Esencial para el 20 de Noviembre):** Catálogo interactivo, filtros por categoría (Historia, Artesanía, Gastronomía), ficha técnica informativa con geodatos y diseño responsivo.
-* **SHOULD HAVE (Deseable):** Mapa interactivo con pines, búsqueda textual directa y botón de navegación en Google Maps.
-* **COULD HAVE (Opcional):** Modo oscuro y favoritos locales.
-* **WON'T HAVE (Excluido inicialmente):** Pasarela de pagos bancarios, reservaciones hoteleras en tiempo real y realidad aumentada (excluidos para asegurar la estabilidad técnica a tiempo).
+## 🎯 CAPÍTULO 4: ESTRATEGIA PMV MÓVIL & MARCO MOSCOW (Pág. 5)
+* **MUST HAVE (Indispensable para el 20 de Noviembre):**
+  1. **Autenticación y Perfiles (`HU01`):** Login/Registro diferenciado (Turista/Ciudadano vs. Artesano) con Firebase Auth.
+  2. **Mapa Interactivo de Dolores Hidalgo (`HU02`):** Ubicación GPS con pines de 3 colores: **Azul** (Talavera), **Amarillo** (Nieves) y **Rojo** (Sitios Históricos).
+  3. **Directorio y Catálogo del Artesano (`HU04`):** Ficha técnica con historia, fotos y botón de contacto directo por WhatsApp (`url_launcher`).
+  4. **Módulo de Reporte Ciudadano (`HU03`):** Captura de foto con cámara (`image_picker`), coordenadas GPS automáticas (`geolocator`) y folio `FOL-2026-DH-XXXX`.
+* **WON'T HAVE (Excluido inicialmente):** Realidad Aumentada (AR), pasarela de pagos bancarios integrada y sistema de insignias/recompensas.
 
 ---
 
-## 📋 CAPÍTULO 5: PRODUCT BACKLOG & CRITERIOS GHERKIN (Pág. 6)
-* **US-01 (Catálogo - 5 pts):** Renderizado de atractivos turísticos con tiempo de respuesta < 2.0s.
-* **US-02 (Filtros - 3 pts):** Filtrado dinámico en memoria DOM por categorías temáticas.
-* **US-03 (Ficha Técnica - 5 pts):** Vista detallada con historia, galería de fotos, horarios y geolocalización.
+## ⚙️ CAPÍTULO 6: ARQUITECTURA DE LA APP MÓVIL EN FLUTTER & DART (Pág. 7)
+* **Capa de Presentación (`lib/presentation/`):** Vistas en Flutter (`HomeMenuPage`, `MapaTuristicoPage`, `FichaTallerArtesanoPage`, `ReporteCiudadanoPage`) y ViewModels reactivos (`ReporteViewModel`, `MapaTuristicoViewModel`, `AuthViewModel`).
+* **Capa de Dominio (`lib/domain/`):** Entidades (`ReporteUrbano`, `TallerArtesano`), contratos (`ReporteRepository`, `ArtesanoRepository`) y Casos de Uso (`RegistrarReporteUseCase`, `ExplorarMapaTuristicoUseCase`, `ContactarArtesanoWhatsappUseCase`).
+* **Capa de Datos (`lib/data/`):** Implementación del *Repository Pattern* (`ReporteRepositoryImpl`, `ArtesanoRepositoryImpl`) con **Firebase Cloud Firestore**, **Firebase Cloud Storage** y persistencia local **Hive**.
 
 ---
 
-## ⚙️ CAPÍTULO 6: ARQUITECTURA TÉCNICA & MODELO DE DATOS (Pág. 7)
-* **Capa Visual (`/Front`):** JavaScript ES6+, HTML5 Semántico, CSS3 con tokens de diseño, Fetch API asíncrono.
-* **Capa de Servicios (`/backend`):** Endpoints RESTful (`GET /api/places`, `GET /api/places/:id`, `GET /api/categories`).
-* **Entidad `PuntoTuristico`:** Atributos normalizados (`id`, `nombre`, `categoria`, `descripcion`, `horarios`, `coordenadas`).
-
----
-
-## 📅 CAPÍTULO 7: CRONOGRAMA DE SPRINTS & RUTA CRÍTICA (Pág. 8)
-* **Sprint 1 (Sem. 1-2):** Cimientos de arquitectura, inicialización en GitHub y diseño base.
-* **Sprint 2 (Sem. 3-4):** Desarrollo de endpoints REST y componentes visuales del catálogo.
-* **Sprint 3 (Sem. 5-6):** Integración Front-Back, filtros y fichas de detalle.
-* **Sprint 4 (Sem. 7-8):** QA, Testing, **Code Freeze (18 Nov)** y **Live Demo Oficial (20 Nov)**.
-
----
-
-## 🔗 CAPÍTULO 8: GOBERNANZA GIT & ENLACES DE AUDITORÍA (Pág. 9)
-* **URL Repositorio GitHub:** [https://github.com/valeria1732/app_Dolores_Magico](https://github.com/valeria1732/app_Dolores_Magico)
-* **URL Tablero de Control:** [https://github.com/valeria1732/app_Dolores_Magico/projects](https://github.com/valeria1732/app_Dolores_Magico/projects)
-* **GitFlow:** Ramas `main` (producción protegida), `develop` (integración continua) y `feature/*` (desarrollo por ticket).
-
----
-
-## 🏆 CAPÍTULO 9: KPIS DE ÉXITO & FIRMAS DE COMPROMISO (Pág. 10)
-* **KPIs:** Tiempo de carga < 2.0s, 100% de datos reales validados, 0 errores en demostración en vivo.
-* **Firmas de Certificación:** Valeria Calvillo (Product Owner), Scrum Master Facilitador, Tech Lead Frontend y Tech Lead Backend.
+## 📓 CAPÍTULO 7: BITÁCORA OFICIAL DE SEGUIMIENTO DEL PROYECTO (Pág. 8)
+* **04/09/2026 (Sprint 1 Planning):** Definición del alcance móvil y diseño de las 3 pantallas conceptuales.
+* **14/09/2026 (Arquitectura Móvil):** Selección de MVVM + Clean Architecture en Flutter y modelado del Diagrama UML (`ReporteCiudadanoPage` -> `ReporteViewModel` -> `RegistrarReporteUseCase` -> `ReporteRepositoryImpl`).
+* **23/09/2026 (Juego de Roles y Sprint 2 Planning):** Asignación de roles (PO: Valeria Calvillo, SM: María Vargas), historias `HU01`–`HU05` y ramas GitFlow.
+* **04/10/2026 (Sincronización de Backlog):** Alta de los 7 Issues oficiales, etiquetas y Milestones en GitHub.
+* **12/10/2026 (Sprint 2 Review & Retrospectiva — Atención a Observación Docente):** Reestructuración completa del repositorio con el código fuente nativo de la **App Móvil en Flutter & Dart (`lib/`, `android/`, `ios/`, `pubspec.yaml`, `test/`)** e integración de la **Bitácora de Seguimiento**.

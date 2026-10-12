@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>DoloresMágico</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>dolores_magico_app</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<!-- Privacidad desde el Diseño (Privacy by Design): Justificación de Permisos iOS -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>DoloresMágico App utiliza tu ubicación GPS únicamente mientras usas la app para mostrarte la Ruta de la Talavera y georreferenciar con precisión los reportes ciudadanos.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>DoloresMágico App requiere acceso a la cámara para capturar la fotografía de evidencia en reportes urbanos o para fotografiar las piezas artesanales de tu taller.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Permite adjuntar fotografías desde tu galería para reportes ciudadanos o catálogo artesanal.</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>whatsapp</string>
+		<string>tel</string>
+	</array>
+</dict>
+</plist>

@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fundamentación Metodológica y Planeación - Dolores Mágico</title>
+  <title>Fundamentación Metodológica, App Móvil Flutter y Bitácora de Seguimiento - DoloresMágico App</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
     @page {
       size: letter;
-      margin: 18mm 20mm;
+      margin: 14mm 16mm;
     }
 
     * {
@@ -22,23 +22,21 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: #1e293b;
       background-color: #ffffff;
-      line-height: 1.55;
-      font-size: 13.5px;
+      line-height: 1.48;
+      font-size: 11.5px;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
 
     .container {
-      max-width: 800px;
+      max-width: 840px;
       margin: 0 auto;
-      padding: 10px 0;
     }
 
-    /* Header styling */
     .header {
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 18px;
-      margin-bottom: 22px;
+      border-bottom: 2px solid #0d47a1;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -46,182 +44,174 @@
 
     .badge {
       display: inline-block;
-      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      background: linear-gradient(135deg, #0d47a1, #1976d2);
       color: #ffffff;
-      font-size: 10.5px;
+      font-size: 9.5px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      padding: 4px 10px;
+      letter-spacing: 0.7px;
+      padding: 3px 9px;
       border-radius: 9999px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .title {
       font-family: 'Outfit', sans-serif;
-      font-size: 24px;
+      font-size: 21px;
       font-weight: 800;
       color: #0f172a;
-      letter-spacing: -0.5px;
-      line-height: 1.2;
+      line-height: 1.15;
     }
 
     .subtitle {
-      font-size: 13px;
-      color: #64748b;
-      margin-top: 4px;
+      font-size: 11.5px;
+      color: #475569;
+      margin-top: 3px;
       font-weight: 500;
     }
 
     .meta-box {
       text-align: right;
-      font-size: 12px;
-      color: #64748b;
-      line-height: 1.4;
+      font-size: 10.5px;
+      color: #475569;
+      line-height: 1.45;
       background: #f8fafc;
       padding: 8px 12px;
       border-radius: 8px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #cbd5e1;
     }
 
     .meta-box strong {
-      color: #334155;
+      color: #0f172a;
     }
 
-    /* Section Styling */
     .section {
-      margin-bottom: 20px;
+      margin-bottom: 14px;
+      break-inside: avoid;
     }
 
     .section-title {
       font-family: 'Outfit', sans-serif;
-      font-size: 15px;
+      font-size: 13.5px;
       font-weight: 700;
-      color: #1e293b;
+      color: #0f172a;
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-      padding-bottom: 5px;
-      border-bottom: 1.5px solid #f1f5f9;
+      gap: 7px;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1.5px solid #e2e8f0;
     }
 
     .section-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 24px;
-      height: 24px;
-      background: #ede9fe;
-      color: #6366f1;
-      border-radius: 6px;
-      font-size: 12px;
+      width: 21px;
+      height: 21px;
+      background: #dbeafe;
+      color: #0d47a1;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 800;
     }
 
-    /* Cards and Boxes */
     .card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 14px 16px;
-      margin-bottom: 12px;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
     }
 
     .highlight-card {
-      background: #f8fafc;
-      border-left: 4px solid #6366f1;
-      padding: 12px 16px;
+      background: #eff6ff;
+      border-left: 4px solid #0d47a1;
+      padding: 10px 14px;
       border-radius: 0 8px 8px 0;
-      margin-bottom: 14px;
+      margin-bottom: 8px;
     }
 
-    /* Table for roles */
     .table-custom {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 8px;
-      font-size: 12.5px;
+      font-size: 10.5px;
     }
 
     .table-custom th {
-      background: #f1f5f9;
-      color: #475569;
+      background: #0f172a;
+      color: #ffffff;
       text-align: left;
       font-weight: 600;
-      padding: 8px 12px;
-      border-bottom: 1px solid #cbd5e1;
+      padding: 6px 8px;
+      font-size: 9.5px;
       text-transform: uppercase;
-      font-size: 11px;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
     }
 
     .table-custom td {
-      padding: 8px 12px;
-      border-bottom: 1px solid #f1f5f9;
+      padding: 6px 8px;
+      border-bottom: 1px solid #e2e8f0;
       vertical-align: top;
     }
 
-    .table-custom tr:last-child td {
-      border-bottom: none;
+    .table-custom tr:nth-child(even) td {
+      background: #f8fafc;
     }
 
     .role-badge {
       display: inline-block;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 9.5px;
     }
 
     .role-po { background: #fee2e2; color: #991b1b; }
-    .role-sm { background: #e0e7ff; color: #3730a3; }
+    .role-sm { background: #dbeafe; color: #1e40af; }
     .role-dev { background: #dcfce7; color: #166534; }
+    .status-done { background: #dcfce7; color: #166534; padding: 1px 6px; border-radius: 4px; font-weight: 700; font-size: 9px; }
+    .status-prog { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 4px; font-weight: 700; font-size: 9px; }
 
-    /* Justification block */
     .justification-text {
       text-align: justify;
-      color: #334155;
-      font-size: 13px;
-      line-height: 1.6;
+      color: #1e293b;
+      font-size: 11.5px;
+      line-height: 1.55;
     }
 
     .word-count {
       display: inline-block;
-      margin-top: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      color: #64748b;
-      background: #e2e8f0;
+      margin-top: 5px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #0d47a1;
+      background: #dbeafe;
       padding: 2px 8px;
       border-radius: 4px;
     }
 
-    /* PMV Grid */
     .pmv-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 6px;
+      gap: 10px;
     }
 
     .pmv-column {
-      background: #fafafa;
-      border: 1px solid #e5e7eb;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
       border-radius: 8px;
-      padding: 12px 14px;
+      padding: 10px 12px;
     }
 
     .pmv-col-title {
       font-weight: 700;
-      font-size: 13px;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      font-size: 11.5px;
+      margin-bottom: 6px;
     }
 
     .title-in { color: #059669; }
-    .title-out { color: #d97706; }
+    .title-out { color: #b45309; }
 
     ul.custom-list {
       list-style-type: none;
@@ -230,124 +220,122 @@
 
     ul.custom-list li {
       position: relative;
-      padding-left: 16px;
-      margin-bottom: 6px;
-      font-size: 12.5px;
-      color: #4b5563;
-      line-height: 1.4;
+      padding-left: 13px;
+      margin-bottom: 4px;
+      font-size: 10.8px;
+      color: #334155;
+      line-height: 1.38;
     }
 
     ul.custom-list li::before {
       content: "•";
       position: absolute;
-      left: 2px;
+      left: 1px;
       font-weight: bold;
-      color: #6366f1;
+      color: #0d47a1;
     }
 
-    /* Links Box */
+    .code-tree {
+      font-family: 'JetBrains Mono', monospace;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 9.5px;
+      line-height: 1.38;
+      margin-top: 4px;
+    }
+
     .links-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
     }
 
     .link-card {
       background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 12px 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 8px 10px;
     }
 
     .link-label {
-      font-size: 11px;
+      font-size: 9.5px;
       font-weight: 700;
       text-transform: uppercase;
-      color: #64748b;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
+      color: #475569;
+      display: block;
+      margin-bottom: 3px;
     }
 
     .link-url {
-      color: #4f46e5;
+      color: #0d47a1;
       text-decoration: none;
-      font-size: 12.5px;
+      font-size: 10.5px;
       font-weight: 600;
       word-break: break-all;
     }
 
-    .link-url:hover {
-      text-decoration: underline;
-    }
-
-    .link-sub {
-      font-size: 11px;
-      color: #94a3b8;
-      margin-top: 4px;
-    }
-
     .footer {
-      margin-top: 24px;
-      padding-top: 12px;
-      border-top: 1px solid #e2e8f0;
+      margin-top: 12px;
+      padding-top: 8px;
+      border-top: 1px solid #cbd5e1;
       display: flex;
       justify-content: space-between;
-      font-size: 11px;
-      color: #94a3b8;
+      font-size: 10px;
+      color: #64748b;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    
-    <!-- Encabezado -->
+
+    <!-- Encabezado Institucional UTNG -->
     <header class="header">
       <div>
-        <span class="badge">Actividad: Juego de Roles y Planeación</span>
-        <h1 class="title">Dolores Mágico</h1>
-        <p class="subtitle">Fundamentación Metodológica y Configuración del Proyecto</p>
+        <span class="badge">UTNG • Desarrollo Móvil Integral • Grupo GIDS6101-E</span>
+        <h1 class="title">DoloresMágico App (Aplicación Móvil Flutter &amp; Dart)</h1>
+        <p class="subtitle">Fundamentación Metodológica, Arquitectura Móvil MVVM y Bitácora Oficial de Seguimiento</p>
       </div>
       <div class="meta-box">
-        <div><strong>Fecha Límite PMV:</strong> 20 de Noviembre</div>
-        <div><strong>Framework:</strong> Scrum Ágil</div>
-        <div><strong>Repositorio:</strong> valeria1732 / app_Dolores_Magico</div>
+        <div><strong>Docente:</strong> José de Jesús Eduardo Barrientos Avalos</div>
+        <div><strong>Meta PMV:</strong> 20 de Noviembre de 2026</div>
+        <div><strong>Stack Móvil:</strong> Flutter • Dart • Firebase • GPS/Cámara</div>
+        <div><strong>Repo:</strong> valeria1732/app_Dolores_Magico</div>
       </div>
     </header>
 
-    <!-- 1. Datos Generales -->
+    <!-- 1. Datos Generales y Roles -->
     <section class="section">
       <h2 class="section-title">
-        <span class="section-icon">1</span> 
-        Datos Generales y Distribución de Roles
+        <span class="section-icon">1</span>
+        Datos del Equipo y Asignación de Roles (Scrum con Enfoque Hackathon)
       </h2>
       <div class="card" style="padding: 0; overflow: hidden;">
         <table class="table-custom">
           <thead>
             <tr>
-              <th style="width: 25%;">Rol Metodológico</th>
-              <th style="width: 30%;">Responsable</th>
-              <th style="width: 45%;">Responsabilidad de Gestión y Técnica</th>
+              <th style="width: 22%;">Rol Metodológico</th>
+              <th style="width: 28%;">Integrante y Matrícula</th>
+              <th style="width: 50%;">Responsabilidad de Gestión y Desarrollo en la App Móvil</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><span class="role-badge role-po">Product Owner</span></td>
-              <td><strong>Valeria Calvillo</strong></td>
-              <td>Dueña de la visión del producto; define y prioriza el Product Backlog y delimita el alcance estricto del PMV.</td>
+              <td><strong>Valeria Guadalupe Calvillo Mendoza</strong><br><small>Matrícula: 1223100392</small></td>
+              <td>Dueña de la visión del producto, priorización del <em>Product Backlog</em> y alcance del PMV. Líder de Capa de Dominio y Datos en Dart (<code>RegistrarReporteUseCase</code>, <code>ReporteRepositoryImpl</code>, Firebase Firestore y Cloud Storage).</td>
             </tr>
             <tr>
               <td><span class="role-badge role-sm">Scrum Master</span></td>
-              <td><strong>Facilitador del Equipo</strong></td>
-              <td>Asegura el apego a la metodología Scrum, facilita ceremonias, remueve obstáculos y gestiona el tablero de seguimiento.</td>
+              <td><strong>María del Carmen Vargas Martínez</strong><br><small>Matrícula: 1220100084</small></td>
+              <td>Facilitadora de ceremonias Scrum, remoción de impedimentos, control del tablero Kanban en GitHub Projects y bitácora. Líder de Capa de Presentación en Flutter (<code>HomeMenuPage</code>, <code>MapaTuristicoPage</code>, <code>ReporteCiudadanoPage</code>).</td>
             </tr>
             <tr>
               <td><span class="role-badge role-dev">Dev Team / Tech Leads</span></td>
-              <td><strong>Equipo de Desarrollo</strong></td>
-              <td>Diseño de arquitectura, desarrollo Frontend/Backend, control de versiones en GitHub y garantía del despliegue funcional.</td>
+              <td><strong>Valeria Calvillo &amp; María Vargas</strong></td>
+              <td>Implementación de arquitectura <strong>MVVM + Clean Architecture</strong> en Flutter, integración de sensores móviles (<code>geolocator</code>, <code>image_picker</code>, <code>url_launcher</code>), GitFlow y compilación de APK para Android.</td>
             </tr>
           </tbody>
         </table>
@@ -357,78 +345,165 @@
     <!-- 2. Justificación de la Metodología -->
     <section class="section">
       <h2 class="section-title">
-        <span class="section-icon">2</span> 
+        <span class="section-icon">2</span>
         Justificación de la Metodología (Fundamentación)
       </h2>
       <div class="highlight-card">
         <p class="justification-text">
-          Seleccionamos <strong>Scrum</strong> por su estructura de ciclos cortos e incrementales (Sprints de 2 semanas), óptima para mitigar riesgos ante la fecha límite del 20 de noviembre. Esta metodología nos permite realizar revisiones periódicas, identificar cuellos de botella en la integración entre Frontend y Backend mediante <em>Daily Standups</em> y adaptar prioridades rápidamente. La continua refinación del <em>Product Backlog</em> asegura que el equipo concentre sus esfuerzos exclusivamente en las funcionalidades nucleares del Producto Mínimo Viable (PMV), garantizando una versión estable, testeada y lista para demostración en vivo sin incurrir en desviación de tiempos ni sobrecostes de alcance.
+          Seleccionamos <strong>Scrum con enfoque Hackathon</strong> apoyado en un tablero <strong>Kanban en GitHub Projects</strong> por su estructura de ciclos cortos e incrementales (Sprints de 2 semanas), óptima para mitigar riesgos ante la fecha límite del 20 de noviembre. Esta metodología nos permite realizar entregas progresivas de la aplicación móvil en Flutter, detectar errores de integración con sensores del dispositivo (cámara y GPS) y servicios de Firebase mediante <em>Daily Standups</em>, y recibir retroalimentación temprana de artesanos y ciudadanos. Además, desacoplar la app móvil en capas de Clean Architecture y MVVM asegura que el equipo concentre su esfuerzo en las funcionalidades prioritarias del Producto Mínimo Viable (PMV), garantizando un APK estable, probado y funcional en vivo.
         </p>
-        <span class="word-count">Extensión: 104 palabras (Límite: 150 palabras)</span>
+        <span class="word-count">Extensión: 120 palabras (Cumple con el límite máximo de 150 palabras)</span>
       </div>
     </section>
 
-    <!-- 3. Estrategia del Producto Mínimo Viable (PMV) -->
+    <!-- 3. Estrategia del Producto Mínimo Viable (PMV Móvil) -->
     <section class="section">
       <h2 class="section-title">
-        <span class="section-icon">3</span> 
-        Estrategia del Producto Mínimo Viable (PMV)
+        <span class="section-icon">3</span>
+        Estrategia del Producto Mínimo Viable (PMV — App Móvil Flutter)
       </h2>
       <div class="pmv-grid">
         <div class="pmv-column">
-          <div class="pmv-col-title title-in">
-            <span>✔</span> Funcionalidad Principal (Para el 20 de Nov.)
-          </div>
+          <div class="pmv-col-title title-in">✔ Funcionalidad Móvil Principal (20 de Noviembre)</div>
           <ul class="custom-list">
-            <li><strong>Catálogo Turístico Interactivo:</strong> Visualización de puntos clave de Dolores Hidalgo (atractivos históricos, artesanías y gastronomía).</li>
-            <li><strong>Filtros y Búsqueda:</strong> Clasificación ágil por categoría y zonas turísticas.</li>
-            <li><strong>Ficha de Detalle:</strong> Información esencial, fotografías, horarios de atención y geolocalización.</li>
-            <li><strong>Interfaz Responsiva:</strong> Experiencia fluida tanto en dispositivos móviles como web.</li>
+            <li><strong>Autenticación y Perfiles (HU01):</strong> Login/Registro diferenciado en Firebase Auth (Turista/Ciudadano vs. Artesano) con Aviso de Privacidad LFPDPPP.</li>
+            <li><strong>Mapa GPS de Dolores Hidalgo (HU02):</strong> Mapa interactivo móvil con pines de 3 colores: <strong>Azul</strong> (Talavera), <strong>Amarillo</strong> (Nieves) y <strong>Rojo</strong> (Sitios Históricos).</li>
+            <li><strong>Catálogo del Artesano y WhatsApp (HU04):</strong> Ficha técnica del taller con catálogo de piezas y botón <code>url_launcher</code> directo a WhatsApp sin comisiones.</li>
+            <li><strong>Reporte Ciudadano Móvil (HU03):</strong> Captura de foto con cámara (<code>image_picker</code>), coordenadas GPS automáticas (<code>geolocator</code>) y generación de folio <code>FOL-2026-DH-XXXX</code>.</li>
           </ul>
         </div>
-        
         <div class="pmv-column">
-          <div class="pmv-col-title title-out">
-            <span>✖</span> Características Fuera de Alcance Inicial
-          </div>
+          <div class="pmv-col-title title-out">✖ Características Excluidas por el Momento</div>
           <ul class="custom-list">
-            <li><strong>Pasarela de pagos en línea:</strong> Reservas o compras de boletos/artesanías (añade complejidad bancaria).</li>
-            <li><strong>Sistema de autenticación y reseñas complejas:</strong> No indispensable para el valor informativo central.</li>
-            <li><strong>Tours en Realidad Aumentada / 360°:</strong> Se pospone para versiones posteriores para asegurar la estabilidad del núcleo operativo.</li>
+            <li><strong>Realidad Aumentada (AR) en monumentos:</strong> Exige modelado 3D pesado y calibración de sensores que comprometería la entrega del 20 de noviembre.</li>
+            <li><strong>Pasarela de pagos bancarios integrada:</strong> Requiere certificaciones financieras complejas; el enlace directo a WhatsApp resuelve el comercio justo sin fricción.</li>
+            <li><strong>Sistema de insignias, recompensas y reseñas:</strong> Funcionalidades de fidelización pospuestas (prioridad baja) para blindar la estabilidad del núcleo móvil.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- 4. Enlaces de Control -->
+    <!-- 4. Arquitectura y Estructura del Código de la App Móvil en el Repositorio -->
     <section class="section">
       <h2 class="section-title">
-        <span class="section-icon">4</span> 
-        Enlaces de Control (Acceso Público)
+        <span class="section-icon">4</span>
+        Estructura de la App Móvil en el Repositorio (Flutter, Dart, Android/iOS y MVVM + Clean Architecture)
+      </h2>
+      <div class="card">
+        <p style="font-size: 10.8px; color: #334155; margin-bottom: 4px;">
+          <strong>Atención a observación docente:</strong> El repositorio contiene la estructura nativa de la <strong>App Móvil en Flutter &amp; Dart</strong> implementando las capas de Presentación, Dominio y Datos conforme al Diagrama de Clases UML y los patrones <em>MVVM</em>, <em>Repository</em> y <em>Singleton</em>:
+        </p>
+        <div class="code-tree">
+app_Dolores_Magico/ ( Proyecto Móvil Multiplataforma Flutter &amp; Dart )<br>
+├── pubspec.yaml &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Paquetes móviles: provider, firebase_*, google_maps_flutter, geolocator, image_picker, hive, url_launcher<br>
+├── android/app/src/main/AndroidManifest.xml &nbsp;# Permisos nativos: CAMERA, ACCESS_FINE_LOCATION e intents WhatsApp (Mínimo Privilegio)<br>
+├── ios/Runner/Info.plist &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Permisos iOS: NSCameraUsageDescription y NSLocationWhenInUseUsageDescription<br>
+├── lib/<br>
+│ &nbsp;&nbsp;├── main.dart &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Inicialización de FirebaseSingletonService, Hive y MultiProvider (MVVM)<br>
+│ &nbsp;&nbsp;├── domain/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# CAPA DE DOMINIO: Entidades (ReporteUrbano, TallerArtesano), Repositorios y Casos de Uso (RegistrarReporteUseCase)<br>
+│ &nbsp;&nbsp;├── data/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# CAPA DE DATOS: ReporteRepositoryImpl, ArtesanoRepositoryImpl, FirestoreRemoteDataSource y HiveLocalDataSource<br>
+│ &nbsp;&nbsp;└── presentation/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# CAPA DE PRESENTACIÓN (MVVM): ReporteViewModel, MapaTuristicoViewModel y Vistas Flutter (Pantalla 1, 2 y 3)<br>
+└── test/unit/registrar_reporte_usecase_test.dart &nbsp;# Pruebas unitarias de validación GPS y generación de folio FOL-2026-DH-XXXX
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Bitácora Oficial de Seguimiento del Proyecto -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon">5</span>
+        Bitácora de Seguimiento del Proyecto (Sprints, Ceremonias Scrum y Control de Cambios)
+      </h2>
+      <div class="card" style="padding: 0; overflow: hidden; margin-bottom: 8px;">
+        <table class="table-custom">
+          <thead>
+            <tr>
+              <th style="width: 11%;">Fecha</th>
+              <th style="width: 18%;">Sprint / Ceremonia</th>
+              <th style="width: 16%;">Responsables</th>
+              <th style="width: 33%;">Actividades Realizadas y Entregables Móviles</th>
+              <th style="width: 22%;">Impedimentos / Observaciones y Solución</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>04/09/2026</strong></td>
+              <td>Sprint 1 Planning</td>
+              <td>Valeria C. (PO)<br>María V. (SM)</td>
+              <td>Definición del problema en Dolores Hidalgo y selección de las 4 funciones del MVP móvil y diseño conceptual de 3 pantallas.</td>
+              <td>Recorte de AR y pasarela de pagos para garantizar entrega al 20 Nov. <span class="status-done">Completado</span></td>
+            </tr>
+            <tr>
+              <td><strong>14/09/2026</strong></td>
+              <td>Arquitectura Móvil</td>
+              <td>Valeria C.<br>María V.</td>
+              <td>Elección de arquitectura <strong>MVVM + Clean Architecture</strong> en Flutter y diseño del Diagrama UML (<code>ReporteCiudadanoPage</code>).</td>
+              <td>Desacoplamiento en 3 capas (<code>domain</code>, <code>data</code>, <code>presentation</code>). <span class="status-done">Completado</span></td>
+            </tr>
+            <tr>
+              <td><strong>23/09/2026</strong></td>
+              <td>Sprint 2 Planning &amp; Roles</td>
+              <td>Valeria C. (PO)<br>María V. (SM)</td>
+              <td>Asignación de roles Scrum, redacción de historias <code>HU01</code>–<code>HU05</code>, creación de repositorio y ramas GitFlow.</td>
+              <td>Configuración de ramas <code>main</code>, <code>develop</code> y <code>feature/*</code>. <span class="status-done">Completado</span></td>
+            </tr>
+            <tr>
+              <td><strong>04/10/2026</strong></td>
+              <td>Daily Standup &amp; Backlog</td>
+              <td>María V. (SM)<br>Valeria C. (PO)</td>
+              <td>Alta de los 7 Issues oficiales en GitHub con criterios de aceptación, etiquetas de prioridad y Milestones por Sprint.</td>
+              <td>Aplicación de permisos mínimos en <code>AndroidManifest.xml</code> e <code>Info.plist</code>. <span class="status-done">Completado</span></td>
+            </tr>
+            <tr>
+              <td><strong>12/10/2026</strong></td>
+              <td><strong>Sprint 2 Review &amp; Retrospectiva</strong></td>
+              <td>Valeria C. (PO)<br>María V. (SM)</td>
+              <td><strong>Atención a retroalimentación docente:</strong> Migración del repositorio al código nativo de la <strong>App Móvil en Flutter &amp; Dart</strong> e integración de esta <strong>Bitácora de Seguimiento</strong>.</td>
+              <td><strong>Obs. Docente Atendida:</strong> Se sustituyó la estructura web por el proyecto móvil Flutter (<code>lib/</code>, <code>pubspec.yaml</code>, <code>android/</code>, <code>ios/</code>) y se integró bitácora. <span class="status-done">Completado</span></td>
+            </tr>
+            <tr>
+              <td><strong>13/10 – 20/11</strong></td>
+              <td>Sprints 3 y 4 (Ruta Crítica)</td>
+              <td>Equipo Dev Móvil</td>
+              <td>Pruebas en dispositivo Android físico (cámara + GPS + Firebase), pruebas de campo con artesanos, <em>Code Freeze</em> (18 Nov) y Demo PMV (20 Nov).</td>
+              <td>En ejecución conforme al cronograma hacia el 20 de noviembre. <span class="status-prog">En Curso</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6. Enlaces Públicos de Control -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon">6</span>
+        Enlaces de Control y Auditoría (Acceso Público para el Profesor)
       </h2>
       <div class="links-grid">
         <div class="link-card">
-          <span class="link-label">Repositorio de Código en GitHub</span>
+          <span class="link-label">Repositorio App Móvil (Flutter/Dart)</span>
           <a class="link-url" href="https://github.com/valeria1732/app_Dolores_Magico" target="_blank">
             https://github.com/valeria1732/app_Dolores_Magico
           </a>
-          <span class="link-sub">Contiene el código fuente del Frontend, Backend y control de versiones.</span>
         </div>
-        
         <div class="link-card">
-          <span class="link-label">Tablero de Seguimiento (GitHub Projects / Trello)</span>
-          <a class="link-url" href="https://github.com/valeria1732/app_Dolores_Magico/projects" target="_blank">
+          <span class="link-label">Bitácora de Seguimiento en GitHub</span>
+          <a class="link-url" href="https://github.com/valeria1732/app_Dolores_Magico/blob/main/BITACORA_SEGUIMIENTO.md" target="_blank">
+            github.com/valeria1732/app_Dolores_Magico/blob/main/BITACORA_SEGUIMIENTO.md
+          </a>
+        </div>
+        <div class="link-card">
+          <span class="link-label">Tablero Kanban e Issues (GitHub Projects)</span>
+          <a class="link-url" href="https://github.com/valeria1732/app_Dolores_Magico/issues" target="_blank">
             https://github.com/valeria1732/app_Dolores_Magico/projects
           </a>
-          <span class="link-sub">Centro de control con Backlog, Sprint en curso, tareas asignadas y estados.</span>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
-      <div>Startup Tecnológica: <strong>Dolores Mágico</strong></div>
-      <div>Documento de Entrega Académica • Metodologías Ágiles de Desarrollo</div>
+      <div><strong>DoloresMágico App</strong> • Valeria Guadalupe Calvillo Mendoza (1223100392) &amp; María del Carmen Vargas Martínez (1220100084)</div>
+      <div>Universidad Tecnológica del Norte de Guanajuato • Desarrollo Móvil Integral</div>
     </footer>
 
   </div>
