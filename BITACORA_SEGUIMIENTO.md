@@ -16,7 +16,26 @@
 
 ---
 
-## 1. Resumen de Sprints y Ruta Crítica hacia el 20 de Noviembre
+## 🚀 Explicación Detallada del Sprint 1 — Planeación, Arquitectura Móvil y Núcleo del PMV
+
+### 1. ¿En qué consistió el Sprint 1?
+El **Sprint 1** tuvo como propósito fundamental transformar la problemática detectada en el municipio de Dolores Hidalgo C.I.N. (baja visibilidad digital de los talleres de Talavera y neverías tradicionales, y demora en la atención de reportes de servicios públicos) en una **arquitectura móvil funcional en Flutter y Dart**, definiendo el alcance estricto del **Producto Mínimo Viable (PMV)** para garantizar una entrega libre de riesgos el **20 de noviembre de 2026**.
+
+### 2. Decisiones Clave Tomadas en el Sprint 1 (*Sprint Planning*)
+1. **Delimitación del Alcance del PMV (Corte de características secundarias):**
+   - **Se incluyeron como prioridad Alta (MVP):** Autenticación y perfiles diferenciados (`HU01`), Mapa interactivo GPS con pines de 3 colores (`HU02`), Módulo de reporte ciudadano con cámara, GPS y folio (`HU03`), Catálogo del artesano con contacto directo por WhatsApp (`HU04`) y Panel de validación municipal (`HU05`).
+   - **Se descartaron para versiones posteriores:** Recorridos en Realidad Aumentada (AR), pasarela de pagos bancarios integrada y sistema de insignias/recompensas, evitando dependencias externas complejas que comprometerían la fecha límite.
+2. **Selección de Arquitectura Móvil (`MVVM + Clean Architecture`):**
+   - Se estructuró el código en tres capas independientes dentro de `lib/`:
+     - **Capa de Presentación (`lib/presentation/`):** Vistas en Flutter (`HomeMenuPage`, `MapaTuristicoPage`, `FichaTallerArtesanoPage`, `ReporteCiudadanoPage`) y ViewModels reactivos (`ReporteViewModel`, `MapaTuristicoViewModel`, `AuthViewModel`).
+     - **Capa de Dominio (`lib/domain/`):** Entidades de negocio (`ReporteUrbano`, `TallerArtesano`, `ProductoArtesanal`, `UsuarioApp`), contratos de repositorio y Casos de Uso (`RegistrarReporteUseCase`, `ExplorarMapaTuristicoUseCase`, `ContactarArtesanoWhatsappUseCase`).
+     - **Capa de Datos (`lib/data/`):** Implementación del *Repository Pattern* (`ReporteRepositoryImpl`, `ArtesanoRepositoryImpl`) conectado a **Firebase Cloud Firestore**, **Firebase Cloud Storage** y almacenamiento local offline con **Hive**.
+3. **Configuración de Seguridad Móvil (LFPDPPP y OWASP Mobile Top 10):**
+   - Configuración de permisos nativos bajo el **Principio de Mínimo Privilegio** en `android/app/src/main/AndroidManifest.xml` (`CAMERA`, `ACCESS_FINE_LOCATION`) e `ios/Runner/Info.plist`, además del consentimiento expreso del Aviso de Privacidad al registrarse.
+
+---
+
+## 📊 1. Resumen General de Sprints y Ruta Crítica hacia el 20 de Noviembre
 
 | Sprint | Periodo | Objetivo del Sprint (Sprint Goal) | Entregables Clave de la App Móvil | Avance | Estado |
 | :--- | :--- | :--- | :--- | :---: | :---: |
@@ -27,7 +46,7 @@
 
 ---
 
-## 2. Bitácora Cronológica de Sesiones, Ceremonias Scrum y Seguimiento
+## 🗓️ 2. Bitácora Cronológica de Sesiones, Ceremonias Scrum y Seguimiento
 
 | N.º | Fecha | Ceremonia / Actividad | Participantes | Actividades Realizadas (¿Qué se hizo?) | Acuerdos y Próximos Pasos (¿Qué se hará?) | Impedimentos / Observaciones y Solución Aplicada | Evidencia / Artefacto |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -39,11 +58,11 @@
 | **06** | 02/10/2026 | **Daily Standup / Seguridad Móvil** | Valeria Calvillo, María Vargas | Incorporación de principios de la LFPDPPP (Aviso de Privacidad, Derechos ARCO) y codificación segura OWASP Mobile Top 10 (Mínimo Privilegio en `AndroidManifest.xml` e `Info.plist`). | Automatizar la carga de los 7 Issues, etiquetas de prioridad y Milestones en GitHub. | Se eliminó cualquier llave hardcodeada usando variables de entorno y `.gitignore`. | `Cuestionario.pdf`, `AndroidManifest.xml`, `Info.plist` |
 | **07** | 04/10/2026 | **Configuración de Centro de Control** | María Vargas (SM), Valeria Calvillo (PO) | Ejecución del script de aprovisionamiento para registrar los 7 Issues (`HU01` a `HU05` + Sprints 2 y 3) en GitHub y vincularlos al tablero Kanban. | Validar la arquitectura de nube (BaaS en Firebase) y revisar retroalimentación del docente. | Ninguno. | `ISSUES_PRODUCT_BACKLOG.md`, `scripts/create_issues.js` |
 | **08** | 08/10/2026 | **Daily Standup / Cloud & Persistencia** | Valeria Calvillo, María Vargas | Diseño de la integración con nube pública en Firebase (Auth, Cloud Firestore, Cloud Storage) y persistencia local con Hive para zonas sin cobertura. | Integrar los repositorios en Dart (`ReporteRepositoryImpl` y `ArtesanoRepositoryImpl`). | Riesgo de desconexión en zonas rurales de talleres mitigado con patrón *Repository* y caché local Hive. | `custionario 2.pdf`, `lib/data/repositories/` |
-| **09** | 12/10/2026 | **Sprint 2 Review & Retrospectiva (Atención a Observaciones Docentes)** | Valeria Calvillo (PO), María Vargas (SM) | **1)** Reestructuración integral del repositorio para sustituir el prototipo web por el proyecto nativo de **App Móvil en Flutter & Dart (`lib/`, `android/`, `ios/`, `test/`, `pubspec.yaml`)**.<br>**2)** Elaboración e integración de la **Bitácora de Seguimiento** para auditoría docente. | Continuar con el Sprint 3: pruebas de cámara y GPS en dispositivo físico Android y sincronización en vivo con Firebase. | **Observación Docente Atendida:** El repositorio mostraba una App Web y faltaba la bitácora de seguimiento. **Solución:** Se migró todo el árbol de código a **Flutter/Dart móvil** y se incorporó esta bitácora detallada en el repositorio y documentos de entrega. | `lib/main.dart`, `pubspec.yaml`, `BITACORA_SEGUIMIENTO.md` |
+| **09** | 12/10/2026 | **Sprint 2 Review & Retrospectiva (Atención a Observaciones Docentes)** | Valeria Calvillo (PO), María Vargas (SM) | **1)** Reestructuración integral del repositorio para sustituir el prototipo web por el proyecto nativo de **App Móvil en Flutter & Dart (`lib/`, `android/`, `ios/`, `test/`, `pubspec.yaml`)**.<br>**2)** Elaboración e integración de la **Bitácora de Seguimiento** y la descripción detallada del **Sprint 1**. | Continuar con el Sprint 3: pruebas de cámara y GPS en dispositivo físico Android y sincronización en vivo con Firebase. | **Observación Docente Atendida:** El repositorio mostraba una App Web y faltaba la bitácora de seguimiento. **Solución:** Se migró todo el árbol de código a **Flutter/Dart móvil** y se incorporó esta bitácora detallada en el repositorio y documentos de entrega. | `lib/main.dart`, `pubspec.yaml`, `BITACORA_SEGUIMIENTO.md`, `README.md` |
 
 ---
 
-## 3. Bitácora de Trazabilidad Técnica: Historias de Usuario, Código Móvil (Flutter) y Ramas Git
+## 🔗 3. Bitácora de Trazabilidad Técnica: Historias de Usuario, Código Móvil (Flutter) y Ramas Git
 
 | ID Issue | Historia de Usuario / Requerimiento | Prioridad | Rama de Git Asociada | Componentes Móviles en Flutter (`lib/`) | Responsable | Estado en Tablero |
 | :---: | :--- | :---: | :--- | :--- | :--- | :---: |
@@ -57,7 +76,7 @@
 
 ---
 
-## 4. Bitácora de Commits Semánticos y Control de Versiones (GitFlow)
+## 🌿 4. Bitácora de Commits Semánticos y Control de Versiones (GitFlow)
 
 Siguiendo la **Sección 16 (Estrategia de Versionamiento)** del documento técnico, el seguimiento de cambios en el repositorio se rige por commits semánticos (`feat:`, `fix:`, `docs:`, `test:`, `refactor:`):
 
@@ -68,4 +87,4 @@ Siguiendo la **Sección 16 (Estrategia de Versionamiento)** del documento técni
 | 12/10/2026 | `feature/mapa-turistico` | `feat(mapa): implementar MapaTuristicoPage y ViewModel con pines Azul, Amarillo y Rojo` | Desarrollo de la vista móvil en Flutter y filtrado por categorías geolocalizadas de Dolores Hidalgo. | María Vargas |
 | 12/10/2026 | `feature/catalogo-artesano` | `feat(catalogo): agregar FichaTallerArtesanoPage y deep-link directo a WhatsApp (HU04)` | Implementación del catálogo de piezas de Talavera y botón `url_launcher` hacia WhatsApp sin comisiones. | María Vargas |
 | 12/10/2026 | `feature/reporte-ciudadano` | `feat(reportes): implementar arquitectura MVVM y Clean Architecture para ReporteCiudadanoPage (HU03)` | Creación de `ReporteUrbano`, `RegistrarReporteUseCase`, `ReporteRepositoryImpl` y `ReporteViewModel` conforme al diagrama UML. | Valeria Calvillo |
-| 12/10/2026 | `develop` -> `main` | `docs(bitacora): incorporar Bitácora de Seguimiento y migrar repositorio a App Móvil Flutter` | Atención puntual a las observaciones del docente: bitácora completa de seguimiento y estructura 100% App Móvil en Flutter/Dart. | Valeria Calvillo & María Vargas |
+| 12/10/2026 | `develop` -> `main` | `docs(sprint1): agregar explicacion detallada del Sprint 1 y Bitacora de Seguimiento en portada del repositorio` | Visibilización completa del Sprint 1 y seguimiento de la App Móvil en el `README.md` principal y en `BITACORA_SEGUIMIENTO.md`. | Valeria Calvillo & María Vargas |

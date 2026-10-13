@@ -8,29 +8,88 @@ Proyecto Integrador para la materia **Desarrollo Móvil Integral** — **Univers
   - **Valeria Guadalupe Calvillo Mendoza** (Matrícula: `1223100392`) — *Product Owner & Mobile Backend / Clean Architecture Lead*  
   - **María del Carmen Vargas Martínez** (Matrícula: `1220100084`) — *Scrum Master & Mobile UI/UX Flutter Lead*  
 - **Grupo:** GIDS6101-E  
-- **Fecha Límite del PMV:** 20 de Noviembre de 2026  
+- **Metodología:** Scrum con enfoque Hackathon + Tablero Kanban en GitHub Projects  
+- **Fecha Límite Inamovible del PMV:** 20 de Noviembre de 2026  
 
 ---
 
-## 📓 Bitácora Oficial de Seguimiento del Proyecto
-Para consultar el registro cronológico de **Sprints, Ceremonias Scrum (Sprint Planning, Daily Standups, Sprint Review y Retrospectiva), Trazabilidad de Historias de Usuario, Ramas Git y Atención a Observaciones Docentes**, revisa el documento:
-👉 **[BITACORA_SEGUIMIENTO.md](./BITACORA_SEGUIMIENTO.md)**
+## 🚀 Explicación Detallada del Sprint 1 — Cimientos Móviles y Núcleo del PMV (Flutter & Dart)
+
+> 📌 **Accesos Rápidos de Auditoría del Sprint 1:**  
+> - 📄 [**Ver Documento Exclusivo del Sprint 1 (`SPRINT_1.md`)**](./SPRINT_1.md)  
+> - 📓 [**Ver Bitácora Completa de Seguimiento (`BITACORA_SEGUIMIENTO.md`)**](./BITACORA_SEGUIMIENTO.md)  
+> - 📥 [**Descargar Entregable en PDF (`Bitacora_y_App_Movil_Dolores_Magico.pdf`)**](./Bitacora_y_App_Movil_Dolores_Magico.pdf) | [**Descargar Word (`.docx`)**](./Bitacora_y_App_Movil_Dolores_Magico.docx)
+
+Este apartado describe de forma transparente qué se planeó, qué se construyó y cómo se organizó el **Sprint 1** dentro de este repositorio para que cualquier visitante o evaluador pueda auditar el avance de la **Aplicación Móvil**.
+
+### 🎯 1. Objetivo del Sprint 1 (*Sprint Goal*)
+Establecer la arquitectura móvil nativa en **Flutter y Dart** bajo el patrón **MVVM (Model-View-ViewModel) integrado con Clean Architecture**, configurar los permisos de hardware en **Android (`AndroidManifest.xml`)** e **iOS (`Info.plist`)** bajo el principio de mínimo privilegio, y desarrollar las **3 pantallas móviles principales** junto con las **5 Historias de Usuario de Prioridad Alta (`HU01` a `HU05`)** que integran el **Producto Mínimo Viable (PMV)**.
+
+### 👥 2. Roles Activos y Responsabilidades durante el Sprint 1
+| Integrante | Rol Scrum | Trabajo Ejecutado en el Sprint 1 (App Móvil) |
+| :--- | :--- | :--- |
+| **Valeria Guadalupe Calvillo Mendoza** (`1223100392`) | **Product Owner & Mobile Backend Lead** | Definición y priorización del *Product Backlog*, recorte de alcance para proteger la entrega del 20 de noviembre, e implementación en **Dart** de la **Capa de Dominio** (`ReporteUrbano`, `TallerArtesano`, `RegistrarReporteUseCase`) y la **Capa de Datos** (`ReporteRepositoryImpl`, `ArtesanoRepositoryImpl`, integración con **Firebase Firestore / Cloud Storage** y caché local **Hive**). |
+| **María del Carmen Vargas Martínez** (`1220100084`) | **Scrum Master & Mobile UI/UX Flutter Lead** | Facilitación de ceremonias Scrum (*Sprint Planning*, *Daily Standups*, *Sprint Review* y *Retrospectiva*), administración del tablero Kanban en GitHub Projects y de la bitácora, y desarrollo en **Flutter** de la **Capa de Presentación** (`HomeMenuPage`, `MapaTuristicoPage`, `FichaTallerArtesanoPage`, `ReporteCiudadanoPage` y ViewModels reactivos con `Provider`). |
+
+### 📋 3. Alcance Funcional Construido en el Sprint 1 (Historias de Usuario del PMV)
+
+Durante el **Sprint 1** se desglosó y codificó el núcleo operativo de la aplicación móvil en 5 historias prioritarias:
+
+1. **🔐 `HU01` — Autenticación y Registro Diferenciado (`Issue #1` | Prioridad: Alta):**
+   - **Explicación:** Permite al usuario ingresar a la aplicación móvil eligiendo su rol activo (*Turista/Visitante*, *Ciudadano Dolorense*, *Artesano/Comerciante* o *Administrador*) y registrar talleres artesanales con fotografías, datos comerciales y ubicación GPS, incluyendo la aceptación expresa del **Aviso de Privacidad (LFPDPPP)**.
+   - **Código Móvil en el Repositorio:** [`lib/domain/entities/usuario_app.dart`](./lib/domain/entities/usuario_app.dart), [`lib/presentation/viewmodels/auth_viewmodel.dart`](./lib/presentation/viewmodels/auth_viewmodel.dart) y [`lib/presentation/views/auth/registro_artesano_page.dart`](./lib/presentation/views/auth/registro_artesano_page.dart).
+
+2. **🗺️ `HU02` — Exploración Turística en Mapa Interactivo GPS con 3 Pines de Colores (`Issue #2` | Prioridad: Alta):**
+   - **Explicación:** Implementa la **Pantalla 2** de la app móvil centrada en Dolores Hidalgo C.I.N. (`21.15605, -100.93245`) utilizando `google_maps_flutter` y `geolocator`. Permite buscar y filtrar puntos de interés mediante el código oficial de pines por color:
+     - 🔵 **Pines Azules (`AppColors.pinTalaveraAzul`):** Talleres artesanales de Talavera y mayólica virreinal.
+     - 🟡 **Pines Amarillos (`AppColors.pinNievesAmarillo`):** Neverías tradicionales centenarias.
+     - 🔴 **Pines Rojos (`AppColors.pinHistoricoRojo`):** Sitios históricos y museos de la Independencia de 1810.
+   - **Código Móvil en el Repositorio:** [`lib/domain/usecases/explorar_mapa_turistico_usecase.dart`](./lib/domain/usecases/explorar_mapa_turistico_usecase.dart), [`lib/presentation/viewmodels/mapa_turistico_viewmodel.dart`](./lib/presentation/viewmodels/mapa_turistico_viewmodel.dart) y [`lib/presentation/views/mapa/mapa_turistico_page.dart`](./lib/presentation/views/mapa/mapa_turistico_page.dart).
+
+3. **📸 `HU03` — Módulo de Reporte Ciudadano con Cámara, GPS Automático y Folio (`Issue #3` | Prioridad: Alta):**
+   - **Explicación:** Implementa la **Pantalla 3** de la app móvil siguiendo de manera exacta el **Diagrama de Clases UML** del proyecto. Permite al ciudadano seleccionar el tipo de desperfecto urbano (*Alumbrado Público*, *Acumulación de Basura* o *Vialidad y Baches*), capturar una fotografía de evidencia con la cámara del celular (`image_picker`), obtener automáticamente las coordenadas GPS (`geolocator`), almacenar la información en **Firebase Cloud Storage / Cloud Firestore** y mostrar un diálogo de confirmación con el folio único generado (`FOL-2026-DH-XXXX`).
+   - **Código Móvil en el Repositorio:** [`lib/presentation/views/reportes/reporte_ciudadano_page.dart`](./lib/presentation/views/reportes/reporte_ciudadano_page.dart) *(métodos `displayForm()`, `capturePhoto()`, `showConfirmationFolio()`)*, [`lib/presentation/viewmodels/reporte_viewmodel.dart`](./lib/presentation/viewmodels/reporte_viewmodel.dart), [`lib/domain/usecases/registrar_reporte_usecase.dart`](./lib/domain/usecases/registrar_reporte_usecase.dart), [`lib/domain/entities/reporte_urbano.dart`](./lib/domain/entities/reporte_urbano.dart) y [`lib/data/repositories/reporte_repository_impl.dart`](./lib/data/repositories/reporte_repository_impl.dart).
+
+4. **🏺 `HU04` — Ficha Técnica, Catálogo del Artesano y Contacto Directo por WhatsApp (`Issue #4` | Prioridad: Alta):**
+   - **Explicación:** Al tocar un pin o taller en la aplicación móvil, se abre la ficha técnica con la historia del maestro artesano, su catálogo de piezas con precios en MXN y un botón que ejecuta un *deep-link* (`url_launcher`) hacia **WhatsApp** (`https://wa.me/...`) o llamada telefónica para compra directa sin intermediarios ni comisiones.
+   - **Código Móvil en el Repositorio:** [`lib/domain/usecases/contactar_artesano_whatsapp_usecase.dart`](./lib/domain/usecases/contactar_artesano_whatsapp_usecase.dart) y [`lib/presentation/views/catalogo/ficha_taller_artesano_page.dart`](./lib/presentation/views/catalogo/ficha_taller_artesano_page.dart).
+
+5. **🛡️ `HU05` — Panel de Administración y Validación Municipal (`Issue #5` | Prioridad: Alta):**
+   - **Explicación:** Permite al perfil de administrador municipal verificar la autenticidad de los talleres artesanales registrados y actualizar el estatus de atención de los reportes urbanos.
+   - **Código Móvil en el Repositorio:** [`lib/domain/usecases/validar_registros_admin_usecase.dart`](./lib/domain/usecases/validar_registros_admin_usecase.dart) y [`lib/presentation/views/admin/admin_validacion_page.dart`](./lib/presentation/views/admin/admin_validacion_page.dart).
 
 ---
 
-## 📱 Descripción de la Aplicación Móvil
-**DoloresMágico App** es una aplicación móvil multiplataforma (**Android / iOS**) desarrollada con **Flutter y Dart** que impulsa la economía local conectando a turistas y residentes con los talleres artesanales de Talavera, neverías tradicionales y rutas históricas de Dolores Hidalgo C.I.N., integrando a su vez un módulo de participación ciudadana para el reporte de servicios públicos urbanos con captura de fotografía desde la cámara del dispositivo, coordenadas GPS automáticas y generación de folio de seguimiento en **Firebase**.
+## 📓 Bitácora de Seguimiento del Proyecto (Resumen Directo en Repositorio)
+
+> 📄 **Consulta la bitácora completa aquí:** 👉 **[BITACORA_SEGUIMIENTO.md](./BITACORA_SEGUIMIENTO.md)**
+
+### Cronograma de Sprints hacia el 20 de Noviembre de 2026
+| Sprint | Periodo | Meta Principal (*Sprint Goal*) | Entregables Móviles en el Repositorio | Avance | Estado |
+| :--- | :--- | :--- | :--- | :---: | :---: |
+| **Sprint 1** | 01 Sep – 18 Sep 2026 | Planeación técnica, prototipo conceptual de 3 pantallas, Diagrama UML y cimientos de arquitectura móvil MVVM + Clean Architecture. | Propuesta técnica UTNG, Diagrama de Clases UML y definición de capas (`domain`, `data`, `presentation`). | **100%** | ✅ Completado |
+| **Sprint 2** | 21 Sep – 12 Oct 2026 | Codificación en **Flutter & Dart** de las historias `HU01` a `HU05`, alta de Issues en GitHub, ramas GitFlow y Bitácora de Seguimiento. | Código móvil nativo (`lib/`, `android/`, `ios/`, `pubspec.yaml`, `test/`), 7 Issues activos y `BITACORA_SEGUIMIENTO.md`. | **100%** | ✅ Completado |
+| **Sprint 3** | 13 Oct – 02 Nov 2026 | Integración en vivo con servicios cloud de **Firebase** y pruebas en dispositivo físico de cámara (`image_picker`) y GPS (`geolocator`). | Sincronización en tiempo real con Cloud Firestore / Storage y persistencia offline en Hive. | **65%** | 🔄 En Curso |
+| **Sprint 4** | 03 Nov – 20 Nov 2026 | Pruebas de campo con artesanos de Talavera, *Code Freeze* (18 Nov), generación de APK firmado y Demo en Vivo del PMV (20 Nov). | Paquete instalable `app-release.apk` y presentación funcional en vivo el **20 de noviembre**. | **0%** | 📅 Programado |
+
+### Registro de Sesiones, Ceremonias Scrum y Atención a Observaciones
+| Fecha | Ceremonia Scrum | Participantes | Actividades Realizadas | Observaciones / Solución Aplicada |
+| :--- | :--- | :--- | :--- | :--- |
+| **04/09/2026** | **Sprint 1 Planning** | Valeria C. (PO), María V. (SM) | Definición del problema en Dolores Hidalgo y selección de las 4 funcionalidades indispensables del MVP móvil. | Se descartaron Realidad Aumentada (AR) y pasarela de pagos para mitigar riesgo de tiempo. |
+| **14/09/2026** | **Sesión de Arquitectura** | Valeria C., María V. | Elección de **MVVM + Clean Architecture** para Flutter y diseño del Diagrama UML (`ReporteCiudadanoPage`). | Desacoplamiento en 3 capas (`domain`, `data`, `presentation`) para trabajo paralelo. |
+| **23/09/2026** | **Juego de Roles / Sprint 2 Planning** | Valeria C. (PO), María V. (SM) | Asignación formal de roles Scrum, redacción de historias `HU01`–`HU05` y configuración de ramas GitFlow. | Creación de ramas `main`, `develop`, `feature/mapa-turistico`, `feature/reporte-ciudadano` y `feature/catalogo-artesano`. |
+| **04/10/2026** | **Daily Standup & Tablero** | María V. (SM), Valeria C. (PO) | Alta de los 7 Issues oficiales en GitHub con criterios de aceptación, etiquetas de prioridad y Milestones. | Configuración de permisos mínimos (`CAMERA`, `ACCESS_FINE_LOCATION`) en Android e iOS. |
+| **12/10/2026** | **Sprint 2 Review & Retrospectiva** | Valeria C. (PO), María V. (SM) | **Atención a retroalimentación docente:** Migración del repositorio al código nativo de la **App Móvil en Flutter & Dart** e incorporación de la **Bitácora de Seguimiento** y la explicación detallada del **Sprint 1**. | **Observación Docente Atendida:** Se eliminó el código web previo y se dejó 100% la estructura de la **App Móvil en Flutter (`lib/`, `pubspec.yaml`, `android/`, `ios/`)** con su bitácora visible. |
 
 ---
 
-## 🏛️ Arquitectura de la App Móvil (MVVM + Clean Architecture en Flutter)
-
-Conforme a las **Secciones 12, 13 y 14** de la propuesta técnica y al **Diagrama de Clases UML**, el código fuente móvil está organizado bajo el patrón **MVVM (Model-View-ViewModel)** integrado con los principios de **Clean Architecture** y **Repository / Singleton Patterns**:
+## 🏛️ Estructura Completa del Código de la App Móvil (`lib/`, `android/`, `ios/`)
 
 ```text
 app_Dolores_Magico/
 ├── pubspec.yaml                                       # Dependencias Flutter: provider, firebase_*, google_maps_flutter, geolocator, image_picker, hive, url_launcher
 ├── analysis_options.yaml                              # Reglas de calidad y linting para Dart/Flutter
+├── BITACORA_SEGUIMIENTO.md                            # Bitácora oficial detallada de Sprints, Ceremonias Scrum y Commits
 ├── android/                                           # Configuración nativa Android (SDK 23-34)
 │   └── app/
 │       ├── build.gradle                               # Configuración Gradle, namespace mx.edu.utng.dolores_magico_app y ProGuard/R8
@@ -99,37 +158,18 @@ app_Dolores_Magico/
 
 ---
 
-## 🎨 Diseño Conceptual de las 3 Pantallas Móviles (Sección 6)
-1. **Pantalla 1 — Home / Menú Principal (`home_menu_page.dart`):** Selector directo entre *"Explorar Dolores Mágico (Ruta Artesanal/Gastronómica)"* y *"Mi Comunidad (Reporte Urbano)"*, acompañado de `NavigationBar` inferior nativa.
-2. **Pantalla 2 — Mapa Interactivo y Ficha del Taller (`mapa_turistico_page.dart` y `ficha_taller_artesano_page.dart`):** Mapa GPS centrado en Dolores Hidalgo (`21.15605, -100.93245`) con pines interactivos por color:
-   - 🔵 **Pines Azules:** Talleres de Talavera y alfarería tradicional.
-   - 🟡 **Pines Amarillos:** Neverías tradicionales centenarias.
-   - 🔴 **Pines Rojos:** Sitios Históricos y museos de la Independencia de 1810.
-3. **Pantalla 3 — Formulario de Reporte Ciudadano y Confirmación (`reporte_ciudadano_page.dart`):** Captura de fotografía de la incidencia con cámara (`ImagePicker`), coordenadas GPS automáticas (`Geolocator`), selección de tipo de problema (*Alumbrado*, *Basura*, *Vialidad*) y diálogo final con el folio oficial (`FOL-2026-DH-XXXX`).
-
----
-
-## 🛠️ Ejecución de la App Móvil en Entorno de Desarrollo (VS Code / Android Studio)
+## 🛠️ Comandos de Ejecución de la App Móvil (Flutter CLI)
 
 ```bash
-# 1. Descargar paquetes y dependencias de Flutter / Dart
+# 1. Instalar paquetes de Flutter / Dart definidos en pubspec.yaml
 flutter pub get
 
-# 2. Ejecutar pruebas unitarias de la Capa de Dominio (Sección 17)
+# 2. Ejecutar pruebas unitarias de la Capa de Dominio (generación de folio y validaciones)
 flutter test
 
 # 3. Ejecutar la aplicación móvil en emulador o dispositivo físico Android / iOS
 flutter run
 
-# 4. Generar paquete instalable APK de producción para demostración en vivo
+# 4. Compilar paquete APK de producción para demostración en vivo
 flutter build apk --release
 ```
-
----
-
-## 🌿 Estrategia de Versionamiento en Git y GitHub (Sección 16)
-- `main`: Versión estable y lista para su despliegue (APK Release).
-- `develop`: Rama principal de integración de las funcionalidades desarrolladas y probadas.
-- `feature/mapa-turistico`: Desarrollo de las funcionalidades relacionadas con el mapa turístico GPS (`HU02`).
-- `feature/reporte-ciudadano`: Desarrollo del módulo de reportes ciudadanos con cámara, GPS y folio (`HU03`).
-- `feature/catalogo-artesano`: Desarrollo del catálogo, perfiles de artesanos y contacto directo por WhatsApp (`HU04` y `HU01`).

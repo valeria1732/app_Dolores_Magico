@@ -24,7 +24,7 @@ def build_pdf(output_path):
         rightMargin=18 * mm,
         topMargin=15 * mm,
         bottomMargin=15 * mm,
-        title="DoloresMágico App - Fundamentación Metodológica, App Móvil Flutter y Bitácora de Seguimiento",
+        title="DoloresMágico App - Fundamentación Metodológica, Sprint 1, App Móvil Flutter y Bitácora",
         author="Valeria Guadalupe Calvillo Mendoza & María del Carmen Vargas Martínez",
     )
 
@@ -70,7 +70,7 @@ def build_pdf(output_path):
         fontSize=9.1,
         leading=13.2,
         textColor=slate,
-        alignment=4,  # Justified
+        alignment=4,
         spaceAfter=5,
     )
     left_style = ParagraphStyle(
@@ -80,7 +80,7 @@ def build_pdf(output_path):
         fontSize=9.1,
         leading=13.5,
         textColor=slate,
-        alignment=0,  # Left aligned for URLs
+        alignment=0,
         spaceAfter=5,
     )
     cell_style = ParagraphStyle(
@@ -122,7 +122,7 @@ def build_pdf(output_path):
     )
     story.append(
         Paragraph(
-            "DoloresMágico App: Fundamentación Metodológica, Arquitectura de App Móvil (Flutter &amp; Dart) y Bitácora Oficial de Seguimiento",
+            "DoloresMágico App: Fundamentación Metodológica, Descripción del Sprint 1, App Móvil (Flutter &amp; Dart) y Bitácora de Seguimiento",
             title_style,
         )
     )
@@ -235,26 +235,27 @@ def build_pdf(output_path):
     )
     story.append(justificacion_box)
 
-    # 3. ESTRATEGIA DEL PMV MÓVIL
+    # 3. DESCRIPCIÓN DETALLADA DEL SPRINT 1 Y ESTRATEGIA DEL PMV
     story.append(
         Paragraph(
-            "3. Estrategia del Producto Mínimo Viable (PMV — App Móvil en Flutter)",
+            "3. Descripción Detallada del Sprint 1 y Estrategia del Producto Mínimo Viable (PMV Móvil)",
             h2_style,
         )
     )
     story.append(
         Paragraph(
-            "<b>A. Funcionalidad Principal de la App Móvil a Presentar el 20 de Noviembre:</b><br/>"
+            "<b>Objetivo del Sprint 1 (Sprint Goal):</b> Cimentar la arquitectura móvil nativa en <b>Flutter y Dart</b> bajo el patrón <b>MVVM integrado con Clean Architecture</b>, configurar permisos de hardware en Android (<i>AndroidManifest.xml</i>) e iOS (<i>Info.plist</i>) bajo mínimo privilegio, y desarrollar las 3 pantallas móviles y las 5 Historias de Usuario de prioridad Alta (<b>HU01 a HU05</b>) que constituyen el núcleo del PMV:<br/>"
             "• <b>1. Autenticación y Perfiles Diferenciados (HU01 — registro_artesano_page.dart):</b> Login/Registro en Firebase Authentication diferenciando <i>Turista/Ciudadano</i> vs. <i>Artesano/Comerciante</i>, con aceptación expresa del Aviso de Privacidad (LFPDPPP).<br/>"
             "• <b>2. Mapa Interactivo GPS de Dolores Hidalgo (HU02 — mapa_turistico_page.dart):</b> Geolocalización con pines interactivos de 3 colores: <b>Azul</b> (Talleres de Talavera), <b>Amarillo</b> (Neverías Tradicionales) y <b>Rojo</b> (Sitios Históricos de 1810).<br/>"
             "• <b>3. Directorio, Catálogo del Artesano y WhatsApp Directo (HU04 — ficha_taller_artesano_page.dart):</b> Ficha técnica con fotos de productos, historia del taller y botón <i>url_launcher</i> hacia WhatsApp y llamada telefónica sin intermediarios.<br/>"
-            "• <b>4. Módulo de Reporte Ciudadano con Cámara, GPS y Folio (HU03 — reporte_ciudadano_page.dart):</b> Captura de fotografía con cámara (<i>image_picker</i>), ubicación GPS automática (<i>geolocator</i>), persistencia en Firebase Storage/Firestore y generación de folio <b>FOL-2026-DH-XXXX</b>.",
+            "• <b>4. Módulo de Reporte Ciudadano con Cámara, GPS y Folio (HU03 — reporte_ciudadano_page.dart):</b> Captura de fotografía con cámara (<i>image_picker</i>), ubicación GPS automática (<i>geolocator</i>), persistencia en Firebase Storage/Firestore y generación de folio <b>FOL-2026-DH-XXXX</b>.<br/>"
+            "• <b>5. Panel de Validación Municipal (HU05 — admin_validacion_page.dart):</b> Validación de talleres registrados y seguimiento de incidencias.",
             body_style,
         )
     )
     story.append(
         Paragraph(
-            "<b>B. Justificación de Características Excluidas por el Momento:</b> Se dejaron fuera del PMV los recorridos en Realidad Aumentada (AR), la pasarela de pagos bancarios integrada y el sistema de insignias/reseñas complejas, ya que exigen modelado 3D pesado y certificaciones financieras que comprometerían la entrega del 20 de noviembre. El botón directo a WhatsApp resuelve el comercio justo sin fricción ni comisiones.",
+            "<b>Justificación de Características Excluidas del Sprint 1 / PMV:</b> Se dejaron fuera los recorridos en Realidad Aumentada (AR), la pasarela de pagos bancarios integrada y el sistema de insignias/reseñas complejas, ya que exigen modelado 3D pesado y certificaciones financieras que comprometerían la entrega del 20 de noviembre.",
             body_style,
         )
     )
@@ -360,11 +361,11 @@ def build_pdf(output_path):
             Paragraph("<b>Sprint 2 Review &amp; Retrospectiva</b>", cell_style),
             Paragraph("Valeria C. (PO)<br/>María V. (SM)", cell_style),
             Paragraph(
-                "<b>Atención a observación docente:</b> Migración del repositorio al código nativo de la <b>App Móvil en Flutter &amp; Dart</b> e integración de esta <b>Bitácora de Seguimiento</b>.",
+                "<b>Atención a observación docente:</b> Migración del repositorio al código nativo de la <b>App Móvil en Flutter &amp; Dart</b>, descripción detallada del <b>Sprint 1</b> en portada e integración de esta <b>Bitácora de Seguimiento</b>.",
                 cell_style,
             ),
             Paragraph(
-                "<b>Observación Docente Atendida:</b> Se sustituyó la estructura web por el proyecto móvil Flutter (<i>lib/</i>, <i>pubspec.yaml</i>, <i>android/</i>, <i>ios/</i>) y se publicó bitácora. <b>[Completado]</b>",
+                "<b>Observación Docente Atendida:</b> Se sustituyó la estructura web por el proyecto móvil Flutter (<i>lib/</i>, <i>pubspec.yaml</i>, <i>android/</i>, <i>ios/</i>) y se publicó bitácora y Sprint 1. <b>[Completado]</b>",
                 cell_style,
             ),
         ],
@@ -400,10 +401,10 @@ def build_pdf(output_path):
     story.append(bitacora_table)
     story.append(Spacer(1, 6))
 
-    # 5.2 TRAZABILIDAD DE ISSUES, RAMAS Y ARCHIVOS FLUTTER
+    # 5.1 TRAZABILIDAD DE ISSUES, RAMAS Y ARCHIVOS FLUTTER
     story.append(
         Paragraph(
-            "5.1 Bitácora de Trazabilidad Técnica: Issues, Ramas Git y Archivos Móviles en Flutter (.dart)",
+            "5.1 Bitácora de Trazabilidad Técnica del Sprint 1: Issues, Ramas Git y Archivos Móviles en Flutter (.dart)",
             h2_style,
         )
     )
@@ -492,7 +493,7 @@ def build_pdf(output_path):
     )
     story.append(
         Paragraph(
-            "• <b>URL del Repositorio de Código de la App Móvil (Flutter &amp; Dart):</b><br/>"
+            "• <b>URL del Repositorio de Código de la App Móvil y Explicación del Sprint 1 (Flutter &amp; Dart):</b><br/>"
             "&nbsp;&nbsp;<font color='#0D47A1'><u>https://github.com/valeria1732/app_Dolores_Magico</u></font><br/>"
             "• <b>URL Directa de la Bitácora Oficial de Seguimiento en GitHub:</b><br/>"
             "&nbsp;&nbsp;<font color='#0D47A1'><u>https://github.com/valeria1732/app_Dolores_Magico/blob/main/BITACORA_SEGUIMIENTO.md</u></font><br/>"
@@ -522,7 +523,7 @@ def build_docx(output_path):
     r_inst.font.color.rgb = RGBColor(13, 71, 161)
 
     doc.add_heading(
-        "DoloresMágico App: Fundamentación Metodológica, Configuración de App Móvil (Flutter & Dart) y Bitácora de Seguimiento",
+        "DoloresMágico App: Fundamentación Metodológica, Descripción del Sprint 1, App Móvil (Flutter & Dart) y Bitácora de Seguimiento",
         level=1,
     )
 
@@ -553,15 +554,17 @@ def build_docx(output_path):
     )
     p_just.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
-    # 3. Estrategia PMV
-    doc.add_heading("3. Estrategia del Producto Mínimo Viable (PMV — App Móvil)", level=2)
+    # 3. Sprint 1 & Estrategia PMV
+    doc.add_heading("3. Descripción del Sprint 1 y Estrategia del Producto Mínimo Viable (PMV — App Móvil)", level=2)
     p_pmv = doc.add_paragraph()
-    p_pmv.add_run("Funcionalidad Principal para el 20 de Noviembre:\n").bold = True
+    p_pmv.add_run("Objetivo y Funcionalidad Desarrollada en el Sprint 1 (Rumbo al 20 de Noviembre):\n").bold = True
     p_pmv.add_run(
+        "El Sprint 1 estableció la arquitectura móvil nativa en Flutter y Dart (MVVM + Clean Architecture) e implementó las 5 Historias de Usuario de prioridad Alta:\n"
         "1. Autenticación y Perfiles Diferenciados (HU01 — registro_artesano_page.dart): Login/Registro en Firebase Auth (Turista/Ciudadano vs. Artesano) con Aviso de Privacidad LFPDPPP.\n"
         "2. Mapa Interactivo GPS de Dolores Hidalgo (HU02 — mapa_turistico_page.dart): Ubicación GPS con pines de 3 colores: Azul (Talavera), Amarillo (Nieves) y Rojo (Sitios Históricos).\n"
         "3. Directorio, Catálogo del Artesano y WhatsApp Directo (HU04 — ficha_taller_artesano_page.dart): Ficha técnica con fotos de productos, historia y botón url_launcher hacia WhatsApp sin comisiones.\n"
-        "4. Módulo de Reporte Ciudadano con Cámara, GPS y Folio (HU03 — reporte_ciudadano_page.dart): Captura de fotografía con cámara (image_picker), coordenadas GPS automáticas (geolocator) y generación de folio FOL-2026-DH-XXXX.\n\n"
+        "4. Módulo de Reporte Ciudadano con Cámara, GPS y Folio (HU03 — reporte_ciudadano_page.dart): Captura de fotografía con cámara (image_picker), coordenadas GPS automáticas (geolocator) y generación de folio FOL-2026-DH-XXXX.\n"
+        "5. Panel de Validación Municipal (HU05 — admin_validacion_page.dart): Validación de talleres registrados y seguimiento de reportes.\n\n"
     )
     p_pmv.add_run("Justificación de Características Excluidas:\n").bold = True
     p_pmv.add_run(
@@ -623,7 +626,7 @@ def build_docx(output_path):
             "12/10/2026",
             "Sprint 2 Review & Retrospectiva",
             "Valeria C. (PO)\nMaría V. (SM)",
-            "Atención a retroalimentación docente: Migración del repositorio al código nativo de la App Móvil en Flutter & Dart e inclusión de esta Bitácora de Seguimiento.",
+            "Atención a retroalimentación docente: Migración del repositorio al código nativo de la App Móvil en Flutter & Dart, explicación del Sprint 1 e inclusión de esta Bitácora de Seguimiento.",
             "Observación Docente Atendida: Se sustituyó el código web por el proyecto móvil Flutter (lib/, pubspec.yaml, android/, ios/) y se publicó la bitácora. [Completado]",
         ),
         (
@@ -642,7 +645,7 @@ def build_docx(output_path):
     # 6. Enlaces
     doc.add_heading("6. Enlaces de Control (Acceso Público Activo)", level=2)
     doc.add_paragraph(
-        "• URL del Repositorio de Código Móvil (Flutter & Dart): https://github.com/valeria1732/app_Dolores_Magico\n"
+        "• URL del Repositorio de Código Móvil y Explicación del Sprint 1 (Flutter & Dart): https://github.com/valeria1732/app_Dolores_Magico\n"
         "• URL de la Bitácora de Seguimiento en GitHub: https://github.com/valeria1732/app_Dolores_Magico/blob/main/BITACORA_SEGUIMIENTO.md\n"
         "• URL del Tablero de Seguimiento (GitHub Projects / Issues): https://github.com/valeria1732/app_Dolores_Magico/projects"
     )
@@ -658,12 +661,28 @@ if __name__ == "__main__":
         os.path.join(base_repo, "Fundamentacion_y_Planeacion_Dolores_Magico.pdf"),
         os.path.join(base_repo, "Dossier_Ejecutivo_Dolores_Magico.pdf"),
         os.path.join(base_repo, "Dossier_Puro_Texto_Dolores_Magico.pdf"),
+        os.path.join(base_repo, "Bitacora_y_App_Movil_Dolores_Magico.pdf"),
         os.path.join(base_root, "Bitacora_y_App_Movil_Dolores_Magico.pdf"),
     ]
     for p in pdf_paths:
-        build_pdf(p)
-        print("PDF generado:", p)
+        try:
+            build_pdf(p)
+            print("PDF generado:", p)
+        except PermissionError:
+            alt_p = p.replace(".pdf", "_Sprint1.pdf")
+            build_pdf(alt_p)
+            print("Archivo original abierto en lector; PDF generado en:", alt_p)
 
-    docx_path = os.path.join(base_root, "Bitacora_y_App_Movil_Dolores_Magico.docx")
-    build_docx(docx_path)
-    print("DOCX generado:", docx_path)
+    docx_paths = [
+        os.path.join(base_repo, "Bitacora_y_App_Movil_Dolores_Magico.docx"),
+        os.path.join(base_root, "Bitacora_y_App_Movil_Dolores_Magico.docx"),
+    ]
+    for dp in docx_paths:
+        try:
+            build_docx(dp)
+            print("DOCX generado:", dp)
+        except PermissionError:
+            alt_dp = dp.replace(".docx", "_Sprint1.docx")
+            build_docx(alt_dp)
+            print("Archivo original abierto en Word; DOCX generado en:", alt_dp)
+
