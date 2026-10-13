@@ -16,6 +16,7 @@ Proyecto Integrador para la materia **Desarrollo Móvil Integral** — **Univers
 ## 🚀 Explicación Detallada del Sprint 1 — Cimientos Móviles y Núcleo del PMV (Flutter & Dart)
 
 > 📌 **Accesos Rápidos de Auditoría del Sprint 1:**  
+> - 📋 [**Ver Tablero Kanban de Seguimiento (`projects/1`)**](https://github.com/users/valeria1732/projects/1) | [**Issues del Proyecto**](https://github.com/valeria1732/app_Dolores_Magico/issues)  
 > - 📄 [**Ver Documento Exclusivo del Sprint 1 (`SPRINT_1.md`)**](./SPRINT_1.md)  
 > - 📓 [**Ver Bitácora Completa de Seguimiento (`BITACORA_SEGUIMIENTO.md`)**](./BITACORA_SEGUIMIENTO.md)  
 > - 📥 [**Descargar Entregable en PDF (`Bitacora_y_App_Movil_Dolores_Magico.pdf`)**](./Bitacora_y_App_Movil_Dolores_Magico.pdf) | [**Descargar Word (`.docx`)**](./Bitacora_y_App_Movil_Dolores_Magico.docx)
