@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Configuración de Seguridad de Red Android (Network Security Config)
+    Cumplimiento:
+    - RFC 8446: Protocolo TLS 1.3 (Rescorla, 2018).
+    - OWASP Mobile Top 10 (2024) - M5: Prohibición de Comunicación Insegura.
+    - Cero tráfico Cleartext (HTTP) permitido en toda la aplicación.
+-->
+<network-security-config>
+    <!-- Prohibir estrictamente cualquier tráfico sin cifrar HTTP -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <!-- Configuración para dominios oficiales de la infraestructura en la nube -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">googleapis.com</domain>
+        <domain includeSubdomains="true">firebaseio.com</domain>
+        <domain includeSubdomains="true">cloudfunctions.net</domain>
+        <domain includeSubdomains="true">utng.edu.mx</domain>
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </domain-config>
+</network-security-config>

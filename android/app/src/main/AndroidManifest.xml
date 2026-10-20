@@ -37,7 +37,8 @@
         android:label="DoloresMágico App"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:usesCleartextTraffic="false">
+        android:usesCleartextTraffic="false"
+        android:networkSecurityConfig="@xml/network_security_config">
 
         <!-- Configuración de Google Maps SDK para Android -->
         <meta-data
