@@ -15,8 +15,10 @@ Proyecto Integrador para la materia **Desarrollo Móvil Integral** — **Univers
 
 ## 🚀 Explicación Detallada del Sprint 1 — Cimientos Móviles y Núcleo del PMV (Flutter & Dart)
 
-> 📌 **Accesos Rápidos de Auditoría del Sprint 1:**  
+> 📌 **Accesos Rápidos de Auditoría del Sprint 1, Nube y Seguridad:**  
 > - 📋 [**Ver Tablero Kanban de Seguimiento (`projects/1`)**](https://github.com/users/valeria1732/projects/1) | [**Issues del Proyecto**](https://github.com/valeria1732/app_Dolores_Magico/issues)  
+> - 🔒 [**Ficha de Diseño: Nube y Seguridad (`FICHA_NUBE_Y_SEGURIDAD.md`)**](./FICHA_NUBE_Y_SEGURIDAD.md) | [**PDF 1 Página**](./Ficha_de_Diseno_Nube_y_Seguridad_Dolores_Magico.pdf) | [**DOCX**](./Ficha_de_Diseno_Nube_y_Seguridad_Dolores_Magico.docx)  
+> - 🏛️ [**Dossier: Centros de Datos y Nube (15 Preguntas con APA 7)**](./INVESTIGACION_CENTROS_DE_DATOS_Y_NUBE.md) | [**PDF Completo**](./Investigacion_Centros_de_Datos_y_Nube.pdf) | [**DOCX**](./Investigacion_Centros_de_Datos_y_Nube.docx)  
 > - 📄 [**Ver Documento Exclusivo del Sprint 1 (`SPRINT_1.md`)**](./SPRINT_1.md)  
 > - 📓 [**Ver Bitácora Completa de Seguimiento (`BITACORA_SEGUIMIENTO.md`)**](./BITACORA_SEGUIMIENTO.md)  
 > - 📥 [**Descargar Entregable en PDF (`Bitacora_y_App_Movil_Dolores_Magico.pdf`)**](./Bitacora_y_App_Movil_Dolores_Magico.pdf) | [**Descargar Word (`.docx`)**](./Bitacora_y_App_Movil_Dolores_Magico.docx)
@@ -106,6 +108,11 @@ app_Dolores_Magico/
 │   │   ├── services/
 │   │   │   ├── firebase_singleton_service.dart        # Patrón Singleton (13.3): Instancia única de Auth, Firestore, Storage y FCM
 │   │   │   └── location_camera_singleton.dart         # Patrón Singleton (13.3): Instancia única de Geolocator e ImagePicker
+│   │   ├── security/                                  # Seguridad Móvil (LFPDPPP 2025, OWASP Top 10 & MASVS v2)
+│   │   │   ├── privacy_and_consent_service.dart       # Consentimiento granular, Aviso LFPDPPP y Derechos ARCO
+│   │   │   ├── crypto_vault_service.dart              # Cifrado en reposo AES-256-GCM y Keystore/Keychain
+│   │   │   ├── secure_network_service.dart            # TLS 1.3 estricto y Certificate Pinning
+│   │   │   └── input_sanitizer_service.dart           # Saneamiento de entradas (XSS/SQLi) y Deep Links
 │   │   └── theme/
 │   │       └── app_theme.dart                         # Tema visual Material 3 para Android e iOS
 │   ├── domain/                                        # 1. CAPA DE DOMINIO (Entidades, Contratos de Repositorio y Casos de Uso)
