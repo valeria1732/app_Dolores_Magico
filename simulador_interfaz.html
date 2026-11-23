@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoloresMágico App - Simulador Interactivo Móvil</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #0b1a2d 0%, #172d47 50%, #0d1e34 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .font-serif-colonial {
+      font-family: 'Cinzel', serif;
+    }
+
+    /* Cenefa tradicional estilo Mayólica */
+    .talavera-border {
+      background-image: repeating-linear-gradient(45deg, #0C2440 0, #0C2440 8px, #FDFBF7 8px, #FDFBF7 16px, #D4AF37 16px, #D4AF37 20px, #1E4E79 20px, #1E4E79 28px);
+      height: 6px;
+    }
+
+    /* Scrollbar personalizada */
+    .mobile-screen::-webkit-scrollbar {
+      width: 4px;
+    }
+    .mobile-screen::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .phone-shadow {
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 12px #1e293b, 0 0 0 14px #334155;
+    }
+
+    .badge-gold {
+      background: linear-gradient(135deg, #D4AF37 0%, #AA820A 100%);
+      color: #0C2440;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center p-2 sm:p-6">
+
+  <!-- Header del simulador -->
+  <header class="text-center mb-6 max-w-2xl">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/40 border border-blue-400/30 text-blue-200 text-xs font-semibold mb-2">
+      <i class="fa-solid fa-mobile-screen-button text-amber-400"></i>
+      <span>Simulador Interactivo de Interfaz • Flutter & Dart</span>
+    </div>
+    <h1 class="text-2xl sm:text-3xl font-bold font-serif-colonial text-amber-300 tracking-wide">
+      DoloresMágico App
+    </h1>
+    <p class="text-slate-300 text-xs sm:text-sm mt-1">
+      Cuna de la Independencia Nacional • Cerámica Mayólica & Turismo Cívico
+    </p>
+    <div class="flex items-center justify-center gap-3 mt-3 text-xs text-slate-400">
+      <span><i class="fa-solid fa-users text-amber-400 mr-1"></i> Valeria Calvillo & María Vargas</span>
+      <span>•</span>
+      <span><i class="fa-solid fa-graduation-cap text-sky-400 mr-1"></i> UTNG - GIDS6101-E</span>
+    </div>
+  </header>
+
+  <!-- Contenedor del Móvil -->
+  <div class="relative w-full max-w-[390px] h-[780px] bg-slate-900 rounded-[44px] phone-shadow overflow-hidden flex flex-col border border-slate-700">
+    
+    <!-- Notch / Dynamic Island -->
+    <div class="bg-[#0C2440] pt-2 pb-1 px-6 flex justify-between items-center text-[11px] text-amber-200 font-semibold z-50 select-none">
+      <span id="live-clock">10:45</span>
+      <div class="w-20 h-4 bg-slate-950 rounded-full mx-auto flex items-center justify-center">
+        <div class="w-2 h-2 rounded-full bg-slate-800 mr-2"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-blue-950"></div>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <i class="fa-solid fa-wifi text-[10px]"></i>
+        <i class="fa-solid fa-signal text-[10px]"></i>
+        <i class="fa-solid fa-battery-full text-xs text-emerald-400"></i>
+      </div>
+    </div>
+
+    <!-- AppBar de DoloresMágico -->
+    <div class="bg-[#0C2440] text-white px-4 py-2.5 flex items-center justify-between border-b border-amber-600/30 z-40 select-none">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-full bg-amber-500/20 border border-amber-400 flex items-center justify-center text-amber-300 text-xs shadow-inner">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+        <div>
+          <span class="font-serif-colonial text-sm font-bold tracking-wide text-amber-100 block leading-tight">Dolores Mágico</span>
+          <span class="text-[9px] text-amber-300/80 tracking-wider">CUNA DE LA INDEPENDENCIA</span>
+        </div>
+      </div>
+      <!-- Selector de Rol Activo -->
+      <div class="relative">
+        <button id="role-btn" onclick="toggleRoleMenu()" class="px-2.5 py-1 rounded-full bg-[#FDFBF7] text-[#0C2440] font-bold text-[10px] flex items-center gap-1.5 border border-amber-400 shadow-sm hover:bg-amber-50 transition">
+          <i class="fa-solid fa-user-circle text-xs text-blue-900"></i>
+          <span id="current-role-badge">TURISTA</span>
+          <i class="fa-solid fa-chevron-down text-[8px] text-slate-500"></i>
+        </button>
+        <!-- Dropdown de Roles -->
+        <div id="role-dropdown" class="hidden absolute right-0 mt-1 w-36 bg-white rounded-xl shadow-xl border border-slate-200 py-1 text-[#0C2440] text-xs z-50">
+          <div class="px-3 py-1 text-[9px] uppercase font-bold text-slate-400 border-b">Cambiar Rol (Demo)</div>
+          <button onclick="setRole('turista')" class="w-full text-left px-3 py-1.5 hover:bg-blue-50 font-medium flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-blue-600"></span> Turista
+          </button>
+          <button onclick="setRole('artesano')" class="w-full text-left px-3 py-1.5 hover:bg-amber-50 font-medium flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span> Artesano
+          </button>
+          <button onclick="setRole('admin')" class="w-full text-left px-3 py-1.5 hover:bg-red-50 font-medium flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-red-600"></span> Administrador
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cenefa Mayólica -->
+    <div class="talavera-border z-40"></div>
+
+    <!-- Pantalla móvil con scroll interno -->
+    <main class="mobile-screen flex-1 bg-[#FDFBF7] text-slate-800 overflow-y-auto relative pb-20 select-none">
+      
+      <!-- ========================================== -->
+      <!-- PESTAÑA 1: INICIO / PATRIMONIO             -->
+      <!-- ========================================== -->
+      <section id="tab-home" class="p-4 space-y-4">
+        <!-- Hero Banner Colonial -->
+        <div class="rounded-2xl p-4 bg-gradient-to-br from-[#0C2440] via-[#103055] to-[#07192C] text-white border border-amber-400/40 shadow-md relative overflow-hidden">
+          <div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-amber-500/10 blur-xl"></div>
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full badge-gold text-[10px] font-bold mb-2 uppercase tracking-wide">
+            <i class="fa-solid fa-landmark text-[9px]"></i> Pueblo Mágico 2026
+          </div>
+          <h2 class="text-lg font-bold font-serif-colonial text-white">Dolores Hidalgo C.I.N.</h2>
+          <p class="text-[11px] text-amber-200 font-medium mt-0.5">
+            Cuna de la Independencia • Capital de la Talavera Mayólica
+          </p>
+          <p class="text-[10px] text-slate-300 mt-2 italic leading-relaxed">
+            "Talavera, cultura y comunidad: la Cuna de la Independencia en tus manos."
+          </p>
+          <!-- Tags de identidad -->
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="px-2 py-0.5 rounded-md bg-blue-500/20 text-blue-200 border border-blue-400/30 text-[9px] font-semibold">🏺 Talavera Mayólica</span>
+            <span class="px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-200 border border-amber-400/30 text-[9px] font-semibold">🍨 Nieves de Garrafa</span>
+            <span class="px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-200 border border-rose-400/30 text-[9px] font-semibold">🔔 Ruta 1810</span>
+          </div>
+        </div>
+
+        <!-- Accesos Rápidos Principales -->
+        <div>
+          <h3 class="text-xs font-bold text-[#0C2440] uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <span class="w-1.5 h-3 bg-[#0C2440] rounded-sm"></span>
+            Experiencias de la Cuna de la Libertad
+          </h3>
+          <div class="grid grid-cols-2 gap-2.5">
+            <!-- Card 1: Mapa -->
+            <button onclick="switchTab('map')" class="text-left p-3 rounded-xl bg-white border border-slate-200 hover:border-blue-500 transition shadow-xs flex flex-col justify-between h-28 group">
+              <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-900 flex items-center justify-center text-sm group-hover:scale-110 transition">
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+              <div>
+                <span class="font-bold text-xs text-[#0C2440] block">Mapa Turístico</span>
+                <span class="text-[9.5px] text-slate-500">Pines de talleres, neverías e historia</span>
+              </div>
+            </button>
+            <!-- Card 2: Reporte -->
+            <button onclick="switchTab('report')" class="text-left p-3 rounded-xl bg-white border border-slate-200 hover:border-rose-500 transition shadow-xs flex flex-col justify-between h-28 group">
+              <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center text-sm group-hover:scale-110 transition">
+                <i class="fa-solid fa-camera-retro"></i>
+              </div>
+              <div>
+                <span class="font-bold text-xs text-[#0C2440] block">Reporte Urbano</span>
+                <span class="text-[9.5px] text-slate-500">Baches, luminarias y servicios</span>
+              </div>
+            </button>
+            <!-- Card 3: Directorio -->
+            <button onclick="switchTab('artisans')" class="text-left p-3 rounded-xl bg-white border border-slate-200 hover:border-amber-500 transition shadow-xs flex flex-col justify-between h-28 group">
+              <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center text-sm group-hover:scale-110 transition">
+                <i class="fa-solid fa-store"></i>
+              </div>
+              <div>
+                <span class="font-bold text-xs text-[#0C2440] block">Directorio Artesanos</span>
+                <span class="text-[9.5px] text-slate-500">Talleres certificados por municipio</span>
+              </div>
+            </button>
+            <!-- Card 4: Validación -->
+            <button onclick="switchTab('admin')" class="text-left p-3 rounded-xl bg-white border border-slate-200 hover:border-purple-500 transition shadow-xs flex flex-col justify-between h-28 group">
+              <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-800 flex items-center justify-center text-sm group-hover:scale-110 transition">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div>
+                <span class="font-bold text-xs text-[#0C2440] block">Panel Municipal</span>
+                <span class="text-[9.5px] text-slate-500">Validación de folios y certificados</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Métrica Cívica Municipal -->
+        <div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200 flex items-center justify-between text-xs">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#0C2440] text-amber-300 flex items-center justify-center text-base">
+              <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+            <div>
+              <div class="font-bold text-[#0C2440]">Participación Activa</div>
+              <div class="text-[10px] text-slate-600">48 talleres certificados • 14 neverías</div>
+            </div>
+          </div>
+          <span class="px-2 py-1 rounded-md bg-emerald-100 text-emerald-800 font-bold text-[10px]">99.2% Activo</span>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PESTAÑA 2: MAPA TURÍSTICO (HU02 / HU04)     -->
+      <!-- ========================================== -->
+      <section id="tab-map" class="hidden p-3 space-y-3">
+        <!-- Buscador -->
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-xs"></i>
+          <input type="text" id="map-search" oninput="filterMapItems()" placeholder="Buscar taller, nevería, museo..." class="w-full pl-8 pr-3 py-2 bg-white rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-blue-500">
+        </div>
+
+        <!-- Filtros temáticos oficiales -->
+        <div class="flex gap-1.5 overflow-x-auto pb-1 text-[10.5px]">
+          <button onclick="setMapCategory('all')" id="filter-all" class="px-2.5 py-1 rounded-full bg-[#0C2440] text-white font-semibold whitespace-nowrap shadow-xs">
+            🗺️ Todos
+          </button>
+          <button onclick="setMapCategory('talavera')" id="filter-talavera" class="px-2.5 py-1 rounded-full bg-white text-slate-700 border border-slate-200 font-semibold whitespace-nowrap hover:bg-blue-50">
+            🏺 Talavera (Azul)
+          </button>
+          <button onclick="setMapCategory('nieves')" id="filter-nieves" class="px-2.5 py-1 rounded-full bg-white text-slate-700 border border-slate-200 font-semibold whitespace-nowrap hover:bg-amber-50">
+            🍨 Nieves (Amarillo)
+          </button>
+          <button onclick="setMapCategory('historico')" id="filter-historico" class="px-2.5 py-1 rounded-full bg-white text-slate-700 border border-slate-200 font-semibold whitespace-nowrap hover:bg-rose-50">
+            🔔 1810 (Rojo)
+          </button>
+        </div>
+
+        <!-- Simulación visual del Mapa Colonial -->
+        <div class="relative w-full h-44 rounded-2xl bg-[#e8ecef] border border-slate-300 overflow-hidden shadow-inner flex flex-col justify-between p-2">
+          <!-- Textura de cuadrícula de mapa -->
+          <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#0C2440 1px, transparent 1px); background-size: 16px 16px;"></div>
+          
+          <!-- Calles simuladas -->
+          <div class="absolute left-1/2 top-0 bottom-0 w-3 bg-amber-100/80 -translate-x-1/2 border-x border-amber-300/40"></div>
+          <div class="absolute top-1/2 left-0 right-0 h-3 bg-amber-100/80 -translate-y-1/2 border-y border-amber-300/40"></div>
+
+          <!-- Centro de Dolores -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-emerald-600/20 border border-emerald-500 rounded-lg p-1 text-[8px] font-bold text-emerald-900 pointer-events-none">
+            Jardín Hidalgo
+          </div>
+
+          <!-- Pines Interactivos en el mapa -->
+          <button onclick="openWorkshopModal(1)" class="absolute top-6 left-12 w-6 h-6 rounded-full bg-[#0C3875] text-white text-[10px] flex items-center justify-center shadow-lg border-2 border-white hover:scale-125 transition" title="Taller San Gabriel">
+            🏺
+          </button>
+          <button onclick="openWorkshopModal(2)" class="absolute top-10 right-14 w-6 h-6 rounded-full bg-[#0C3875] text-white text-[10px] flex items-center justify-center shadow-lg border-2 border-white hover:scale-125 transition" title="Cerámica El Relicario">
+            🏺
+          </button>
+          <button onclick="openWorkshopModal(3)" class="absolute bottom-10 left-20 w-6 h-6 rounded-full bg-[#E5A93C] text-white text-[10px] flex items-center justify-center shadow-lg border-2 border-white hover:scale-125 transition" title="Nieves La Flor de Dolores">
+            🍨
+          </button>
+          <button onclick="openWorkshopModal(4)" class="absolute bottom-6 right-16 w-6 h-6 rounded-full bg-[#A81C1C] text-white text-[10px] flex items-center justify-center shadow-lg border-2 border-white hover:scale-125 transition" title="Parroquia de Ntra. Señora de Dolores">
+            🔔
+          </button>
+
+          <!-- Controles de mapa flotantes -->
+          <div class="z-10 flex justify-between items-end w-full">
+            <span class="px-2 py-0.5 rounded bg-white/90 text-[#0C2440] text-[9px] font-bold shadow-xs">
+              📍 21.15605° N, -100.93245° W
+            </span>
+            <div class="flex flex-col gap-1">
+              <span class="w-5 h-5 rounded bg-white text-slate-700 text-[10px] font-bold flex items-center justify-center shadow-xs cursor-pointer">+</span>
+              <span class="w-5 h-5 rounded bg-white text-slate-700 text-[10px] font-bold flex items-center justify-center shadow-xs cursor-pointer">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lista de Lugares -->
+        <div class="space-y-2" id="places-container">
+          <!-- Item 1: Talavera San Gabriel -->
+          <div class="place-card p-3 rounded-xl bg-white border border-slate-200 shadow-xs flex items-center justify-between hover:border-blue-400 transition cursor-pointer" onclick="openWorkshopModal(1)" data-cat="talavera" data-title="Taller Talavera San Gabriel">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-blue-900 text-amber-300 flex items-center justify-center text-sm shadow-xs font-bold">
+                🏺
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-[#0C2440]">Taller Talavera San Gabriel</h4>
+                <p class="text-[10px] text-slate-500">Mtro. Javier Cortés • Barrio San Juan</p>
+                <span class="inline-block px-1.5 py-0.2 rounded bg-blue-50 text-blue-700 text-[9px] font-semibold">Talavera Mayólica</span>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+          </div>
+
+          <!-- Item 2: Mayólica El Relicario -->
+          <div class="place-card p-3 rounded-xl bg-white border border-slate-200 shadow-xs flex items-center justify-between hover:border-blue-400 transition cursor-pointer" onclick="openWorkshopModal(2)" data-cat="talavera" data-title="Cerámica El Relicario">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-blue-800 text-amber-300 flex items-center justify-center text-sm shadow-xs font-bold">
+                🏺
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-[#0C2440]">Cerámica y Mayólica El Relicario</h4>
+                <p class="text-[10px] text-slate-500">Mtra. Rosa María Prado • Calle Puebla #42</p>
+                <span class="inline-block px-1.5 py-0.2 rounded bg-blue-50 text-blue-700 text-[9px] font-semibold">Murales & Vajillas</span>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+          </div>
+
+          <!-- Item 3: Nieves La Flor -->
+          <div class="place-card p-3 rounded-xl bg-white border border-slate-200 shadow-xs flex items-center justify-between hover:border-amber-400 transition cursor-pointer" onclick="openWorkshopModal(3)" data-cat="nieves" data-title="Nieves La Flor de Dolores">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center text-sm shadow-xs font-bold">
+                🍨
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-[#0C2440]">Nieves La Flor de Dolores</h4>
+                <p class="text-[10px] text-slate-500">Doña Esperanza • Portal Morelos #8</p>
+                <span class="inline-block px-1.5 py-0.2 rounded bg-amber-50 text-amber-800 text-[9px] font-semibold">Garambullo & Borrachita</span>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+          </div>
+
+          <!-- Item 4: Parroquia Histórica -->
+          <div class="place-card p-3 rounded-xl bg-white border border-slate-200 shadow-xs flex items-center justify-between hover:border-rose-400 transition cursor-pointer" onclick="openWorkshopModal(4)" data-cat="historico" data-title="Parroquia de Dolores 1810">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-rose-700 text-white flex items-center justify-center text-sm shadow-xs font-bold">
+                🔔
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-[#0C2440]">Parroquia Ntra. Señora de Dolores</h4>
+                <p class="text-[10px] text-slate-500">Cuna del Grito de Independencia de 1810</p>
+                <span class="inline-block px-1.5 py-0.2 rounded bg-rose-50 text-rose-800 text-[9px] font-semibold">Patrimonio Histórico</span>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PESTAÑA 3: REPORTE CIUDADANO (HU03)        -->
+      <!-- ========================================== -->
+      <section id="tab-report" class="hidden p-4 space-y-3.5">
+        <div class="border-b pb-2">
+          <h3 class="text-sm font-bold text-[#0C2440] font-serif-colonial">Levantar Incidencia Urbana</h3>
+          <p class="text-[10.5px] text-slate-500">Participación ciudadana con folio oficial para mantenimiento del Centro Histórico.</p>
+        </div>
+
+        <form id="report-form" onsubmit="submitCitizenReport(event)" class="space-y-3">
+          <!-- Categoría -->
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">Tipo de Incidencia</label>
+            <select id="rep-cat" class="w-full p-2 bg-white rounded-xl border border-slate-200 text-xs focus:ring-1 focus:ring-blue-600 focus:outline-none">
+              <option value="alumbrado">💡 Alumbrado Público Colonial (Farol apagado)</option>
+              <option value="vialidad">🧱 Baches / Empedrado Tradicional dañado</option>
+              <option value="basura">🗑️ Contenedores de Basura saturados</option>
+            </select>
+          </div>
+
+          <!-- Dirección -->
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">Ubicación / Calle de Referencia</label>
+            <div class="relative">
+              <input type="text" id="rep-address" required value="Calle Puebla esq. Michoacán, Centro Histórico" class="w-full p-2 pr-8 bg-white rounded-xl border border-slate-200 text-xs">
+              <button type="button" onclick="refreshGPS()" class="absolute right-2 top-2 text-blue-900 hover:text-blue-600 text-xs" title="Actualizar Coordenadas GPS">
+                <i class="fa-solid fa-location-crosshairs"></i>
+              </button>
+            </div>
+            <span class="text-[9px] text-emerald-700 font-semibold block mt-1">
+              📍 GPS verificado: 21.15670 N, -100.93330 W (Dolores Hidalgo)
+            </span>
+          </div>
+
+          <!-- Descripción -->
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">Descripción Detallada</label>
+            <textarea id="rep-desc" rows="2" required placeholder="Describe la falla observada para que la cuadrilla municipal atienda..." class="w-full p-2 bg-white rounded-xl border border-slate-200 text-xs">Luminaria colonial estilo farol apagada frente a talleres artesanales.</textarea>
+          </div>
+
+          <!-- Evidencia Fotográfica Simulada -->
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">Fotografía de Evidencia</label>
+            <div class="border-2 border-dashed border-slate-300 rounded-xl p-3 text-center bg-white hover:bg-slate-50 transition cursor-pointer" onclick="simulateCameraSnap()">
+              <i class="fa-solid fa-camera text-slate-400 text-lg mb-1 block"></i>
+              <span id="photo-status" class="text-[10px] text-slate-500 font-medium">Toca para capturar fotografía con la cámara</span>
+            </div>
+          </div>
+
+          <!-- Botón de Envío -->
+          <button type="submit" class="w-full py-2.5 rounded-xl bg-[#0C2440] hover:bg-blue-900 text-white font-bold text-xs tracking-wide shadow-md transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-paper-plane text-amber-300"></i>
+            <span>Registrar Reporte Ciudadano</span>
+          </button>
+        </form>
+
+        <!-- Historial de Folios Generados -->
+        <div class="pt-2">
+          <h4 class="text-xs font-bold text-[#0C2440] uppercase tracking-wider mb-2">Mis Folios Registrados</h4>
+          <div id="reports-list" class="space-y-2 text-xs">
+            <!-- Folio 1 -->
+            <div class="p-2.5 rounded-xl bg-white border border-slate-200 shadow-xs">
+              <div class="flex justify-between items-center">
+                <span class="font-mono font-bold text-blue-900 text-[10.5px]">FOL-2026-DH-1042</span>
+                <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[9px] font-bold">En Atención</span>
+              </div>
+              <p class="text-[10.5px] text-slate-600 mt-1">Farol colonial apagado en Calle Puebla.</p>
+              <span class="text-[9px] text-slate-400">Oct 2026 • Cuadrilla Zona Centro</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PESTAÑA 4: DIRECTORIO / REGISTRO ARTESANOS -->
+      <!-- ========================================== -->
+      <section id="tab-artisans" class="hidden p-4 space-y-3.5">
+        <div class="border-b pb-2">
+          <h3 class="text-sm font-bold text-[#0C2440] font-serif-colonial">Directorio de Maestros Artesanos</h3>
+          <p class="text-[10.5px] text-slate-500">Alfarería virreinal de mayólica y talleres con denominación de origen.</p>
+        </div>
+
+        <!-- Formulario para darse de alta (HU01) -->
+        <div class="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <h4 class="text-xs font-bold text-[#0C2440] mb-1.5 flex items-center gap-1.5">
+            <i class="fa-solid fa-user-plus text-amber-500"></i>
+            Registro de Nuevo Taller Artesanal
+          </h4>
+          <p class="text-[9.5px] text-slate-500 mb-2.5">
+            ¿Eres alfarero o nevero de Dolores Hidalgo? Inscribe tu taller para validación municipal.
+          </p>
+          <form id="artisan-form" onsubmit="submitNewArtisan(event)" class="space-y-2 text-xs">
+            <input type="text" id="art-name" required placeholder="Nombre del Taller (Ej: Cerámica Los Dolores)" class="w-full p-2 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+            <input type="text" id="art-master" required placeholder="Maestro Artesano Responsable" class="w-full p-2 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+            <input type="text" id="art-wa" required placeholder="WhatsApp de Contacto (10 dígitos)" class="w-full p-2 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+            <button type="submit" class="w-full py-2 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-bold text-[11px] shadow-xs transition">
+              Solicitar Registro y Verificación
+            </button>
+          </form>
+        </div>
+
+        <div class="space-y-2 pt-1">
+          <h4 class="text-xs font-bold text-[#0C2440] uppercase tracking-wider">Talleres Destacados</h4>
+          
+          <div class="p-3 rounded-xl bg-white border border-slate-200 flex justify-between items-center shadow-xs">
+            <div>
+              <div class="font-bold text-xs text-[#0C2440]">Taller Talavera San Gabriel</div>
+              <div class="text-[10px] text-slate-500">Mtro. Javier Cortés • 38 años de tradición</div>
+              <div class="text-[9px] text-emerald-700 font-semibold mt-0.5">✓ Certificado por Municipio</div>
+            </div>
+            <button onclick="openWorkshopModal(1)" class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-900 font-bold text-[10px] border border-blue-200">
+              Ver Ficha
+            </button>
+          </div>
+
+          <div class="p-3 rounded-xl bg-white border border-slate-200 flex justify-between items-center shadow-xs">
+            <div>
+              <div class="font-bold text-xs text-[#0C2440]">Cerámica El Relicario</div>
+              <div class="text-[10px] text-slate-500">Mtra. Rosa María Prado • Azulejos</div>
+              <div class="text-[9px] text-emerald-700 font-semibold mt-0.5">✓ Certificado por Municipio</div>
+            </div>
+            <button onclick="openWorkshopModal(2)" class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-900 font-bold text-[10px] border border-blue-200">
+              Ver Ficha
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PESTAÑA 5: PANEL ADMIN / VALIDACIÓN (HU05) -->
+      <!-- ========================================== -->
+      <section id="tab-admin" class="hidden p-4 space-y-3.5">
+        <div class="border-b pb-2 flex justify-between items-center">
+          <div>
+            <h3 class="text-sm font-bold text-[#0C2440] font-serif-colonial">Panel de Gestión Municipal</h3>
+            <p class="text-[10.5px] text-slate-500">Dirección de Turismo y Servicios Urbanos UTNG.</p>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-purple-100 text-purple-900 text-[10px] font-bold">Admin Activo</span>
+        </div>
+
+        <!-- Métricas Rápidas -->
+        <div class="grid grid-cols-2 gap-2">
+          <div class="p-2.5 rounded-xl bg-white border border-slate-200 text-center">
+            <span class="block text-lg font-bold text-blue-900">12</span>
+            <span class="text-[9px] text-slate-500 uppercase font-semibold">Reportes Atendidos</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-white border border-slate-200 text-center">
+            <span class="block text-lg font-bold text-amber-600">48</span>
+            <span class="text-[9px] text-slate-500 uppercase font-semibold">Talleres Certificados</span>
+          </div>
+        </div>
+
+        <!-- Lista de Reportes en Bandeja -->
+        <div class="space-y-2">
+          <h4 class="text-xs font-bold text-[#0C2440] uppercase tracking-wider">Gestión de Estatus de Reportes</h4>
+
+          <!-- Reporte 1 -->
+          <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-xs space-y-2">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="font-mono font-bold text-blue-900 text-xs">FOL-2026-DH-1042</span>
+                <h5 class="text-xs font-bold text-slate-800 mt-0.5">Luminaria Colonial Apagada</h5>
+                <span class="text-[9.5px] text-slate-500">Calle Puebla esq. Hidalgo</span>
+              </div>
+              <span id="badge-rep-1042" class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[9px] font-bold">En Atención</span>
+            </div>
+            <!-- Acciones de cambio de estatus -->
+            <div class="flex gap-1.5 pt-1 text-[10px]">
+              <button onclick="updateReportStatus('1042', 'en_atencion')" class="px-2 py-1 rounded bg-amber-500 text-white font-bold hover:bg-amber-600">
+                En Atención
+              </button>
+              <button onclick="updateReportStatus('1042', 'resuelto')" class="px-2 py-1 rounded bg-emerald-600 text-white font-bold hover:bg-emerald-700">
+                Marcar Resuelto
+              </button>
+            </div>
+          </div>
+
+          <!-- Reporte 2 -->
+          <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-xs space-y-2">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="font-mono font-bold text-blue-900 text-xs">FOL-2026-DH-1043</span>
+                <h5 class="text-xs font-bold text-slate-800 mt-0.5">Empedrado Tradicional Dañado</h5>
+                <span class="text-[9.5px] text-slate-500">Calle Michoacán #30</span>
+              </div>
+              <span id="badge-rep-1043" class="px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 text-[9px] font-bold">Reportado</span>
+            </div>
+            <!-- Acciones de cambio de estatus -->
+            <div class="flex gap-1.5 pt-1 text-[10px]">
+              <button onclick="updateReportStatus('1043', 'en_atencion')" class="px-2 py-1 rounded bg-amber-500 text-white font-bold hover:bg-amber-600">
+                Asignar Cuadrilla
+              </button>
+              <button onclick="updateReportStatus('1043', 'resuelto')" class="px-2 py-1 rounded bg-emerald-600 text-white font-bold hover:bg-emerald-700">
+                Marcar Resuelto
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- MODAL / FICHA DETALLADA DE TALLER          -->
+      <!-- ========================================== -->
+      <div id="workshop-modal" class="hidden absolute inset-0 bg-slate-900/60 backdrop-blur-xs z-50 p-4 flex items-center justify-center">
+        <div class="bg-white w-full max-h-[90%] rounded-2xl p-4 overflow-y-auto shadow-2xl border border-amber-300 relative text-xs">
+          <button onclick="closeWorkshopModal()" class="absolute right-3 top-3 w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold">✕</button>
+          
+          <div id="modal-content" class="space-y-3">
+            <!-- Contenido dinámico inyectado por JS -->
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Bottom Navigation Bar de Flutter -->
+    <nav class="bg-white border-t border-slate-200 py-1.5 px-2 flex justify-around items-center text-[10px] text-slate-500 z-40 select-none shadow-md">
+      <button onclick="switchTab('home')" id="nav-home" class="flex flex-col items-center gap-0.5 text-blue-900 font-bold transition">
+        <i class="fa-solid fa-landmark text-sm"></i>
+        <span>Patrimonio</span>
+      </button>
+      <button onclick="switchTab('map')" id="nav-map" class="flex flex-col items-center gap-0.5 hover:text-blue-900 transition">
+        <i class="fa-solid fa-map-location text-sm"></i>
+        <span>Mapa</span>
+      </button>
+      <button onclick="switchTab('report')" id="nav-report" class="flex flex-col items-center gap-0.5 hover:text-rose-700 transition">
+        <i class="fa-solid fa-camera text-sm"></i>
+        <span>Reportes</span>
+      </button>
+      <button onclick="switchTab('artisans')" id="nav-artisans" class="flex flex-col items-center gap-0.5 hover:text-amber-600 transition">
+        <i class="fa-solid fa-store text-sm"></i>
+        <span>Artesanos</span>
+      </button>
+      <button onclick="switchTab('admin')" id="nav-admin" class="flex flex-col items-center gap-0.5 hover:text-purple-700 transition">
+        <i class="fa-solid fa-user-shield text-sm"></i>
+        <span>Admin</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Panel de control interactivo inferior -->
+  <footer class="mt-6 text-center max-w-xl text-xs text-slate-300 space-y-2">
+    <div class="flex flex-wrap justify-center gap-2">
+      <span class="px-2.5 py-1 rounded bg-slate-800 text-amber-300 border border-slate-700">✓ 5 Módulos Interactivos</span>
+      <span class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 border border-slate-700">✓ Pines Temáticos HU02</span>
+      <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">✓ WhatsApp API HU04</span>
+      <span class="px-2.5 py-1 rounded bg-slate-800 text-rose-300 border border-slate-700">✓ Folios Cívicos HU03</span>
+    </div>
+    <p class="text-[11px] text-slate-400">
+      Desarrollado para la materia <i>Desarrollo Móvil Integral</i> • Docente: Lic. José de Jesús Eduardo Barrientos Avalos
+    </p>
+  </footer>
+
+  <script>
+    // Reloj dinámico
+    function updateClock() {
+      const now = new Date();
+      const hrs = String(now.getHours()).padStart(2, '0');
+      const mins = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('live-clock').innerText = `${hrs}:${mins}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Navegación entre Pestañas
+    const tabs = ['home', 'map', 'report', 'artisans', 'admin'];
+    function switchTab(targetTab) {
+      tabs.forEach(t => {
+        const section = document.getElementById(`tab-${t}`);
+        const navBtn = document.getElementById(`nav-${t}`);
+        if (t === targetTab) {
+          section.classList.remove('hidden');
+          navBtn.className = "flex flex-col items-center gap-0.5 text-blue-900 font-bold transition";
+        } else {
+          section.classList.add('hidden');
+          navBtn.className = "flex flex-col items-center gap-0.5 text-slate-500 hover:text-blue-900 transition";
+        }
+      });
+      // Scroll to top
+      document.querySelector('.mobile-screen').scrollTop = 0;
+    }
+
+    // Toggle Role Dropdown
+    function toggleRoleMenu() {
+      const menu = document.getElementById('role-dropdown');
+      menu.classList.toggle('hidden');
+    }
+
+    function setRole(roleName) {
+      document.getElementById('current-role-badge').innerText = roleName.toUpperCase();
+      document.getElementById('role-dropdown').classList.add('hidden');
+      if (roleName === 'admin') {
+        switchTab('admin');
+      } else if (roleName === 'artesano') {
+        switchTab('artisans');
+      } else {
+        switchTab('home');
+      }
+    }
+
+    // Filtros del Mapa
+    function setMapCategory(cat) {
+      const buttons = ['all', 'talavera', 'nieves', 'historico'];
+      buttons.forEach(b => {
+        const btn = document.getElementById(`filter-${b}`);
+        if (b === cat) {
+          btn.className = "px-2.5 py-1 rounded-full bg-[#0C2440] text-white font-semibold whitespace-nowrap shadow-xs";
+        } else {
+          btn.className = "px-2.5 py-1 rounded-full bg-white text-slate-700 border border-slate-200 font-semibold whitespace-nowrap hover:bg-slate-50";
+        }
+      });
+
+      const cards = document.querySelectorAll('.place-card');
+      cards.forEach(c => {
+        if (cat === 'all' || c.getAttribute('data-cat') === cat) {
+          c.style.display = 'flex';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    }
+
+    function filterMapItems() {
+      const query = document.getElementById('map-search').value.toLowerCase();
+      const cards = document.querySelectorAll('.place-card');
+      cards.forEach(c => {
+        const title = c.getAttribute('data-title').toLowerCase();
+        if (title.includes(query)) {
+          c.style.display = 'flex';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    }
+
+    // Datos para Modal de Talleres
+    const workshopsData = {
+      1: {
+        nombre: "Taller Talavera San Gabriel",
+        maestro: "Mtro. Javier Cortés y Familia",
+        categoria: "Cerámica Mayólica & Talavera Novohispana",
+        direccion: "Calle Michoacán #28, Barrio San Juan, Dolores Hidalgo",
+        horario: "Lunes a Sábado 09:00 - 18:30 hrs",
+        historia: "Fundado hace 38 años. Mayólica virreinal con esmalte de estaño y óxidos minerales cocidos a 1,050 °C.",
+        whatsapp: "524181820491",
+        productos: [
+          { nombre: "Tibor Colonial Policromado (45 cm)", precio: "$1,850 MXN", tecnica: "Pintado a mano alzada con pluma natural" },
+          { nombre: "Vajilla 6 Platos Talavera Cobalto", precio: "$980 MXN", tecnica: "Vidriado libre de plomo" }
+        ]
+      },
+      2: {
+        nombre: "Cerámica y Mayólica El Relicario",
+        maestro: "Mtra. Rosa María Prado",
+        categoria: "Azulejería Historiada y Macetas",
+        direccion: "Calle Puebla #42, Centro Histórico, Dolores Hidalgo",
+        horario: "Lunes a Domingo 09:30 - 19:30 hrs",
+        historia: "Maestras alfareras con más de 25 años decorando murales coloniales y lavamanos barrocos.",
+        whatsapp: "524181821105",
+        productos: [
+          { nombre: "Mural 12 Azulejos 'Cuna de la Independencia'", precio: "$1,600 MXN", tecnica: "Policromía al horno" }
+        ]
+      },
+      3: {
+        nombre: "Nieves Tradicionales La Flor de Dolores",
+        maestro: "Doña Esperanza Barajas",
+        categoria: "Nevería Artesanal de Garrafa",
+        direccion: "Portal Morelos #8, Jardín del Grande Hidalgo",
+        horario: "Lunes a Domingo 10:00 - 21:30 hrs",
+        historia: "Elaboración en barricas de madera de encino desde 1948 con frutas de la región de Guanajuato.",
+        whatsapp: "524181820123",
+        productos: [
+          { nombre: "Nieve Tradicional de Garambullo", precio: "$45 MXN", tecnica: "Garrafa de encino con sal de grano" },
+          { nombre: "Nieve Sabor Mantecado Colonial", precio: "$45 MXN", tecnica: "Receta secreta virreinal" }
+        ]
+      },
+      4: {
+        nombre: "Parroquia de Nuestra Señora de Dolores",
+        maestro: "Sitio Histórico Insurgente 1810",
+        categoria: "Monumento Nacional",
+        direccion: "Plaza Principal, Centro Histórico",
+        horario: "Lunes a Domingo 07:00 - 20:00 hrs",
+        historia: "Fachada churrigueresca de cantera rosa donde el cura Don Miguel Hidalgo dio el Grito de Independencia la madrugada del 16 de septiembre de 1810.",
+        whatsapp: "524181820000",
+        productos: [
+          { nombre: "Recorrido Histórico Insurgente", precio: "Entrada Libre", tecnica: "Guía cultural municipal" }
+        ]
+      }
+    };
+
+    function openWorkshopModal(id) {
+      const data = workshopsData[id];
+      if (!data) return;
+      const content = document.getElementById('modal-content');
+      content.innerHTML = `
+        <div class="border-b pb-2">
+          <span class="px-2 py-0.5 rounded badge-gold text-[9px] font-bold uppercase">Verificado UTNG / Municipio</span>
+          <h3 class="text-base font-bold text-[#0C2440] font-serif-colonial mt-1">${data.nombre}</h3>
+          <p class="text-xs text-blue-900 font-semibold">${data.maestro}</p>
+          <p class="text-[10px] text-slate-500">${data.categoria}</p>
+        </div>
+        <div>
+          <p class="text-[10.5px] text-slate-700 leading-relaxed italic">"${data.historia}"</p>
+        </div>
+        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 space-y-1 text-[10px]">
+          <div>📍 <b>Ubicación:</b> ${data.direccion}</div>
+          <div>🕒 <b>Horario:</b> ${data.horario}</div>
+        </div>
+        <div>
+          <h4 class="font-bold text-[#0C2440] text-xs mb-1.5 uppercase tracking-wider">Catálogo de Piezas</h4>
+          <div class="space-y-1.5">
+            ${data.productos.map(p => `
+              <div class="p-2 rounded-lg bg-amber-50/50 border border-amber-200/60 flex justify-between items-center">
+                <div>
+                  <div class="font-bold text-slate-800 text-[10.5px]">${p.nombre}</div>
+                  <div class="text-[9px] text-slate-500">${p.tecnica}</div>
+                </div>
+                <span class="font-bold text-blue-900 text-xs">${p.precio}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        <!-- Botón de WhatsApp HU04 -->
+        <a href="https://wa.me/${data.whatsapp}?text=Hola,%20vi%20su%20taller%20en%20DoloresMagico%20App" target="_blank" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition no-underline">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>Contactar al Artesano por WhatsApp</span>
+        </a>
+      `;
+      document.getElementById('workshop-modal').classList.remove('hidden');
+    }
+
+    function closeWorkshopModal() {
+      document.getElementById('workshop-modal').classList.add('hidden');
+    }
+
+    // Simulación de Cámara y GPS
+    function refreshGPS() {
+      alert("📍 GPS recalibrado: Coordenadas fijadas en Dolores Hidalgo C.I.N. (21.15605, -100.93245)");
+    }
+
+    function simulateCameraSnap() {
+      const st = document.getElementById('photo-status');
+      st.innerHTML = '<span class="text-emerald-700 font-bold">✓ Foto adjunta: evidencia_farol_dolores.jpg (1.8 MB)</span>';
+    }
+
+    // Envío de Reporte Ciudadano
+    let folioCount = 1044;
+    function submitCitizenReport(e) {
+      e.preventDefault();
+      const cat = document.getElementById('rep-cat').value;
+      const addr = document.getElementById('rep-address').value;
+      const desc = document.getElementById('rep-desc').value;
+      const folio = `FOL-2026-DH-${folioCount++}`;
+
+      const list = document.getElementById('reports-list');
+      const newCard = document.createElement('div');
+      newCard.className = "p-2.5 rounded-xl bg-emerald-50/60 border border-emerald-300 shadow-xs";
+      newCard.innerHTML = `
+        <div class="flex justify-between items-center">
+          <span class="font-mono font-bold text-blue-900 text-[10.5px]">${folio}</span>
+          <span class="px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 text-[9px] font-bold">Reportado</span>
+        </div>
+        <p class="text-[10.5px] text-slate-700 mt-1">${desc}</p>
+        <span class="text-[9px] text-slate-500">📍 ${addr} • Recién registrado</span>
+      `;
+      list.prepend(newCard);
+
+      alert(`✅ ¡Reporte Registrado con Éxito!\n\nFolio oficial: ${folio}\nTu incidencia ha sido turnada a Servicios Municipales de Dolores Hidalgo.`);
+      document.getElementById('rep-desc').value = '';
+    }
+
+    // Registro de Artesano
+    function submitNewArtisan(e) {
+      e.preventDefault();
+      const name = document.getElementById('art-name').value;
+      const master = document.getElementById('art-master').value;
+      alert(`🎉 Solicitud enviada para: "${name}" (${master}).\n\nEl equipo municipal revisará los datos para certificar la autenticidad de la técnica alfarera.`);
+      document.getElementById('art-name').value = '';
+      document.getElementById('art-master').value = '';
+      document.getElementById('art-wa').value = '';
+    }
+
+    // Actualización de Estatus en Admin
+    function updateReportStatus(folioId, status) {
+      const badge = document.getElementById(`badge-rep-${folioId}`);
+      if (status === 'resuelto') {
+        badge.className = "px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-bold";
+        badge.innerText = "Resuelto";
+        alert(`Folio FOL-2026-DH-${folioId} marcado como RESUELTO por Cuadrilla.`);
+      } else {
+        badge.className = "px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[9px] font-bold";
+        badge.innerText = "En Atención";
+        alert(`Folio FOL-2026-DH-${folioId} asignado a Cuadrilla Municipal.`);
+      }
+    }
+  </script>
+</body>
+</html>
