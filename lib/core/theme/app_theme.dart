@@ -37,14 +37,14 @@ class AppTheme {
       ),
 
       // Tarjetas con estilo colonial y filete suave
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: Colors.white,
         elevation: 2.5,
         shadowColor: AppColors.talaveraCobalto.withOpacity(0.12),
         margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
-          side: BorderSide(
+          side: const BorderSide(
             color: AppColors.talaveraGrisPerla,
             width: 1.2,
           ),
